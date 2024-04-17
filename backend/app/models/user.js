@@ -19,15 +19,19 @@ module.exports = (sequelize, Sequelize) => {
     },
     group: {
       type: Sequelize.STRING,
-      allowNull: true // 允许为空
+      allowNull: true 
     },
     usertype: {
       type: Sequelize.STRING
+    },
+    avatar: {
+      type: Sequelize.BLOB, // 存储头像的二进制数据
+      allowNull: true
     }
   }, {
-    timestamps: true // 启用自动生成的时间戳列
+    timestamps: true, // 启用自动生成的时间戳列
+    timezone: '+08:00' // 设置时区为东八区
   });
 
   return User;
 };
-
