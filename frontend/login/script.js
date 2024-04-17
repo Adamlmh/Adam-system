@@ -20,10 +20,10 @@ status='用户'
   //调用接口
   let fetchUrl;
   if(sign){
-    fetchUrl = "http://localhost:8080/api/user/login";
+    fetchUrl = "http://localhost:8080/api/login";
   }
   else{
-    fetchUrl = "http://localhost:8080/api/user/register";
+    fetchUrl = "http://localhost:8080/api/register";
   }
   fetch(fetchUrl,{
     method:"post",
@@ -45,12 +45,15 @@ root.style.setProperty('--alert-color', '#FADAD8'); // 修改为红色
       return response.json();
   })
   .then(data =>{
-      //登录成功
+      
       alert(`${data.message}`)
+      if(data.status){
           localStorage.setItem('token',data.token);
   setTimeout(() => {
         location.href = '../home/index.html'
-  }, 2000);         
+  }, 2000);    
+      }
+     
   })
   .catch((error)=>{
       //网络故障

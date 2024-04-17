@@ -36,7 +36,7 @@ exports.create = (req, res) => {
         const token = generateToken({ username, password,usertype },secretKey);
         console.log(token);      
 //send里面要传入一个对象 否则无法被解析
-      res.status(200).send({token:token,message:`注册成功，欢迎您${status}：${username}`});
+      res.status(200).send({token:token,message:`注册成功，欢迎您${status}：${username}`,status:1});
     })
     .catch(err => {
       res.status(500).send({message:`${err}`});
@@ -47,6 +47,7 @@ exports.create = (req, res) => {
 
 // 登录查询
 exports.findOne = (req, res) => {
+  
 let status;
 if(req.body.usertype==='1'){
 status='用户'
@@ -62,7 +63,7 @@ status='用户'
       const usertype =req.body.usertype;
         //生成token
         const token = generateToken({ username, password,usertype },secretKey);       
-        res.send({token:token,message:`登录成功，欢迎您${status}：${username}`});
+        res.send({token:token,message:`登录成功，欢迎您${status}：${username}`,status:1});
         }
 else{
          res.status(403).send({

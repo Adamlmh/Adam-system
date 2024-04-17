@@ -1,11 +1,25 @@
 // models/User.js
 module.exports = (sequelize, Sequelize) => {
   const User = sequelize.define("User", {
+    userId: {
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     username: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING,
+      unique: true
     },
     password: {
       type: Sequelize.STRING
+    },
+    name: {
+      type: Sequelize.STRING,
+      allowNull: true // 允许为空
+    },
+    group: {
+      type: Sequelize.STRING,
+      allowNull: true // 允许为空
     },
     usertype: {
       type: Sequelize.STRING
@@ -16,3 +30,4 @@ module.exports = (sequelize, Sequelize) => {
 
   return User;
 };
+

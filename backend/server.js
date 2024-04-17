@@ -1,11 +1,17 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const path = require('path');
 
-// var corsOptions = {
-//   origin: "http://localhost:8081"
-// };
+// 将静态文件目录设置为 frontend 文件夹
+app.use(express.static(path.join(__dirname,'..', 'frontend')));
+console.log(path.join(__dirname, 'frontend'));
 
+// 定义一个路由来处理访问根路径的请求
+app.get('/', (req, res) => {
+  // 当用户访问根路径时，发送 index.html 文件
+  res.sendFile(path.join(__dirname, '..','frontend','login', 'index.html'));
+});
 app.use(cors());
 
 // parse requests of content-type - application/json

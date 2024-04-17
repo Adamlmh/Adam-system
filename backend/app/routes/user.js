@@ -9,5 +9,5 @@ module.exports = app => {
     // Retrieve all Tutorials
   router.post("/login", user.findOne);
   
-  app.use('/api/user', router);
+  app.use('/api', router);
 };
