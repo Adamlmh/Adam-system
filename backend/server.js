@@ -2,7 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const path = require('path');
-
+const colors = require('colors');
+const { exec } = require('child_process');
+const { platform } = require('os');
 // 将静态文件目录设置为 frontend 文件夹
 app.use(express.static(path.join(__dirname,'..', 'frontend')));
 console.log(path.join(__dirname, 'frontend'));
@@ -45,5 +47,22 @@ require("./app/routes/user")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
+console.log(colors.green.bold(`项目启动成功: http://localhost:${PORT}/login/index.html`));
+// 自动打开登录页 
+const url = `http://localhost:${PORT}/login/index.html`;
+
+// 避免系统差异化影响
+const os = platform();
+
+// 根据操作系统执行不同的命令
+if (os === 'win32') {
+  // Windows 系统
+  exec(`start ${url}`);
+} else if (os === 'darwin') {
+  // macOS 系统
+  exec(`open ${url}`);
+} else {
+  // Linux 等其他系统
+  exec(`xdg-open ${url}`);
+}
 });

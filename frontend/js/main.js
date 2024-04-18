@@ -1,5 +1,4 @@
 function alert(content){
-  console.log(1);
   const alert = document.createElement('div');
   alert.className='alert';
   alert.textContent=content;
@@ -19,3 +18,12 @@ if(!token){
 console.log(window.location.pathname);
 }
 window.addEventListener("load",verifyToken);
+//修改主题颜色
+function changePrimaryColor(color,backgroundColor){
+const root = document.documentElement;
+root.style.setProperty('--primary-color',color);
+root.style.setProperty('--background-color',backgroundColor)
+}
+
+
+

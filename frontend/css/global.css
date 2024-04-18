@@ -5,6 +5,8 @@
   /* 弹窗颜色 */
   /* 成功绿色 #CFE5DD 失败红色 #FADAD8 */
   --alert-color:#FADAD8;
+  --background-color: #cfe6da;
+    /* 计算背景颜色 */
 }
 /*css 初始化 */
 * {
@@ -127,4 +129,23 @@ transform: translateX(-50%);
   line-height: 100px;
   font-weight: bolder;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3)
+}
+
+/* 浅字体 */
+.typography_secondary{
+  color: rgba(0, 0, 0, 0.45);
+}
+
+/* 自定h5 */
+h5{
+  color: rgba(0, 0, 0, 0.88);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* 竖直分割线 */
+.divider_vertical{
+  height: auto;
+  border-inline-start:1px solid rgba(5, 5, 5, 0.06) ;
 }
