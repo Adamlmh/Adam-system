@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>首页</title>
+    <title>个人中心</title>
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="../css/global.css" />
@@ -89,10 +89,12 @@
                 ></button>
               </div>
               <div class="top_right_item">
-                <button type="button" class="btn iconfont icon-GitHub"></button>
+                <a href="https://github.com/Adamlmh"><button type="button" class="btn iconfont icon-GitHub"></button></a>
               </div>
               <div class="top_right_item">
+                <a href="../login/index.html">
                 <button type="button" class="btn iconfont icon-guanji"></button>
+                </a>
               </div>
             </div>
           </div>
@@ -100,9 +102,9 @@
             <div class="top_route">
               <span class="iconfont icon-zhiyin"></span>
               <a href="../">
-                <span class="top_route_item">
+                <span class="top_route_item top_route_item_active">
                   <span class="top_route_item_dot"> </span>
-                  <span class="top_route_item_name">个人中心</span>
+                  <span class="top_route_item_name ">个人中心</span>
                 </span>
               </span>
               <a href="../">
@@ -326,6 +328,7 @@
         </main>
       </div>
     </div>
+
     <script src="../js/dom.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/http.js"></script>

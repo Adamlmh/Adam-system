@@ -132,12 +132,15 @@
 }
 .top_route_item {
   color: #fff;
-  background-color: var(--primary-color);
+  background-color: var(--background-color);
   margin: 0 4px;
   padding: 0 10px;
   border-radius: 3px;
   line-height: 24px;
   cursor: pointer;
+}
+.top_route_item_active {
+  background-color: var(--primary-color);
 }
 .top_route_item_dot {
   display: inline-block;
@@ -194,6 +197,7 @@
   box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px,
     rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
   border-radius: 10px;
+  border: 1px solid #f0f0f0;
 }
 .card_cover {
   min-height: 200px;

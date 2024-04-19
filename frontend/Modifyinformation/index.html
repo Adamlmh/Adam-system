@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>首页</title>
+    <title>修改信息</title>
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="../css/global.css" />
     <link
       rel="stylesheet"
-      href="https://at.alicdn.com/t/c/font_4512681_e3a91on05b4.css"
+      href="https://at.alicdn.com/t/c/font_4512681_0llxi1yvw8ri.css"
     />
   </head>
   <body>
@@ -91,10 +91,20 @@
                 ></button>
               </div>
               <div class="top_right_item">
-                <button type="button" class="btn iconfont icon-GitHub"></button>
+                <a href="https://github.com/Adamlmh"
+                  ><button
+                    type="button"
+                    class="btn iconfont icon-GitHub"
+                  ></button
+                ></a>
               </div>
               <div class="top_right_item">
-                <button type="button" class="btn iconfont icon-guanji"></button>
+                <a href="../login/index.html">
+                  <button
+                    type="button"
+                    class="btn iconfont icon-guanji"
+                  ></button>
+                </a>
               </div>
             </div>
           </div>
@@ -132,7 +142,7 @@
                 </span>
               </a>
               <a>
-                <span class="top_route_item">
+                <span class="top_route_item top_route_item_active">
                   <span class="top_route_item_dot"> </span>
                   <span class="top_route_item_name">修改信息</span>
                 </span>
@@ -172,7 +182,44 @@
         </header>
         <main class="layout_content" id="mainContent">
           <!-- 个人中心页面 -->
-          <h1>123</h1>
+          <div class="content_detail">
+            <div class="container">
+              <div class="container_left">
+                <div class="container_left_item boxShadow">
+                  <div class="container_left_item_body" style="padding: 20px">
+                    <div class="upload">
+                      <span class="upload_span">
+                        <input
+                          type="file"
+                          accept=".jpg, .jpeg, .gif, .png, .bmp"
+                          style="display: none"
+                        />
+                        <div class="upload_container">
+                          <div class="add_box">
+                            <div class="add">
+                              <span
+                                class="iconfont icon-touxiang"
+                                style="
+                                  width: 30px;
+                                  height: 30px;
+                                  margin-left: 5px;
+                                "
+                              ></span>
+                              <span>上传头像</span>
+                            </div>
+                          </div>
+                          <p class="upload_hint">
+                            只能上传jpg、jpeg、gif、png、bmp文件, 且不超过500kb
+                          </p>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container_right"></div>
+            </div>
+          </div>
         </main>
       </div>
     </div>
