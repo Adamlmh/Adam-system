@@ -1,105 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>登录</title>
-  <!-- 链接图标 -->
-  <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4492533_ed64r1nhps.css">
-</head>
-<body>
-<div class="main">
-  <div class="leftSide">
-    <h3 class="logo">
-        <img src="../images/favicon.ico" alt="" style="width: 33px;height: 33px; ">
-    </h3>
-    <h2>Hi,欢迎回来！</h2>
-    <img src="../images/LoginImage.png" alt="">
-  </div>
-  <div class="rightSide">
-    <div class="login_info">
-    <h3 class="title">
-      登录 Adam System
-    </h3>
-    <span class="typography-secondary">
-      <p id="userState">新用户？</p>
-      <button class="registerbtn">
-        <span id="secondarySpan">立即注册</span>
-      </button>
-    </span>
-    <div class="alert_info">
-      <span class="alert_icon iconfont icon-tishi"></span>
-      <div class="alert_content">登录信息： 用户名：adam 密码：123456</div>
-    </div>
-    </div>
-
-    <form class="loginform" id="loginform">
-      <div class="item">
-        <div class="item_input">
-          <div class="item_input_content">
-            <span class="inputSpan " id="usernameSpan">
-               <span class="item_icon iconfont icon-yonghu"></span>
-              <input type="text" id="username" placeholder="请输入账号" class="input" required>
-            </span>
-          </div>
-        </div>
-        <div class="item_explain_error" id="usernameError">请输入账号</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登录</title>
+    <!-- 链接图标 -->
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://at.alicdn.com/t/c/font_4492533_ed64r1nhps.css"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <div class="leftSide">
+        <h3 class="logo">
+          <img
+            src="../images/favicon.ico"
+            alt=""
+            style="width: 33px; height: 33px"
+          />
+        </h3>
+        <h2>Hi,欢迎回来！</h2>
+        <img src="../images/LoginImage.png" alt="" />
       </div>
-      <div class="item">
-        <div class="item_input">
-          <div class="item_input_content">
-            <span class="inputSpan " id="passwordSpan">
-              <span class="item_icon iconfont icon-mima"></span>
-              <input type="password" id="password" placeholder="请输入密码" class="input" required>
-            </span>
-          </div>
-        </div>
-        <div class="item_explain_error" id="passwordError">请输入密码</div>
-      </div>
-      <div class="item">
-        <div class="item_input">
-          <div class="item_input_content">
-          <input  id="generaluser" type="radio" checked  name="usertype" value="1">  
-                    <label for="generaluser" style="margin-right: 30px;">普通用户</label>
-          <input  id="manager" type="radio"   name="usertype" value="0">
-          <label for="manager">管理员</label>
-          </div>
-        </div>
-        <div class="item_explain_error" id="passwordError">请输入密码</div>
-      </div>
-      <div class="item">
-        <div class="item_input">
-          <div class="item_input_content">
-            <div class="fl">
-          <span >
-            <input  id="remember" type="checkbox" checked required > 
-            <span >同意条款</span>
-          </span>
-            </div>
-            <div class="fr">
-              <a href="#">忘记密码?</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="item_input">
-          <div class="item_input_content">
-            <button type="submit" class="submitBtn" id="submitBtn">
-                          <span style="color: white;" id="submitSpan">登 录</span>
+      <div class="rightSide">
+        <div class="login_info">
+          <h3 class="title">登录 Adam System</h3>
+          <span class="typography-secondary">
+            <p id="userState">新用户？</p>
+            <button class="registerbtn">
+              <span id="secondarySpan">立即注册</span>
             </button>
-
+          </span>
+          <div class="alert_info">
+            <span class="alert_icon iconfont icon-tishi"></span>
+            <div class="alert_content">
+              登录信息： 用户名：adam 密码：123456
+            </div>
           </div>
         </div>
+
+        <form class="loginform" id="loginform">
+          <div class="item">
+            <div class="item_input">
+              <div class="item_input_content">
+                <span class="inputSpan" id="usernameSpan">
+                  <span class="item_icon iconfont icon-yonghu"></span>
+                  <input
+                    type="text"
+                    id="username"
+                    placeholder="请输入账号"
+                    class="input"
+                    required
+                  />
+                </span>
+              </div>
+            </div>
+            <div class="item_explain_error" id="usernameError">请输入账号</div>
+          </div>
+          <div class="item">
+            <div class="item_input">
+              <div class="item_input_content">
+                <span class="inputSpan" id="passwordSpan">
+                  <span class="item_icon iconfont icon-mima"></span>
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="请输入密码"
+                    class="input"
+                    required
+                  />
+                </span>
+              </div>
+            </div>
+            <div class="item_explain_error" id="passwordError">请输入密码</div>
+          </div>
+          <div class="item">
+            <div class="item_input">
+              <div class="item_input_content">
+                <input
+                  id="generaluser"
+                  type="radio"
+                  checked
+                  name="usertype"
+                  value="1"
+                />
+                <label for="generaluser" style="margin-right: 30px"
+                  >普通用户</label
+                >
+                <input id="manager" type="radio" name="usertype" value="0" />
+                <label for="manager">管理员</label>
+              </div>
+            </div>
+            <div class="item_explain_error" id="passwordError">请输入密码</div>
+          </div>
+          <div class="item">
+            <div class="item_input">
+              <div class="item_input_content">
+                <div class="fl">
+                  <span>
+                    <input id="remember" type="checkbox" checked required />
+                    <span>同意条款</span>
+                  </span>
+                </div>
+                <div class="fr">
+                  <a href="#">忘记密码?</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item_input">
+              <div class="item_input_content">
+                <button type="submit" class="submitBtn" id="submitBtn">
+                  <span style="color: white" id="submitSpan">登 录</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
-    </form>
-  </div>
-</div>
-
-
-  <script src="../js/main.js"></script>
-  <script src="./script.js" type="module"></script>
-</body>
+    </div>
+    <script src="../js/http.js"></script>
+    <script src="../js/dom.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
 </html>

@@ -9,42 +9,38 @@ const { platform } = require('os');
 app.use(express.static(path.join(__dirname,'..', 'frontend')));
 console.log(path.join(__dirname, 'frontend'));
 
-// 定义一个路由来处理访问根路径的请求
-app.get('/', (req, res) => {
-  // 当用户访问根路径时，发送 index.html 文件
-  res.sendFile(path.join(__dirname, '..','frontend','login', 'index.html'));
-});
+//解决跨域
 app.use(cors());
 
-// parse requests of content-type - application/json
+// 中间件 解决json字符串和对象转换
 app.use(express.json());
 
-// parse requests of content-type - application/x-www-form-urlencoded
+// 解决 URL 编码传输数据
 app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
 
 db.sequelize.sync()
   .then(() => {
-    console.log("Synced db.");
+    console.log("同步数据库");
   })
   .catch((err) => {
-    console.log("Failed to sync db: " + err.message);
+    console.log("同步数据库失败: " + err.message);
   });
 
-// // drop the table if it already exists
+// 如果存在则更新
 // db.sequelize.sync({ force: true }).then(() => {
-//   console.log("Drop and re-sync db.");
+//   console.log("更新数据库");
 // });
 
-// simple route
+// 简单的路由测试
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to adam system." });
 });
 
-// require("./app/routes/turorial.routes")(app);
+
 require("./app/routes/user")(app);
-// set port, listen for requests
+// 启动服务器
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
 console.log(colors.green.bold(`项目启动成功: http://localhost:${PORT}/login/index.html`));
