@@ -34,12 +34,12 @@ exports.create = (req, res) => {
       const usertype = req.body.usertype;
       //生成token
       const token = generateToken({ username, password, usertype }, secretKey);
-      console.log(token);
       //send里面要传入一个对象 否则无法被解析
       res.status(200).send({
         token: token,
         message: `注册成功，欢迎您${status}：${username}`,
         status: 1,
+        id: newUser.userId,
       });
     })
     .catch((err) => {
@@ -73,6 +73,7 @@ exports.findOne = (req, res) => {
             token: token,
             message: `登录成功，欢迎您${status}：${username}`,
             status: 1,
+            id: data.userId,
           });
         } else {
           res.status(403).send({
@@ -89,6 +90,28 @@ exports.findOne = (req, res) => {
       console.log(err);
       res.status(500).send({
         message: `${err}`,
+      });
+    });
+};
+
+// 通过id找数据
+exports.getData = (req, res) => {
+  const id = req.params.id;
+  console.log(689);
+  console.log(id);
+  User.findByPk(id)
+    .then((data) => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: `找不到该id id=${id}.`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "无法进入数据库查询 id=" + id,
       });
     });
 };

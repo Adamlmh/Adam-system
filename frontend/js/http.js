@@ -38,7 +38,6 @@ function customFetch(url, options = {}) {
       // 检查请求是否成功
       if (!response.ok) {
         root.style.setProperty("--alert-color", "#FADAD8"); // 修改为红色
-        console.log(123);
       }
       // 处理JSON响应
       if (requestOptions.responseType === "json") {

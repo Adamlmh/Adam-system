@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>首页</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link
+      rel="stylesheet"
+      href="https://at.alicdn.com/t/c/font_4512681_e3a91on05b4.css"
+    />
+  </head>
+  <body>
+    <!-- 总体为一个大的layout然后左右布局 -->
+    <div class="layout">
+      <aside class="layout_leftside">
+        <div class="side_children">
+          <div class="anticon">
+            <div class="logoIcon"></div>
+            <div class="logoName">Adam System</div>
+          </div>
+          <div class="layout_menu">
+            <ul id="menu">
+              <a href="../Personalcenter/index.html">
+                <li class="menu_item" data-path="/Personalcenter">
+                  <span class="iconfont icon-icon03"></span>
+                  <span style="margin-inline-start: 10px">个人中心</span>
+                </li>
+              </a>
+              <li class="menu_item" data-path="/Recentmeetings">
+                <span class="iconfont icon-jinqihuiyi1"></span>
+                <span style="margin-inline-start: 10px">近期会议</span>
+              </li>
+              <li class="menu_item" data-path="/Allmeetings">
+                <span class="iconfont icon-jinqihuiyi"></span>
+                <span style="margin-inline-start: 10px">全部会议</span>
+              </li>
+              <li class="menu_item" data-path="/Submitcontent">
+                <span class="iconfont icon-demo1"></span>
+                <span style="margin-inline-start: 10px">提交纪要</span>
+              </li>
+              <li class="menu_item" data-path="/Expressviews">
+                <span class="iconfont icon-tijiaojianyifankui"></span>
+                <span style="margin-inline-start: 10px">提出意见</span>
+              </li>
+              <a href="../Modifyinformation/index.html">
+                <li
+                  class="menu_item menu_item_active_color"
+                  data-path="/Modifyinformation"
+                >
+                  <span class="iconfont icon-xiugai"></span>
+                  <span style="margin-inline-start: 10px">修改信息</span>
+                </li>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </aside>
+      <div class="layout_rightside">
+        <header class="layout_header">
+          <div class="header_top">
+            <div class="top_left">
+              <span class="iconfont icon-sanhengxian"></span>
+              <div class="Route_correspondence">
+                <span class="iconfont icon-icon03"></span>
+                <span>个人中心</span>
+              </div>
+            </div>
+            <div class="top_right">
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-tongzhizhongxin"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-shijian"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button type="button" class="btn iconfont icon-diqiu"></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-guanyuwomen"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button type="button" class="btn iconfont icon-GitHub"></button>
+              </div>
+              <div class="top_right_item">
+                <button type="button" class="btn iconfont icon-guanji"></button>
+              </div>
+            </div>
+          </div>
+          <div class="header_bottom">
+            <div class="top_route">
+              <span class="iconfont icon-zhiyin"></span>
+              <a href="../Personalcenter/index.html">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">个人中心</span>
+                </span>
+              </a>
+              <a href="../">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">近期会议</span>
+                </span>
+              </a>
+              <a href="../">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">全部会议</span>
+                </span>
+              </a>
+              <a href="../">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">提交纪要</span>
+                </span>
+              </a>
+              <a href="../">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">提出意见</span>
+                </span>
+              </a>
+              <a>
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">修改信息</span>
+                </span>
+              </a>
+            </div>
+            <div class="colorSelect">
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-hongdian"
+                  id="redBtn"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-landian-SVG"
+                  id="blueBtn"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-huangdian"
+                  id="YellowBtn"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-lvdian"
+                  id="greenBtn"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main class="layout_content" id="mainContent">
+          <!-- 个人中心页面 -->
+          <h1>123</h1>
+        </main>
+      </div>
+    </div>
+    <script src="../js/dom.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/http.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>

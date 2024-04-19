@@ -14,13 +14,13 @@ const generateToken = function generateToken(payload, secretKey, expiresIn) {
   );
   const signature = crypto
     .createHmac("sha256", secretKey)
-    .update(`${header}.${payload}`)
+    .update(`${header}.${payloadEncoded}`) // 修复：使用 payloadEncoded 而不是 payload
     .digest("base64");
   const expiresInSeconds = expiresIn ? expiresIn : 3600;
   const expiration = Math.floor(Date.now() / 1000) + expiresInSeconds;
   return `${header}.${payloadEncoded}.${signature}.${expiration}`;
 };
-//验证Token
+
 function verifyToken(token, secretKey) {
   const [header, payloadBase64, signatureBase64, expiration] = token.split(".");
   const payload = JSON.parse(Buffer.from(payloadBase64, "base64").toString());
@@ -29,6 +29,9 @@ function verifyToken(token, secretKey) {
     .update(`${header}.${payloadBase64}`)
     .digest("base64");
   const currentTimestamp = Math.floor(Date.now() / 1000);
+  console.log(123);
+  console.log(signatureBase64);
+  console.log(signature);
   if (
     currentTimestamp > parseInt(expiration) ||
     signature !== signatureBase64
@@ -42,8 +45,10 @@ const validateToken = (req, res, next) => {
   const authorizationHeader = req.headers["authorization"];
   if (authorizationHeader && authorizationHeader.startsWith("Bearer ")) {
     const token = authorizationHeader.substring(7); // 去掉 'Bearer ' 前缀，得到令牌值
+    console.log(token);
     // 在这里对令牌进行验证
     const tokenPayload = verifyToken(token, secretKey);
+    console.log(tokenPayload);
     // 如果令牌验证成功，将 req.user 设置为令牌中的用户信息  (待验证)
     User.findOne({
       where: {
@@ -53,10 +58,8 @@ const validateToken = (req, res, next) => {
       },
     })
       .then((data) => {
-        console.log(128);
-        console.log(data);
-        res.status(200).send(data);
-        req.user = data;
+        console.log(588);
+        next();
       })
       //验证失败
       .catch((err) => {
@@ -65,7 +68,6 @@ const validateToken = (req, res, next) => {
           message: `${err}`,
         });
       });
-    next();
   } // 继续处理请求
   else {
     // 没有提供令牌或格式不正确

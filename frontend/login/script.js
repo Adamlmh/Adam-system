@@ -41,14 +41,14 @@ document
         alert(`${data.message}`);
         if (data.status) {
           localStorage.setItem("token", data.token);
+          localStorage.setItem("id", data.id);
           setTimeout(() => {
-            location.href = "../home/index.html";
+            location.href = "../Personalcenter/index.html";
           }, 2000);
         }
       })
       .catch((error) => {
         //网络故障
-
         console.log(error);
         alert(`${error}`);
       });
