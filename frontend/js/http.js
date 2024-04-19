@@ -1,4 +1,6 @@
 //封装fetch函数 公共获取
+//获得根节点
+const root = document.documentElement;
 function customFetch(url, options = {}) {
   // 默认配置项
   const defaultOptions = {
@@ -7,7 +9,6 @@ function customFetch(url, options = {}) {
       "Content-Type": "application/json",
     },
     cache: "no-cache",
-    credentials: "same-origin",
     responseType: "json",
   };
 
@@ -16,6 +17,12 @@ function customFetch(url, options = {}) {
     ...defaultOptions,
     ...options,
   };
+
+  // 检查浏览器localStorage中是否存在token键值对，如果有，则设置Authorization头部
+  const token = localStorage.getItem("token");
+  if (token) {
+    requestOptions.headers["Authorization"] = `Bearer ${token}`;
+  }
 
   // 处理请求参数
   let requestUrl = url;
@@ -27,9 +34,11 @@ function customFetch(url, options = {}) {
   // 发起请求
   return fetch(requestUrl, requestOptions)
     .then((response) => {
+      root.style.setProperty("--alert-color", "#00a76f"); // 修改为绿色
       // 检查请求是否成功
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        root.style.setProperty("--alert-color", "#FADAD8"); // 修改为红色
+        console.log(123);
       }
       // 处理JSON响应
       if (requestOptions.responseType === "json") {
@@ -39,7 +48,7 @@ function customFetch(url, options = {}) {
       return response;
     })
     .catch((error) => {
-      // 处理错误
+      root.style.setProperty("--alert-color", "#FADAD8"); // 修改为红色
       console.error("Fetch error:", error);
       throw error;
     });

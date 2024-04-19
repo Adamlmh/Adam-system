@@ -26,7 +26,7 @@ document
     } else {
       fetchUrl = "http://localhost:8080/api/register";
     }
-    fetch(fetchUrl, {
+    customFetch(fetchUrl, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -37,14 +37,6 @@ document
         usertype: usertype,
       }),
     })
-      .then((response) => {
-        //改变弹窗的颜色
-        root.style.setProperty("--alert-color", "#00a76f"); // 修改为绿色
-        if (response.status >= 400) {
-          root.style.setProperty("--alert-color", "#FADAD8"); // 修改为红色
-        }
-        return response.json();
-      })
       .then((data) => {
         alert(`${data.message}`);
         if (data.status) {
@@ -56,7 +48,7 @@ document
       })
       .catch((error) => {
         //网络故障
-        root.style.setProperty("--alert-color", "#FADAD8"); // 修改为红色
+
         console.log(error);
         alert(`${error}`);
       });
