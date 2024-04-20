@@ -4,6 +4,6 @@ module.exports = (app) => {
   var router = require("express").Router();
 
   router.post("/:id", user.update);
-  console.log(813);
+
   app.use("/api/private/Modifyinformation", router);
 };

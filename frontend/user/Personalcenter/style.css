@@ -1,4 +1,4 @@
-@import url(../css/global.css);
+@import url(../../css/global.css);
 /* 引入阿里巴巴矢量库 */
 
 .iconfont {
@@ -59,7 +59,7 @@
 .logoIcon {
   width: 30px;
   height: 30px;
-  background-image: url(../images/favicon.ico);
+  background-image: url(../../images/favicon.ico);
   background-size: contain;
 }
 .logoName {
@@ -201,7 +201,7 @@
 }
 .card_cover {
   min-height: 200px;
-  background-image: url(../images/card_cover.jpg);
+  background-image: url(../../images/card_cover.jpg);
   background-size: cover;
   position: relative;
 }

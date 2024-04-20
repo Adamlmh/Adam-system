@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人中心</title>
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link
+      rel="stylesheet"
+      href="https://at.alicdn.com/t/c/font_4512681_e3a91on05b4.css"
+    />
+  </head>
+  <body>
+    <!-- 总体为一个大的layout然后左右布局 -->
+    <div class="layout">
+      <aside class="layout_leftside">
+        <div class="side_children">
+          <div class="anticon">
+            <div class="logoIcon"></div>
+            <div class="logoName">Adam System</div>
+          </div>
+          <div class="layout_menu">
+            <ul id="menu">
+              <a href="../Personalcenter/index.html">
+              <li
+                class="menu_item "
+                data-path="/Personalcenter"
+              >
+                <span class="iconfont icon-icon03"></span>
+                <span style="margin-inline-start: 10px">个人中心</span>
+              </li>
+              </a>
+
+              <a href="../Recentmeetings/index.html">
+              <li class="menu_item" data-path="/Recentmeetings">
+                <span class="iconfont icon-jinqihuiyi1"></span>
+                <span style="margin-inline-start: 10px">近期会议</span>
+              </li>
+              </a>
+
+              <a href="../Allmeetings/index.html">
+              <li class="menu_item" data-path="/Allmeetings">
+                <span class="iconfont icon-jinqihuiyi"></span>
+                <span style="margin-inline-start: 10px">全部会议</span>
+              </li>
+              </a>
+
+              <a href="../Submitcontent/index.html">
+              <li class="menu_item menu_item_active_color" data-path="/Submitcontent">
+                <span class="iconfont icon-demo1"></span>
+                <span style="margin-inline-start: 10px">提交纪要</span>
+              </li>
+              </a>
+              <a href="../Expressviews/index.html">
+              <li class="menu_item" data-path="/Expressviews">
+                <span class="iconfont icon-tijiaojianyifankui"></span>
+                <span style="margin-inline-start: 10px">提出意见</span>
+              </li>
+              </a>
+
+              <a href="../Modifyinformation/index.html">
+                <li class="menu_item" data-path="/Modifyinformation">
+                  <span class="iconfont icon-xiugai"></span>
+                  <span style="margin-inline-start: 10px">修改信息</span>
+                </li>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </aside>
+      <div class="layout_rightside">
+        <header class="layout_header">
+          <div class="header_top">
+            <div class="top_left">
+              <span class="iconfont icon-sanhengxian"></span>
+              <div class="Route_correspondence">
+                <span class="iconfont icon-icon03"></span>
+                <span>个人中心</span>
+              </div>
+            </div>
+            <div class="top_right">
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-tongzhizhongxin"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-shijian"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button type="button" class="btn iconfont icon-diqiu"></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-guanyuwomen"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <a href="https://github.com/Adamlmh"><button type="button" class="btn iconfont icon-GitHub"></button></a>
+              </div>
+              <div class="top_right_item">
+                <a href="../../login/index.html">
+                <button type="button" class="btn iconfont icon-guanji"></button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="header_bottom">
+            <div class="top_route">
+              <span class="iconfont icon-zhiyin"></span>
+              <a href="../Personalcenter/index.html">
+                <span class="top_route_item ">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name ">个人中心</span>
+                </span>
+              </span>
+              <a href="../Recentmeetings/index.html">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">近期会议</span>
+                </span>
+              </a>
+              <a href="../Allmeetings/index.html">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">全部会议</span>
+                </span>
+              </a>
+              <a href="../Submitcontent/index.html">
+                <span class="top_route_item top_route_item_active">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">提交纪要</span>
+                </span>
+              </a>
+              <a href="../Expressviews/index.html">
+                <span class="top_route_item ">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">提出意见</span>
+                </span>
+              </a>
+              <a href="../Modifyinformation/index.html">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">修改信息</span>
+                </span>
+              </a>
+            </div>
+            <div class="colorSelect">
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-hongdian"
+                  id="redBtn"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-landian-SVG"
+                  id="blueBtn"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-huangdian"
+                  id="YellowBtn"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-lvdian"
+                  id="greenBtn"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main class="layout_content" id="mainContent">
+          <!-- 个人中心页面 -->
+          <div class="content_detail">
+            <div class="container boxShadow" style="padding: 20px;">
+              <form action="">
+                                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="ID"
+                                >用户ID</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="这是你的ID"
+                                    maxlength="30"
+                                    value="1"
+                                    class="form_input"
+                                    readonly="true"
+                                    
+                                    id="uploaderId"
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="昵称"
+                                >昵称</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入昵称"
+                                    maxlength="30"
+                                    id="uploaderName"
+                                    value="Adam"
+                                    class="form_input"
+                                    readonly
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                                                <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="组别"
+                                >组别</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="这是你的组别"
+                                    maxlength="30"
+                                    value="前端组"
+                                    class="form_input"
+                                    readonly="true"
+                                    
+                                    id="uploaderGroup"
+                                    
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="会议状态"
+                                >会议状态</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入你的会议状态"
+                                    maxlength="30"
+                                    id="status"
+                                    value="待审核"
+                                    class="form_input"
+                                    readonly
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="会议主题"
+                                >会议主题</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入会议主题"
+                                    maxlength="30"
+                                    id="meetingTopic"
+                                    value=""
+                                    class="form_input"
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="会议时间"
+                                >会议时间</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入会议时间(2024/01/01)"
+                                    maxlength="30"
+                                    id="meetingTime"
+                                    value=""
+                                    class="form_input"
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="标签一"
+                                >标签一</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入标签一"
+                                    maxlength="30"
+                                    id="tag1"
+                                    value=""
+                                    class="form_input"
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="标签二"
+                                >标签二</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入标签二"
+                                    maxlength="30"
+                                    value=""
+                                    class="form_input"
+                                   
+                  
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="标签三"
+                                >标签三</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入标签三"
+                                    maxlength="30"
+                                    value=""
+                                    class="form_input"
+                                   
+    
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+              <div class="item_input_content" style="margin-left: 65px;">
+                <input
+                  id="bangong"
+                  type="radio"
+                  checked
+                  name="meetingType"
+                  value="办公"
+                />
+                <label for="bangong" style="margin-right: 30px"
+                  >办公</label
+                >
+                <input id="kangle" type="radio" name="meetingType" value="康乐" />
+                <label for="kangle">康乐</label>
+              </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="文本内容"
+                                >文本内容</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input type="file">
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                <div class="container_left_item ">
+                  <div class="container_left_item_body" style="padding: 20px">
+                    <div class="upload">
+                      <span class="upload_span">
+                        <input
+                          type="file"
+                          accept=".jpg, .jpeg, .gif, .png, .bmp"
+                          style="display: none"
+                        />
+                        <div class="upload_container">
+                          <div class="add_box">
+                            <div class="add">
+                              <span
+                                class="iconfont icon-touxiang"
+                                style="
+                                  width: 30px;
+                                  height: 30px;
+                                  margin-left: 5px;
+                                "
+                              ></span>
+                              <span>会议图片</span>
+                            </div>
+                          </div>
+                          <p class="upload_hint">
+                            只能上传jpg、jpeg、gif、png、bmp文件, 且不超过500kb
+                          </p>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="right_form_submit">
+                      <button
+                        type="button"
+                        class="right_form_submit_btn"
+                        id="avatarDataBtn"
+                      >
+                        <span style="margin-top: 30px;">提交</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="../../js/dom.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/http.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>

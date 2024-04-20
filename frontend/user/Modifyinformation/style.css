@@ -1,4 +1,4 @@
-@import url(../css/global.css);
+@import url(../../css/global.css);
 /* 引入阿里巴巴矢量库 */
 
 .iconfont {
@@ -59,7 +59,7 @@
 .logoIcon {
   width: 30px;
   height: 30px;
-  background-image: url(../images/favicon.ico);
+  background-image: url(../../images/favicon.ico);
   background-size: contain;
 }
 .logoName {
@@ -139,9 +139,6 @@
   line-height: 24px;
   cursor: pointer;
 }
-.top_route_item_active {
-  background-color: var(--primary-color);
-}
 .top_route_item_dot {
   display: inline-block;
   width: 8px;
@@ -179,95 +176,10 @@
 .colorSelect {
   display: inline-flex;
 }
-
 .layout_content {
   flex: 1 1 auto;
   padding: 20px;
   overflow-x: hidden;
-}
-
-/* 不同页面不同渲染内容main板块 */
-
-.card {
-  width: 100%;
-  position: relative;
-  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-}
-.boxShadow {
-  box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px,
-    rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
-  border-radius: 10px;
-  border: 1px solid #f0f0f0;
-}
-.card_cover {
-  min-height: 200px;
-  background-image: url(../images/card_cover.jpg);
-  background-size: cover;
-  position: relative;
-}
-/* 加阴影 */
-.card_cover::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(22, 28, 36, 0.48);
-}
-.user_info {
-  position: absolute;
-  display: flex;
-  z-index: 2;
-  bottom: -24px;
-  left: 24px;
-  gap: 16px;
-}
-.avatar {
-  width: 128px;
-  height: 128px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: white;
-}
-.info h3 {
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 1.3333;
-}
-.card_group {
-  display: flex;
-  position: relative;
-  flex-direction: row-reverse;
-  background-color: #f5f5f5;
-}
-.card_group input {
-  position: absolute;
-  opacity: 0;
-}
-.card_item {
-  border-radius: 6px;
-}
-.card_item_label {
-  font-size: 16px;
-  line-height: 48px;
-  min-height: 48px;
-  padding: 0 16px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.card_item_label_slected {
-  background-color: var(--background-color);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03),
-    0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
-}
-.biggr {
-  font-size: 18px !important;
 }
 
 .content_detail {
@@ -275,6 +187,7 @@
 }
 .container {
   display: flex;
+  gap: 15px;
 }
 .container_left {
   width: 33.33333%;
@@ -299,7 +212,7 @@
   min-height: 56px;
   padding: 0 24px;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   border-bottom: 1px solid #f0f0f0;
   border-radius: 8px 8px 0 0;
 }
@@ -326,4 +239,190 @@
 .boxShadow:hover {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.boxShadow {
+  box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px,
+    rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
+  border-radius: 10px;
+  border: 1px solid #f0f0f0;
+}
+.top_route_item_active {
+  background-color: var(--primary-color);
+}
+.upload {
+  border: none;
+  text-align-last: center;
+  cursor: pointer;
+}
+.upload_span {
+  display: table;
+  padding: 16px;
+}
+.add_box {
+  width: 144px;
+  height: 144px;
+  border-radius: 50%;
+  margin: 0 auto;
+  padding: 12px;
+  border: 1px dashed #f0f0f0;
+  transition: all 0.3s ease;
+}
+.add_box:hover {
+  border-color: var(--primary-color);
+}
+.add {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  color: rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 18px;
+  gap: 20px;
+  background-color: rgba(229, 231, 235, 0.25);
+}
+.upload_hint {
+  color: rgba(0, 0, 0, 0.45);
+}
+.icon-touxiang {
+  font-weight: normal;
+  font-size: 30px !important;
+}
+.add img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 图片按比例填充圆形区域，保持比例不变 */
+  border-radius: 50%;
+}
+.container_right_item {
+  flex: 1 1 auto;
+}
+form {
+  display: flex;
+  flex-flow: row wrap;
+}
+.right_form_container {
+  display: flex;
+  width: 50%;
+}
+.right_form_container_item {
+  margin-bottom: 24px;
+  display: flex;
+  width: 100%;
+}
+.right_form_container_item_lable {
+  display: flex;
+  align-items: center;
+  text-align: end;
+  height: 36px;
+  width: 100%;
+}
+.form_item_required {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  writing-mode: horizontal-tb; /* 强制文字水平显示 */
+  height: 32px;
+  margin-left: 60px;
+}
+/* 伪元素实现： */
+.form_item_required::before {
+  content: "*";
+  margin-inline-end: 4px;
+  color: #ff5630;
+  font-family: SimSun;
+}
+.form_item_required::after {
+  content: ":";
+  margin-inline-start: 2px;
+  margin-inline-end: 8px;
+}
+.form_item_control {
+  flex: 1 1 0%;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+}
+.form_item_control_input {
+  display: inline-flex;
+  width: 85%;
+  min-height: 32px;
+  padding: 4px 11px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+  max-width: 450px;
+}
+.form_input {
+  width: 100%;
+  font-size: 14px;
+}
+.right_form_submit {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.right_form_submit_btn {
+  color: #fff;
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 0 rgba(2, 123, 60, 0.19);
+  height: 32px;
+  border-radius: 6px;
+  padding: 4px 15px;
+  cursor: pointer;
+}
+.add:hover {
+  background-color: rgba(229, 231, 235, 0.5);
+}
+.container_left_item_body_input {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container_left_item_body_input_content {
+  width: 90%;
+  text-overflow: ellipsis;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 10px 10px;
+}
+
+.container_left_item_body_input_content:hover {
+  border-color: var(--primary-color);
+}
+.container_left_item_body_input_content:focus {
+  outline: none; /* 聚焦时去除默认的聚焦效果 */
+  box-shadow: 0 0 5px rgba(0, 128, 0, 0.5); /* 聚焦时添加阴影 */
+}
+.form_item_control_input:hover {
+  border-color: var(--primary-color);
+}
+.container_right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.green {
+  border: 1px solid #00a76f;
+  box-shadow: 0 0 2px rgba(2, 123, 60, 0.19);
+}
+.red {
+  border: 1px solid #ff5630;
+  box-shadow: 0 0 2px rgba(2, 123, 60, 0.19);
+}
+.relative {
+  position: relative;
+}
+.alertSpan {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  color: #ff5630;
+  display: none;
 }

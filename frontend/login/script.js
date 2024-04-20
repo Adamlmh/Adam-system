@@ -43,7 +43,7 @@ document
           localStorage.setItem("token", data.token);
           localStorage.setItem("id", data.id);
           setTimeout(() => {
-            location.href = "../Personalcenter/index.html";
+            location.href = "../user/Personalcenter/index.html";
           }, 2000);
         }
       })
