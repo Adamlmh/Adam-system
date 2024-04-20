@@ -234,7 +234,7 @@
                       <div class="container_left_item_body_input">
                         <textarea
                           name=""
-                          id=""
+                          id="introduction"
                           rows="10"
                           placeholder="请输入内容"
                           maxlength="50"
@@ -243,9 +243,10 @@
                       </div>
                       <div class="right_form_submit">
                         <button
-                          type="submit"
+                          type="button"
                           class="right_form_submit_btn"
                           style="margin-top: 20px"
+                          id="introductionBtn"
                         >
                           <span>提交</span>
                         </button>
@@ -275,11 +276,11 @@
                                     aria-required="true"
                                     placeholder="这是你的ID"
                                     maxlength="30"
-                                    name=""
                                     value="1"
                                     class="form_input"
                                     readonly="true"
                                     disabled
+                                    id="id"
                                   />
                                 </span>
                               </div>
@@ -302,7 +303,7 @@
                                     aria-required="true"
                                     placeholder="请输入昵称"
                                     maxlength="30"
-                                    name="name"
+                                    id="name"
                                     value=""
                                     class="form_input"
                                   />
@@ -327,11 +328,11 @@
                                     aria-required="true"
                                     placeholder="这是你的账号"
                                     maxlength="30"
-                                    id=""
                                     value="Adam"
                                     class="form_input"
                                     readonly="true"
                                     disabled
+                                    id="username"
                                   />
                                 </span>
                               </div>
@@ -354,7 +355,7 @@
                                     aria-required="true"
                                     placeholder="请输入组别"
                                     maxlength="30"
-                                    name="group"
+                                    id="group"
                                     value=""
                                     class="form_input"
                                   />
@@ -379,7 +380,7 @@
                                     aria-required="true"
                                     placeholder="请输入你的年级"
                                     maxlength="30"
-                                    name="grade"
+                                    id="grade"
                                     value=""
                                     class="form_input"
                                   />
@@ -404,7 +405,7 @@
                                     aria-required="true"
                                     placeholder="请输入专业"
                                     maxlength="30"
-                                    name="major"
+                                    id="major"
                                     value=""
                                     class="form_input"
                                   />
@@ -429,7 +430,7 @@
                                     aria-required="true"
                                     placeholder="请输入邮箱"
                                     maxlength="30"
-                                    name="email"
+                                    id="email"
                                     value=""
                                     class="form_input"
                                   />
@@ -454,7 +455,6 @@
                                     aria-required="true"
                                     placeholder="您的权限"
                                     maxlength="30"
-                                    id=""
                                     value="用户"
                                     class="form_input"
                                     readonly="true"
@@ -494,16 +494,20 @@
                               >原密码</label
                             >
                             <div class="form_item_control">
-                              <span class="form_item_control_input">
+                              <span class="form_item_control_input relative">
                                 <input
-                                  type="text"
+                                  type="password"
                                   aria-required="true"
                                   placeholder="请输入你的原密码"
                                   maxlength="30"
-                                  id=""
+                                  id="oldPassword"
                                   value=""
                                   class="form_input"
+                                  required
                                 />
+                                <span class="alertSpan" id="passwordIncorrect"
+                                  >原密码不正确噢</span
+                                >
                               </span>
                             </div>
                           </div>
@@ -520,13 +524,14 @@
                           <div class="form_item_control">
                             <span class="form_item_control_input">
                               <input
-                                type="text"
+                                type="password"
                                 aria-required="true"
                                 placeholder="请输入新密码"
                                 maxlength="30"
-                                id=""
+                                id="newPassword"
                                 value=""
                                 class="form_input"
+                                required
                               />
                             </span>
                           </div>
@@ -541,25 +546,30 @@
                             >确认密码</label
                           >
                           <div class="form_item_control">
-                            <span class="form_item_control_input">
+                            <span class="form_item_control_input relative">
                               <input
-                                type="text"
+                                type="password"
                                 aria-required="true"
                                 placeholder="请再次输入新密码"
                                 maxlength="30"
-                                id=""
+                                id="REnewPassword"
                                 value=""
                                 class="form_input"
+                                required
                               />
+                              <span class="alertSpan" id="passwordInconsistent"
+                                >两次输入不一致</span
+                              >
                             </span>
                           </div>
                         </div>
                       </div>
                       <div class="right_form_submit">
                         <button
-                          type="submit"
+                          type="button"
                           class="right_form_submit_btn"
                           style="margin-top: 20px"
+                          id="passwordBtn"
                         >
                           <span>提交</span>
                         </button>

@@ -29,9 +29,6 @@ function verifyToken(token, secretKey) {
     .update(`${header}.${payloadBase64}`)
     .digest("base64");
   const currentTimestamp = Math.floor(Date.now() / 1000);
-  console.log(123);
-  console.log(signatureBase64);
-  console.log(signature);
   if (
     currentTimestamp > parseInt(expiration) ||
     signature !== signatureBase64
@@ -45,11 +42,8 @@ const validateToken = (req, res, next) => {
   const authorizationHeader = req.headers["authorization"];
   if (authorizationHeader && authorizationHeader.startsWith("Bearer ")) {
     const token = authorizationHeader.substring(7); // 去掉 'Bearer ' 前缀，得到令牌值
-    console.log(token);
-    console.log(req.body);
     // 在这里对令牌进行验证
     const tokenPayload = verifyToken(token, secretKey);
-    console.log(tokenPayload);
     // 如果令牌验证成功，将 req.user 设置为令牌中的用户信息  (待验证)
     User.findOne({
       where: {

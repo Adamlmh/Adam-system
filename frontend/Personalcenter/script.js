@@ -4,7 +4,11 @@ customFetch(
     "id"
   )}`
 ).then((data) => {
-  $.get(".avatar img").src = data.avatar;
+  $.get("#group").innerText = data.group;
+  $.get("#name").innerText = data.name;
+  $.get("#major").innerText = data.major;
+  $.get("#grade").innerText = data.grade;
+  $.get("#email").innerText = data.email;
   $.get("#introduction").innerText = data.introduction;
 });
 

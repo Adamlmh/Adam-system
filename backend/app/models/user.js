@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true, // 允许为空
       },
       introduction: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: true, // 允许为空
       },
       email: {

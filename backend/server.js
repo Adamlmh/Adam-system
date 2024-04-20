@@ -10,6 +10,8 @@ const { validateToken } = require("./app/utils/users");
 app.use(express.static(path.join(__dirname, "..", "frontend")));
 console.log(path.join(__dirname, "frontend"));
 
+const bodyParser = require("body-parser");
+
 //解决跨域
 app.use(cors());
 // 设置跨域和相应数据格式

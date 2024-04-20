@@ -22,29 +22,34 @@ function handleFileSelect(event) {
 }
 inputFire.addEventListener("change", handleFileSelect);
 //上传头像
-$.get("#avatarDataBtn").addEventListener("click", submitFileSelect);
-function submitFileSelect(event) {
-  const file = inputFire.files[0]; // 获取上传的文件
-  const formData = new FormData();
-  formData.append("file", file);
+// $.get("#avatarDataBtn").addEventListener("click", submitFileSelect);
+// function submitFileSelect(event) {
+//   const file = inputFire.files[0]; // 获取上传的文件
+//   const formData = new FormData();
+//   formData.append("file", file);
 
-  customFetch(`http://localhost:8080/api/upload`, {
-    method: "POST",
-    body: formData,
-  })
-    .then((data) => {
-      alert(`${data.message}`);
-    })
-    .catch((error) => {
-      console.error("上传出错：", error);
-    });
-}
+//   customFetch(`http://localhost:8080/api/upload`, {
+//     method: "POST",
+//     body: formData,
+//   })
+//     .then((data) => {
+//       alert(`${data.message}`);
+//     })
+//     .catch((error) => {
+//       console.error("上传出错：", error);
+//     });
+// }
 
 //提交基础数据
-document.querySelector("#basicDataBtn").addEventListener("click", submitForm);
-function submitForm() {
-  var formData = new FormData(document.querySelector("#basicData")); // 使用 FormData 对象收集表单数据
-  console.log(formData);
+document
+  .querySelector("#basicDataBtn")
+  .addEventListener("click", submitBasicDataForm);
+function submitBasicDataForm() {
+  const name = $.get("#name").value;
+  const email = $.get("#email").value;
+  const grade = $.get("#grade").value;
+  const major = $.get("#major").value;
+  const group = $.get("#group").value;
   customFetch(
     `http://localhost:8080/api/private/Modifyinformation/${localStorage.getItem(
       "id"
@@ -52,13 +57,16 @@ function submitForm() {
     {
       method: "POST",
       body: JSON.stringify({
-        mail: "123",
+        name,
+        email,
+        grade,
+        major,
+        group,
       }),
     }
   )
     .then((data) => {
-      console.log(data);
-      console.log("成功发送数据至后端");
+      alert(`${data.message}`);
       // 在这里处理后端返回的响应
     })
     .catch((error) => {
@@ -66,3 +74,99 @@ function submitForm() {
       // 在这里处理错误情况
     });
 }
+//个人简介提交
+document
+  .querySelector("#introductionBtn")
+  .addEventListener("click", submitProfileForm);
+function submitProfileForm() {
+  const introduction = $.get("#introduction").value;
+  customFetch(
+    `http://localhost:8080/api/private/Modifyinformation/${localStorage.getItem(
+      "id"
+    )}`,
+    {
+      method: "POST",
+      body: JSON.stringify({
+        introduction,
+      }),
+    }
+  )
+    .then((data) => {
+      alert(`${data.message}`);
+      // 在这里处理后端返回的响应
+    })
+    .catch((error) => {
+      console.error("发送数据至后端失败:", error);
+      // 在这里处理错误情况
+    });
+}
+//修改密码提交
+let oldpassword;
+const oldPassword = $.get("#oldPassword");
+const newPassword = $.get("#newPassword");
+const REnewPassword = $.get("#REnewPassword");
+const passwordBtn = $.get("#passwordBtn");
+oldPassword.addEventListener("blur", function () {
+  if (oldPassword.value !== oldpassword) {
+    oldPassword.nextElementSibling.style.display = "block";
+    oldPassword.parentNode.classList.add("red");
+    passwordBtn.disabled = true;
+  } else {
+    oldPassword.nextElementSibling.style.display = "none";
+    oldPassword.parentNode.classList.remove("red");
+    passwordBtn.disabled = false;
+  }
+});
+REnewPassword.addEventListener("blur", function () {
+  if (newPassword.value !== REnewPassword.value) {
+    REnewPassword.nextElementSibling.style.display = "block";
+    REnewPassword.parentNode.classList.add("red");
+    passwordBtn.disabled = true;
+  } else {
+    REnewPassword.nextElementSibling.style.display = "none";
+    REnewPassword.parentNode.classList.remove("red");
+    passwordBtn.disabled = false;
+  }
+});
+document
+  .querySelector("#passwordBtn")
+  .addEventListener("click", submitpasswordForm);
+function submitpasswordForm() {
+  const password = $.get("#REnewPassword").value;
+  customFetch(
+    `http://localhost:8080/api/private/Modifyinformation/${localStorage.getItem(
+      "id"
+    )}`,
+    {
+      method: "POST",
+      body: JSON.stringify({
+        password,
+      }),
+    }
+  )
+    .then((data) => {
+      alert(`${data.message}`);
+      location.href = "../login/index.html";
+      // 在这里处理后端返回的响应
+    })
+    .catch((error) => {
+      console.error("发送数据至后端失败:", error);
+      // 在这里处理错误情况
+    });
+}
+//拿数据渲染
+customFetch(
+  `http://localhost:8080/api/private/Personalcenter/${localStorage.getItem(
+    "id"
+  )}`
+).then((data) => {
+  oldpassword = data.password;
+  $.get("#id").value = data.userId;
+  $.get("#grade").value = data.grade;
+  $.get("#username").value = data.username;
+  $.get("#email").value = data.email;
+  $.get("#major").value = data.major;
+  $.get("#group").value = data.group;
+  $.get("#name").value = data.name;
+  $.get("#introduction").value = data.introduction;
+});

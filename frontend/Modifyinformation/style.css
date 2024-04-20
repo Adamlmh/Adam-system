@@ -408,3 +408,21 @@ form {
   flex-direction: column;
   gap: 16px;
 }
+.green {
+  border: 1px solid #00a76f;
+  box-shadow: 0 0 2px rgba(2, 123, 60, 0.19);
+}
+.red {
+  border: 1px solid #ff5630;
+  box-shadow: 0 0 2px rgba(2, 123, 60, 0.19);
+}
+.relative {
+  position: relative;
+}
+.alertSpan {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  color: #ff5630;
+  display: none;
+}
