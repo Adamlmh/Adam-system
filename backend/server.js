@@ -12,7 +12,20 @@ console.log(path.join(__dirname, "frontend"));
 
 //解决跨域
 app.use(cors());
-
+// 设置跨域和相应数据格式
+app.all("/api/*", function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With, token");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With, Authorization");
+  res.header("Content-Type", "application/json;charset=UTF-8");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Content-Type,Content-Length, Authorization, Accept,X-Requested-With"
+  );
+  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+  if (req.method == "OPTIONS") res.send(200);
+  /*让options请求快速返回*/ else next();
+});
 // 中间件 解决json字符串和对象转换
 app.use(express.json());
 
@@ -45,6 +58,8 @@ app.use("/api/private/*", validateToken);
 
 require("./app/routes/Personalcenter")(app);
 require("./app/routes/user")(app);
+require("./app/routes/Modifyinformation")(app);
+require("./app/routes/upload")(app);
 // 启动服务器
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

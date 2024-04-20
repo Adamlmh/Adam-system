@@ -187,6 +187,7 @@
 }
 .container {
   display: flex;
+  gap: 15px;
 }
 .container_left {
   width: 33.33333%;
@@ -211,7 +212,7 @@
   min-height: 56px;
   padding: 0 24px;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   border-bottom: 1px solid #f0f0f0;
   border-radius: 8px 8px 0 0;
 }
@@ -281,7 +282,7 @@
   flex-direction: column;
   font-size: 18px;
   gap: 20px;
-  background-color: rgba(229, 231, 235, 0.45);
+  background-color: rgba(229, 231, 235, 0.25);
 }
 .upload_hint {
   color: rgba(0, 0, 0, 0.45);
@@ -295,4 +296,115 @@
   height: 100%;
   object-fit: cover; /* 图片按比例填充圆形区域，保持比例不变 */
   border-radius: 50%;
+}
+.container_right_item {
+  flex: 1 1 auto;
+}
+form {
+  display: flex;
+  flex-flow: row wrap;
+}
+.right_form_container {
+  display: flex;
+  width: 50%;
+}
+.right_form_container_item {
+  margin-bottom: 24px;
+  display: flex;
+  width: 100%;
+}
+.right_form_container_item_lable {
+  display: flex;
+  align-items: center;
+  text-align: end;
+  height: 36px;
+  width: 100%;
+}
+.form_item_required {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  writing-mode: horizontal-tb; /* 强制文字水平显示 */
+  height: 32px;
+  margin-left: 60px;
+}
+/* 伪元素实现： */
+.form_item_required::before {
+  content: "*";
+  margin-inline-end: 4px;
+  color: #ff5630;
+  font-family: SimSun;
+}
+.form_item_required::after {
+  content: ":";
+  margin-inline-start: 2px;
+  margin-inline-end: 8px;
+}
+.form_item_control {
+  flex: 1 1 0%;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+}
+.form_item_control_input {
+  display: inline-flex;
+  width: 85%;
+  min-height: 32px;
+  padding: 4px 11px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+  max-width: 450px;
+}
+.form_input {
+  width: 100%;
+  font-size: 14px;
+}
+.right_form_submit {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.right_form_submit_btn {
+  color: #fff;
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 0 rgba(2, 123, 60, 0.19);
+  height: 32px;
+  border-radius: 6px;
+  padding: 4px 15px;
+  cursor: pointer;
+}
+.add:hover {
+  background-color: rgba(229, 231, 235, 0.5);
+}
+.container_left_item_body_input {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container_left_item_body_input_content {
+  width: 90%;
+  text-overflow: ellipsis;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 10px 10px;
+}
+
+.container_left_item_body_input_content:hover {
+  border-color: var(--primary-color);
+}
+.container_left_item_body_input_content:focus {
+  outline: none; /* 聚焦时去除默认的聚焦效果 */
+  box-shadow: 0 0 5px rgba(0, 128, 0, 0.5); /* 聚焦时添加阴影 */
+}
+.form_item_control_input:hover {
+  border-color: var(--primary-color);
+}
+.container_right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }

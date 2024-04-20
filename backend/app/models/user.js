@@ -43,7 +43,8 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true, // 允许为空
       },
       avatar: {
-        type: DataTypes.BLOB, // 存储头像的二进制数据
+        type: DataTypes.STRING, // 存储头像的二进制数据
+        allowNull: true, // 允许为空
       },
     },
     {

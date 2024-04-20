@@ -46,6 +46,7 @@ const validateToken = (req, res, next) => {
   if (authorizationHeader && authorizationHeader.startsWith("Bearer ")) {
     const token = authorizationHeader.substring(7); // 去掉 'Bearer ' 前缀，得到令牌值
     console.log(token);
+    console.log(req.body);
     // 在这里对令牌进行验证
     const tokenPayload = verifyToken(token, secretKey);
     console.log(tokenPayload);
@@ -58,7 +59,6 @@ const validateToken = (req, res, next) => {
       },
     })
       .then((data) => {
-        console.log(588);
         next();
       })
       //验证失败

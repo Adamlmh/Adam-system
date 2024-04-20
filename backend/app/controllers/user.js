@@ -1,4 +1,5 @@
 const db = require("../models");
+
 const User = db.user;
 const Op = db.Sequelize.Op;
 const { generateToken } = require("../utils/users");
@@ -97,7 +98,6 @@ exports.findOne = (req, res) => {
 // 通过id找数据
 exports.getData = (req, res) => {
   const id = req.params.id;
-  console.log(689);
   console.log(id);
   User.findByPk(id)
     .then((data) => {
@@ -112,6 +112,50 @@ exports.getData = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message: "无法进入数据库查询 id=" + id,
+      });
+    });
+};
+
+// Update a Tutorial by the id in the request
+exports.update = (req, res) => {
+  const id = req.params.id;
+  // 构建包含有要更新的字段的对象
+  const updateFields = {};
+  if (req.body.username) updateFields.username = req.body.username;
+  if (req.body.password) updateFields.password = req.body.password;
+  if (req.body.name) updateFields.name = req.body.name;
+  if (req.body.group) updateFields.group = req.body.group;
+  if (req.body.usertype) updateFields.usertype = req.body.usertype;
+  if (req.body.grade) updateFields.grade = req.body.grade;
+  if (req.body.major) updateFields.major = req.body.major;
+  if (req.body.introduction) updateFields.introduction = req.body.introduction;
+  if (req.body.email) updateFields.email = req.body.email;
+  if (req.body.avatar) {
+    // 将 base64 编码的字符串转换为 Buffer 对象
+    const avatarData = Buffer.from(req.body.avatar, "base64");
+    updateFields.avatar = db.sequelize.literal(
+      "X'" + avatarData.toString("hex") + "'"
+    );
+  }
+  db.user
+    .update(updateFields, {
+      where: { userId: id },
+    })
+    .then((num) => {
+      if (num == 1) {
+        res.send({
+          message: "上传成功！",
+        });
+      } else {
+        res.send({
+          message: `无法上传该id=${id}. 上传为空值`,
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send({
+        message: "上传失败",
       });
     });
 };

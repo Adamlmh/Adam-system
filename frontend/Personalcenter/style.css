@@ -248,7 +248,7 @@
 }
 .card_group input {
   position: absolute;
-  /* opacity: 0; */
+  opacity: 0;
 }
 .card_item {
   border-radius: 6px;
