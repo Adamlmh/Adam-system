@@ -1,13 +1,13 @@
-module.exports = app => {
+module.exports = (app) => {
   const user = require("../controllers/user");
 
   var router = require("express").Router();
 
-  // Create a new Tutorial
+  // 注册路由
   router.post("/register", user.create);
 
-    // Retrieve all Tutorials
+  // 登录路由
   router.post("/login", user.findOne);
-  
-  app.use('/api', router);
+
+  app.use("/api", router);
 };

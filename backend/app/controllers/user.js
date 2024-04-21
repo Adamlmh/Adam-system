@@ -1,7 +1,6 @@
 const db = require("../models");
 
 const User = db.user;
-const Op = db.Sequelize.Op;
 const { generateToken } = require("../utils/users");
 const secretKey = "m8F2Gf7$0lK3@uP1jR6^aS5#dH9&yT4"; // 一个长度为 32 字符的随机生成的密钥
 // 注册模块

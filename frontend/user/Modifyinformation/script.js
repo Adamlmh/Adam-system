@@ -41,9 +41,7 @@ inputFire.addEventListener("change", handleFileSelect);
 // }
 
 //提交基础数据
-document
-  .querySelector("#basicDataBtn")
-  .addEventListener("click", submitBasicDataForm);
+$.get("#basicDataBtn").addEventListener("click", submitBasicDataForm);
 function submitBasicDataForm() {
   const name = $.get("#name").value;
   const email = $.get("#email").value;
@@ -75,9 +73,7 @@ function submitBasicDataForm() {
     });
 }
 //个人简介提交
-document
-  .querySelector("#introductionBtn")
-  .addEventListener("click", submitProfileForm);
+$.get("#introductionBtn").addEventListener("click", submitProfileForm);
 function submitProfileForm() {
   const introduction = $.get("#introduction").value;
   customFetch(
@@ -117,6 +113,7 @@ oldPassword.addEventListener("blur", function () {
     passwordBtn.disabled = false;
   }
 });
+
 REnewPassword.addEventListener("blur", function () {
   if (newPassword.value !== REnewPassword.value) {
     REnewPassword.nextElementSibling.style.display = "block";
@@ -128,9 +125,7 @@ REnewPassword.addEventListener("blur", function () {
     passwordBtn.disabled = false;
   }
 });
-document
-  .querySelector("#passwordBtn")
-  .addEventListener("click", submitpasswordForm);
+$.get("#passwordBtn").addEventListener("click", submitpasswordForm);
 function submitpasswordForm() {
   const password = $.get("#REnewPassword").value;
   customFetch(

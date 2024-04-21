@@ -204,8 +204,6 @@
   margin: 1% auto;
 }
 form {
-  width: 60%;
-  margin-left: 25%;
   box-sizing: border-box;
 }
 .top_route_item_active {
@@ -268,19 +266,17 @@ form {
 }
 .right_form_container {
   display: flex;
-  width: 65%;
+  width: 50%;
 }
 .right_form_container_item {
-  margin-bottom: 24px;
+  margin-bottom: 40px;
   display: flex;
   width: 100%;
-  max-height: 36px;
 }
 .right_form_container_item_lable {
   display: flex;
   align-items: center;
   text-align: end;
-  height: 36px;
   width: 100%;
 }
 .form_item_required {
@@ -308,7 +304,6 @@ form {
   flex: 1 1 0%;
   min-height: 32px;
   display: flex;
-  align-items: center;
 }
 .form_item_control_input {
   display: inline-flex;
@@ -348,7 +343,7 @@ form {
   align-items: center;
 }
 .container_left_item_body_input_content {
-  width: 90%;
+  width: 70%;
   text-overflow: ellipsis;
   border: 1px solid #d9d9d9;
   border-radius: 6px;
@@ -385,9 +380,9 @@ form {
 .alertSpan {
   position: absolute;
   top: 100%;
-  left: 0;
   color: #ff5630;
   display: none;
+  white-space: nowrap;
 }
 .bgcolor {
   background-color: var(--primary-color);

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>个人中心</title>
+    <title>提出意见</title>
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="../../css/global.css" />
@@ -186,158 +186,329 @@
         </header>
         <main class="layout_content" id="mainContent">
           <!-- 个人中心页面 -->
-          <div class="card boxShadow">
-            <div class="card_cover">
-              <div class="user_info">
-                <div class="avatar">
-                  <img src="../../images/avatar.jpg" alt="../../images/avatar.jpg" />
-                </div>
-                <div class="info">
-                  <h3 id="name">Adam</h3>
-                  <span style="opacity: 0.7" id="group">前端组</span>
-                </div>
-              </div>
-            </div>
-            <div class="card_body">
-              <div class="card_group">
-                <label class="card_item" for="Gallry">
-                  <input type="radio" name="card_item" checked id="Gallry" />
-                  <div class="card_item_label">
-                    <span class="iconfont icon-gallery biggr"></span>
-                    <span>Gallry</span>
-                  </div>
-                </label>
-                <label class="card_item" for="Frinds">
-                  <input type="radio" name="card_item" checked id="Frinds" />
-                  <div class="card_item_label">
-                    <span class="iconfont icon-follow_s biggr"></span>
-                    <span>Frinds</span>
-                  </div>
-                </label>
-                <label class="card_item" for="Followrs">
-                  <input type="radio" name="card_item" checked id="Followrs" />
-                  <div class="card_item_label">
-                    <span class="iconfont icon-follow_solid biggr"></span>
-                    <span>Followrs</span>
-                  </div>
-                </label>
-                <label class="card_item card_item_label_slected" for="Profile">
-                  <input type="radio" name="card_item" checked id="Profile" />
-                  <div class="card_item_label">
-                    <span class="iconfont icon-profile2 biggr"></span>
-                    <span>Profile</span>
-                  </div>
-                </label>
-              </div>
-            </div>
-          </div>
           <div class="content_detail">
-            <div class="container">
-              <div class="container_left">
-                <div class="container_left_item boxShadow">
-                  <div class="container_left_item_body" style="padding: 20px">
-                    <div class="container_left_item_Follower">
-                      <div class="footer">
-                        <span class="typography_secondary">Followr</span>
-                        <h5>12K</h5>
-                      </div>
-                      <div class="divider_vertical"></div>
-                      <div class="footer">
-                        <span class="typography_secondary">Following</span>
-                        <h5>112K</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="container_left_item boxShadow">
-                  <div class="container_left_item_head">
-                    <div class="container_left_item_head_title">关于我</div>
-                  </div>
-                  <div class="container_left_item_body" style="padding: 20px">
-                    <span class="typography_secondary" id="introduction"
-                      >如果给你寄一本书， 我不会寄给你诗歌，
-                      我要给你一本关于植物，关于庄稼的，
-                      告诉你稻子和稗子的区别，
-                      告诉你一棵稗子提心吊胆的春天。</span
-                    >
-                    <div class="spin_container">
-                      <ul class="list_items">
-                        <li class="list_item">
-                          <div class="list_item_meta">
-                            <span
-                              class="list_item_meta_icon iconfont icon-nianji"
-                            ></span>
-                            <span class="list_item_meta_content" id="grade">大一</span>
+            <div class="container boxShadow" style="padding: 20px;">
+              <form action="">
+                                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="ID"
+                                >用户ID</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="这是你的ID"
+                                    maxlength="30"
+                                    value="1"
+                                    class="form_input"
+                                    readonly="true"
+                                    
+                                    id="uploaderId"
+                                  />
+                                </span>
+                              </div>
+                            </div>
                           </div>
-                        </li>
-                        <li class="list_item">
-                          <div class="list_item_meta">
-                            <span
-                              class="list_item_meta_icon iconfont icon-zhuanyezhishijineng"
-                            ></span>
-                            <span class="list_item_meta_content" id="major"
-                              >计算机专业</span
-                            >
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="昵称"
+                                >昵称</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入昵称"
+                                    maxlength="30"
+                                    id="uploaderName"
+                                    value="Adam"
+                                    class="form_input"
+                                    readonly
+                                  />
+                                </span>
+                              </div>
+                            </div>
                           </div>
-                        </li>
-                        <li class="list_item">
-                          <div class="list_item_meta">
-                            <span
-                              class="list_item_meta_icon iconfont icon-youxiang"
-                            ></span>
-                            <span class="list_item_meta_content" id="email"
-                              >adamlmh@gmail.com</span
-                            >
+                        </div>
+                                                <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="组别"
+                                >组别</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="这是你的组别"
+                                    maxlength="30"
+                                    value="前端组"
+                                    class="form_input"
+                                    readonly="true"
+                                    
+                                    id="uploaderGroup"
+                                    
+                                  />
+                                </span>
+                              </div>
+                            </div>
                           </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="container_left_item boxShadow">
-                  <div class="container_left_item_head">
-                    <div class="container_left_item_head_title">社交</div>
-                  </div>
-                  <div class="container_left_item_body" style="padding: 20px">
-                    <div class="spin_container">
-                      <ul class="list_items">
-                        <li class="list_item">
-                          <div class="list_item_meta">
-                            <span
-                              class="list_item_meta_icon iconfont icon-GitHub"
-                            ></span>
-                            <span class="list_item_meta_content"
-                              >https://github.com/Adamlmh</span
-                            >
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="审核状态"
+                                >审核状态</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入你的会议状态"
+                                    maxlength="30"
+                                    id="status"
+                                    value="待审核"
+                                    class="form_input"
+                                    readonly
+                                  />
+                                </span>
+                              </div>
+                            </div>
                           </div>
-                        </li>
-                        <li class="list_item">
-                          <div class="list_item_meta">
-                            <span
-                              class="list_item_meta_icon iconfont icon-weixin"
-                            ></span>
-                            <span class="list_item_meta_content"
-                              >qjk813813</span
-                            >
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="会议主题"
+                                >会议主题</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入会议主题"
+                                    maxlength="30"
+                                    id="meetingTopic"
+                                    value=""
+                                    class="form_input"
+                                    required
+                                  />
+                                </span>
+                              </div>
+                            </div>
                           </div>
-                        </li>
-                        <li class="list_item">
-                          <div class="list_item_meta">
-                            <span
-                              class="list_item_meta_icon iconfont icon-QQ"
-                            ></span>
-                            <span class="list_item_meta_content"
-                              >1848753122</span
-                            >
+                        </div>
+
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="会议时间"
+                                >会议时间</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input relative">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入会议时间(2024/01/01)"
+                                    maxlength="30"
+                                    id="meetingTime"
+                                    value=""
+                                    class="form_input"
+                                    required
+                                  />
+                                <span class="alertSpan" id="meetingTimeIncorrect"
+                                  >日期格式需要（xxxx/xx/xx），如:(2024/04/21)格式噢!</span
+                                >
+                              </span>
+                                </span>
+                              </div>
+                            </div>
                           </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="标签一"
+                                >标签一</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入标签一"
+                                    maxlength="30"
+                                    id="tag1"
+                                    value=""
+                                    class="form_input"
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="标签二"
+                                >标签二</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入标签二"
+                                    maxlength="30"
+                                    value=""
+                                    class="form_input"
+                                   id="tag2"
+                  
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="标签三"
+                                >标签三</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入标签三"
+                                    maxlength="30"
+                                    value=""
+                                    class="form_input"
+                                   id="tag3"
+                                  name="tag3"
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+              <div class="item_input_content" style="margin-left: 65px;">
+                <input
+                  id="bangong"
+                  type="radio"
+                  checked
+                  name="meetingType"
+                  value="办公"
+                />
+                <label for="bangong" style="margin-right: 30px"
+                  >办公</label
+                >
+                <input id="kangle" type="radio" name="meetingType" value="康乐" />
+                <label for="kangle">康乐</label>
               </div>
-              <div class="container_right"></div>
-            </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="文本内容"
+                                >文本内容</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input type="file" >
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                <div class="container_left_item ">
+                  <div class="container_left_item_body" style="padding: 20px">
+                    <div class="upload">
+                      <span class="upload_span">
+                        <input
+                          type="file"
+                          accept=".jpg, .jpeg, .gif, .png, .bmp"
+                          style="display: none"
+                        />
+                        <div class="upload_container">
+                          <div class="add_box">
+                            <div class="add">
+                              <span
+                                class="iconfont icon-touxiang"
+                                style="
+                                  width: 30px;
+                                  height: 30px;
+                                  margin-left: 5px;
+                                "
+                              ></span>
+                              <span>会议图片</span>
+                            </div>
+                          </div>
+                          <p class="upload_hint">
+                            只能上传jpg、jpeg、gif、png、bmp文件, 且不超过500kb
+                          </p>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="right_form_submit">
+                      <button
+                        type="button"
+                        class="right_form_submit_btn"
+                        id="contentDataBtn"
+                      >
+                        <span style="margin-top: 30px;">提交</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
           </div>
         </main>
       </div>

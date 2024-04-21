@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>个人中心</title>
+    <title>提交纪要</title>
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="../../css/global.css" />
@@ -188,7 +188,7 @@
           <!-- 个人中心页面 -->
           <div class="content_detail">
             <div class="container boxShadow" style="padding: 20px;">
-              <form action="">
+              <form action="" style="margin-top: 20px;">
                                         <div class="right_form_container">
                           <div class="right_form_container_item">
                             <div class="right_form_container_item_lable">
@@ -276,8 +276,8 @@
                               <label
                                 for="input"
                                 class="form_item_required"
-                                title="会议状态"
-                                >会议状态</label
+                                title="审核状态"
+                                >审核状态</label
                               >
                               <div class="form_item_control">
                                 <span class="form_item_control_input">
@@ -315,6 +315,7 @@
                                     id="meetingTopic"
                                     value=""
                                     class="form_input"
+                                    required
                                   />
                                 </span>
                               </div>
@@ -332,7 +333,7 @@
                                 >会议时间</label
                               >
                               <div class="form_item_control">
-                                <span class="form_item_control_input">
+                                <span class="form_item_control_input relative">
                                   <input
                                     type="text"
                                     aria-required="true"
@@ -341,7 +342,12 @@
                                     id="meetingTime"
                                     value=""
                                     class="form_input"
+                                    required
                                   />
+                                <span class="alertSpan" id="meetingTimeIncorrect"
+                                  >日期格式需要（xxxx/xx/xx），如:(2024/04/21)格式噢!</span
+                                >
+                              </span>
                                 </span>
                               </div>
                             </div>
@@ -390,7 +396,7 @@
                                     maxlength="30"
                                     value=""
                                     class="form_input"
-                                   
+                                   id="tag2"
                   
                                   />
                                 </span>
@@ -416,8 +422,8 @@
                                     maxlength="30"
                                     value=""
                                     class="form_input"
-                                   
-    
+                                   id="tag3"
+                                  name="tag3"
                                   />
                                 </span>
                               </div>
@@ -445,23 +451,50 @@
                             
                           </div>
                         </div>
+                        <div class="right_form_container" style="width: 100%;">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable" style="flex-direction: column; align-items: flex-start; gap: 20px;">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="会议内容"
+                                style="font-size: large;"
+                                >会议内容</label
+                              >
+                              <div class="form_item_control" style="width: 100%; justify-content: center;">
+                      <div class="container_left_item_body_input">
+                        <textarea
+                          name=""
+                          id="meetingContent"
+                          rows="12"
+                          placeholder="请输入内容"
+                          maxlength="200"
+                          class="container_left_item_body_input_content"
+      
+                        ></textarea>
+                      </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                         <div class="right_form_container">
                           <div class="right_form_container_item">
                             <div class="right_form_container_item_lable">
                               <label
                                 for="input"
                                 class="form_item_required"
-                                title="文本内容"
-                                >文本内容</label
+                                title="个人纪要"
+                                >个人纪要</label
                               >
                               <div class="form_item_control">
                                 <span class="form_item_control_input">
-                                  <input type="file">
+                                  <input type="file" >
                                 </span>
                               </div>
                             </div>
                           </div>
                         </div>
+                        <div class="right_form_container">
                 <div class="container_left_item ">
                   <div class="container_left_item_body" style="padding: 20px">
                     <div class="upload">
@@ -495,13 +528,15 @@
                       <button
                         type="button"
                         class="right_form_submit_btn"
-                        id="avatarDataBtn"
+                        id="contentDataBtn"
                       >
                         <span style="margin-top: 30px;">提交</span>
                       </button>
                     </div>
                   </div>
                 </div>
+                        </div>
+
               </form>
           </div>
         </main>

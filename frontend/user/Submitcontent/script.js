@@ -1,3 +1,16 @@
+//发请求渲染页面
+function render() {
+  customFetch(
+    `http://localhost:8080/api/private/Personalcenter/${localStorage.getItem(
+      "id"
+    )}`
+  ).then((data) => {
+    $.get("#uploaderId").value = data.userId;
+    $.get("#uploaderGroup").value = data.group;
+    $.get("#uploaderName").value = data.name;
+  });
+}
+render();
 // 点击隐藏的文件上传输入框  处理上传头像内容
 const inputFire = $.get('input[type="file"]');
 function triggerFileInput() {
@@ -21,3 +34,74 @@ function handleFileSelect(event) {
   reader.readAsDataURL(file); // 将文件读取为Data URL
 }
 inputFire.addEventListener("change", handleFileSelect);
+//会议纪要提交
+const contentDataBtn = $.get("#contentDataBtn");
+contentDataBtn.addEventListener("click", submitForm);
+function submitForm() {
+  var formData = getFormData();
+  console.log(formData);
+  // 发送数据到后端或进行其他操作
+  customFetch(`http://localhost:8080/api/private/MeetingMinutes`, {
+    method: "POST",
+    body: JSON.stringify(formData),
+  })
+    .then((data) => {
+      alert(`${data.message}`);
+      // 清空表单中文本类型输入框的值
+      clearTextInputs();
+      render();
+    })
+    .catch((error) => {
+      console.error("发送数据至后端失败:", error);
+      // 在这里处理错误情况
+    });
+}
+// 获取表单所有输入框的值
+function getFormData() {
+  var formData = {};
+
+  // 获取文本输入框的值
+  var textInputs = document.querySelectorAll('input[type="text"]');
+  textInputs.forEach(function (input) {
+    formData[input.id] = input.value;
+  });
+
+  // 获取单选框的值
+  var radioInputs = document.querySelectorAll('input[type="radio"]:checked');
+  radioInputs.forEach(function (input) {
+    formData[input.name] = input.value;
+  });
+  // 获取textarea的值
+  var textareas = document.querySelectorAll("textarea");
+  textareas.forEach(function (textarea) {
+    formData[textarea.id] = textarea.value;
+  });
+  return formData;
+}
+//日期输入检测
+const meetingTime = $.get("#meetingTime");
+meetingTime.addEventListener("blur", function () {
+  // 定义日期格式的正则表达式
+  var datePattern = /^\d{4}\/(?:0[1-9]|1[0-2])\/(?:0[1-9]|[12][0-9]|3[01])$/;
+
+  // 使用正则表达式进行匹配
+  if (datePattern.test(meetingTime.value)) {
+    meetingTime.nextElementSibling.style.display = "none";
+    meetingTime.parentNode.classList.remove("red");
+    contentDataBtn.disabled = false;
+  } else {
+    meetingTime.nextElementSibling.style.display = "block";
+    meetingTime.parentNode.classList.add("red");
+    contentDataBtn.disabled = true;
+  }
+});
+//提交后清空输入框
+// 清空表单中文本类型输入框的值
+function clearTextInputs() {
+  // 获取所有文本类型输入框
+  var textInputs = document.querySelectorAll('input[type="text"]');
+  // 遍历所有文本类型输入框，将值设为空字符串
+  textInputs.forEach(function (input) {
+    input.value = "";
+  });
+}
