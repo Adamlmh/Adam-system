@@ -56,28 +56,7 @@ function submitForm() {
       // 在这里处理错误情况
     });
 }
-// 获取表单所有输入框的值
-function getFormData() {
-  var formData = {};
 
-  // 获取文本输入框的值
-  var textInputs = document.querySelectorAll('input[type="text"]');
-  textInputs.forEach(function (input) {
-    formData[input.id] = input.value;
-  });
-
-  // 获取单选框的值
-  var radioInputs = document.querySelectorAll('input[type="radio"]:checked');
-  radioInputs.forEach(function (input) {
-    formData[input.name] = input.value;
-  });
-  // 获取textarea的值
-  var textareas = document.querySelectorAll("textarea");
-  textareas.forEach(function (textarea) {
-    formData[textarea.id] = textarea.value;
-  });
-  return formData;
-}
 //日期输入检测
 const meetingTime = $.get("#meetingTime");
 meetingTime.addEventListener("blur", function () {
@@ -95,13 +74,3 @@ meetingTime.addEventListener("blur", function () {
     contentDataBtn.disabled = true;
   }
 });
-//提交后清空输入框
-// 清空表单中文本类型输入框的值
-function clearTextInputs() {
-  // 获取所有文本类型输入框
-  var textInputs = document.querySelectorAll('input[type="text"]');
-  // 遍历所有文本类型输入框，将值设为空字符串
-  textInputs.forEach(function (input) {
-    input.value = "";
-  });
-}

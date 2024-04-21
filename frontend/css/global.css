@@ -1,12 +1,12 @@
 @charset "UTF-8";
-:root{
+:root {
   /* 主题颜色 */
   --primary-color: #00a76f;
   /* 弹窗颜色 */
   /* 成功绿色 #CFE5DD 失败红色 #FADAD8 */
-  --alert-color:#FADAD8;
+  --alert-color: #fadad8;
   --background-color: #cfe6da;
-    /* 计算背景颜色 */
+  /* 计算背景颜色 */
 }
 /*css 初始化 */
 * {
@@ -65,7 +65,6 @@ table {
   border-collapse: collapse;
 }
 
-
 /*start:清除浮动【推荐此方式进行清除浮动】。左浮动和右浮动都清除了，盒子刚好达到闭合的状态*/
 .clearfix:before,
 .clearfix:after {
@@ -112,13 +111,12 @@ em {
 
 /*去掉i标签和em的斜体，取消s标签的删除线*/
 
-
 /* 自制弹窗样式 */
-.alert{
+.alert {
   position: absolute;
-top: 2%;
-left: 50%;
-transform: translateX(-50%);
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 400px;
   height: 100px;
   background-color: var(--alert-color);
@@ -128,16 +126,16 @@ transform: translateX(-50%);
   text-align: center;
   line-height: 100px;
   font-weight: bolder;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3)
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* 浅字体 */
-.typography_secondary{
+.typography_secondary {
   color: rgba(0, 0, 0, 0.45);
 }
 
 /* 自定h5 */
-h5{
+h5 {
   color: rgba(0, 0, 0, 0.88);
   font-weight: 600;
   font-size: 16px;
@@ -145,7 +143,196 @@ h5{
 }
 
 /* 竖直分割线 */
-.divider_vertical{
+.divider_vertical {
   height: auto;
-  border-inline-start:1px solid rgba(5, 5, 5, 0.06) ;
+  border-inline-start: 1px solid rgba(5, 5, 5, 0.06);
+}
+
+/* 主页面公共样式 */
+@import url(../../css/global.css);
+/* 引入阿里巴巴矢量库 */
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: bolder;
+  margin-inline-end: 8px;
+}
+
+/* 共同样式 */
+.layout {
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+  line-height: 1.5714285714285714;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+.layout_leftside {
+  flex: 0 0 240px;
+  height: 100vh;
+  border-inline-end: 1px solid rgba(5, 5, 5, 0.06);
+  margin-inline-end: -1px;
+  background-color: #fff;
+}
+.layout_rightside {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  /* width: 0px; */
+}
+.layout_header {
+  display: flex;
+  flex: 0 0 auto;
+  height: auto;
+  line-height: 64px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03),
+    0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+}
+.side_children {
+  height: 100vh;
+}
+.anticon {
+  display: flex;
+  column-gap: 10px;
+  height: 48px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+.logoIcon {
+  width: 30px;
+  height: 30px;
+  background-image: url(../../images/favicon.ico);
+  background-size: contain;
+}
+.logoName {
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 32px;
+  letter-spacing: 1px;
+}
+.menu_item {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  margin-inline: 4px;
+  margin-block: 4px;
+  width: calc(100%-8px);
+  border-radius: 8px;
+  font-weight: 550;
+  cursor: pointer;
+}
+/* margin-inline-start */
+.menu_item_active_color {
+  background-color: var(--background-color) !important;
+  color: var(--primary-color);
+  border: 1px solid #d9d9d9;
+}
+.menu_item:hover {
+  background-color: #d9d9d9;
+}
+.layout_header {
+  display: flex;
+  flex-direction: column;
+}
+.header_top {
+  padding: 0px 12px;
+  display: flex;
+  justify-content: space-between;
+}
+.top_left {
+  display: flex;
+  align-items: center;
+}
+.top_right {
+  display: flex;
+  column-gap: 16px;
+  align-items: center;
+}
+.top_right_item {
+  display: flex;
+  align-items: center;
+}
+.btn {
+  width: 32px;
+  height: 24px;
+  border: 1px solid #d9d9d9;
+  background-color: #fff;
+  box-shadow: 0 2px 0 rgb(0, 0, 0, 0.02);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.top_route {
+  /* position: relative; */
+  width: calc(100%-75px);
+  height: 24px;
+  display: flex;
+  align-items: center;
+  min-width: 640px;
+}
+.top_route_item {
+  color: #fff;
+  background-color: var(--background-color);
+  margin: 0 4px;
+  padding: 0 10px;
+  border-radius: 3px;
+  line-height: 24px;
+  cursor: pointer;
+}
+.top_route_item_active {
+  background-color: var(--primary-color);
+}
+.top_route_item_dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.header_bottom {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0 10px;
+}
+.bottom_right_item {
+  display: flex;
+  align-items: center;
+}
+.icon-sanhengxian {
+  font-size: 20px !important;
+  color: var(--primary-color);
+}
+.icon-hongdian {
+  color: #ff3030;
+}
+.icon-landian-SVG {
+  color: #078dee;
+}
+.icon-lvdian {
+  color: #00a76f;
+}
+.icon-huangdian {
+  color: #fda92d;
+}
+.colorSelect {
+  display: inline-flex;
+}
+
+.layout_content {
+  flex: 1 1 auto;
+  padding: 20px;
+  overflow-x: hidden;
 }
