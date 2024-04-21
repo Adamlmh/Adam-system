@@ -22,23 +22,33 @@ function handleFileSelect(event) {
 }
 inputFire.addEventListener("change", handleFileSelect);
 //上传头像
-// $.get("#avatarDataBtn").addEventListener("click", submitFileSelect);
-// function submitFileSelect(event) {
-//   const file = inputFire.files[0]; // 获取上传的文件
-//   const formData = new FormData();
-//   formData.append("file", file);
+$.get("#avatarDataBtn").addEventListener("click", submitFileSelect);
+function submitFileSelect(event) {
+  const file = inputFire.files[0]; // 获取上传的文件
 
-//   customFetch(`http://localhost:8080/api/upload`, {
-//     method: "POST",
-//     body: formData,
-//   })
-//     .then((data) => {
-//       alert(`${data.message}`);
-//     })
-//     .catch((error) => {
-//       console.error("上传出错：", error);
-//     });
-// }
+  const reader = new FileReader();
+
+  reader.onload = function (event) {
+    const avatar = event.target.result; // 获取 base64 格式的数据部分
+    customFetch(
+      `http://localhost:8080/api/private/Modifyinformation/${localStorage.getItem(
+        "id"
+      )}`,
+      {
+        method: "POST",
+        body: JSON.stringify({ avatar }),
+      }
+    )
+      .then((data) => {
+        alert(`${data.message}`);
+      })
+      .catch((error) => {
+        console.error("上传出错：", error);
+      });
+  };
+
+  reader.readAsDataURL(file);
+}
 
 //提交基础数据
 $.get("#basicDataBtn").addEventListener("click", submitBasicDataForm);

@@ -129,13 +129,7 @@ exports.update = (req, res) => {
   if (req.body.major) updateFields.major = req.body.major;
   if (req.body.introduction) updateFields.introduction = req.body.introduction;
   if (req.body.email) updateFields.email = req.body.email;
-  if (req.body.avatar) {
-    // 将 base64 编码的字符串转换为 Buffer 对象
-    const avatarData = Buffer.from(req.body.avatar, "base64");
-    updateFields.avatar = db.sequelize.literal(
-      "X'" + avatarData.toString("hex") + "'"
-    );
-  }
+  if (req.body.avatar) updateFields.avatar = req.body.avatar;
   db.user
     .update(updateFields, {
       where: { userId: id },

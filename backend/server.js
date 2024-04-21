@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, "..", "frontend")));
 console.log(path.join(__dirname, "frontend"));
 
 const bodyParser = require("body-parser");
-
+app.use(bodyParser.json({ limit: "50mb" }));
 //解决跨域
 app.use(cors());
 // 设置跨域和相应数据格式

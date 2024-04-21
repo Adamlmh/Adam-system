@@ -30,6 +30,7 @@ function customFetch(url, options = {}) {
     const params = new URLSearchParams(requestOptions.params);
     requestUrl += "?" + params.toString();
   }
+  debugger;
 
   // 发起请求
   return fetch(requestUrl, requestOptions)
