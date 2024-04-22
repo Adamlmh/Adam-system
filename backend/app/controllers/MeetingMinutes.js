@@ -47,3 +47,21 @@ exports.getData = (req, res) => {
       });
     });
 };
+
+//查询近五条
+
+exports.getFiveData = (req, res) => {
+  MeetingMinutes.findAll({
+    order: [["minutesId", "DESC"]], // 按照 uploaderId 降序排序
+    limit: 5, // 限制结果数量为 5
+  })
+    .then((data) => {
+      console.log(data);
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message,
+      });
+    });
+};

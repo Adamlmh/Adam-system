@@ -5,8 +5,9 @@ module.exports = (app) => {
 
   // 提交
   router.post("/", MeetingMinutes.create);
-
-  // 查询
+  // 获取最近五条信息
+  router.get("/getFiveData:id", MeetingMinutes.getFiveData);
+  // // 查询
   router.get("/:id", MeetingMinutes.getData);
 
   app.use("/api/private/MeetingMinutes", router);

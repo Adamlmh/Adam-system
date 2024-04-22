@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>个人中心</title>
+    <title>全部会议</title>
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="../../css/global.css" />
@@ -186,158 +186,72 @@
         </header>
         <main class="layout_content" id="mainContent">
           <!-- 个人中心页面 -->
-          <div class="card boxShadow">
-            <div class="card_cover">
+          <div class="content_detail" >
+            <div class="container boxShadow " style="padding: 20px;">
+              <div class="card_head">
+                <div class="card_head_wrapper">
+                  <div class="card_head_title">
+                    <div class="content">
               <div class="user_info">
-                <div class="avatar">
-                  <img src="../../images/avatar.jpg" alt="../../images/avatar.jpg" />
+                <div class="avatar" >
                 </div>
                 <div class="info">
                   <h3 id="name">Adam</h3>
-                  <span style="opacity: 0.7" id="group">前端组</span>
+                  <span  id="group" >前端组</span>
+                <span>2024/04/22</span>
+                </div>
+  
+              </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="card_body">
-              <div class="card_group">
-                <label class="card_item" for="Gallry">
-                  <input type="radio" name="card_item" checked id="Gallry" />
-                  <div class="card_item_label">
-                    <span class="iconfont icon-gallery biggr"></span>
-                    <span>Gallry</span>
-                  </div>
-                </label>
-                <label class="card_item" for="Frinds">
-                  <input type="radio" name="card_item" checked id="Frinds" />
-                  <div class="card_item_label">
-                    <span class="iconfont icon-follow_s biggr"></span>
-                    <span>Frinds</span>
-                  </div>
-                </label>
-                <label class="card_item" for="Followrs">
-                  <input type="radio" name="card_item" checked id="Followrs" />
-                  <div class="card_item_label">
-                    <span class="iconfont icon-follow_solid biggr"></span>
-                    <span>Followrs</span>
-                  </div>
-                </label>
-                <label class="card_item card_item_label_slected" for="Profile">
-                  <input type="radio" name="card_item" checked id="Profile" />
-                  <div class="card_item_label">
-                    <span class="iconfont icon-profile2 biggr"></span>
-                    <span>Profile</span>
-                  </div>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="content_detail">
-            <div class="container">
-              <div class="container_left">
-                <div class="container_left_item boxShadow">
-                  <div class="container_left_item_body" style="padding: 20px">
-                    <div class="container_left_item_Follower">
-                      <div class="footer">
-                        <span class="typography_secondary">Followr</span>
-                        <h5>12K</h5>
+              <div class="card_body">
+                <div class="card_body_content">
+                  <h1>会议主题</h1>
+                  <span>会议内容</span>
+                <div class="meetingPhoto" >
+                </div>
+                  <div class="card_body_content_function">
+                    <div class="card_body_content_function_left">
+                      <div class="card_body_content_function_left_left">
+                      <span>❤</span>
+                      <span>3</span>
                       </div>
-                      <div class="divider_vertical"></div>
-                      <div class="footer">
-                        <span class="typography_secondary">Following</span>
-                        <h5>112K</h5>
+                  <div class="card_body_content_function_left_right">
+                    <div class="touxiangClass" style="background-image: url(../../images/avatar_4-2497c77c.jpg);"></div>
+                    <div class="touxiangClass" style="background-image: url(../../images/38.jpg); margin-left: -8px;"></div>
+                    <div class="touxiangClass touxiangColor" style="margin-left: -8px; display: flex; justify-content: center;align-items: center;"><span>+1</span></div>
+                  </div>
+                    </div>
+                    <div class="card_body_content_function_right">
+                      <span>评论</span>
+                      <span>分享</span>
+                    </div>
+                  </div>
+                  <div class="card_body_content_comment">
+                    <div class="touxiangClass" style="background-image: url(../../images/avatar_4-2497c77c.jpg);"></div>
+                    <div class="message_content">
+                      <div class="message_content_header">
+                        <h5>名字</h5>
+                        <span>时间</span>
                       </div>
+                      <span class="message_content_header_span">做普通人，干正经事，可以爱小钱，但必有大胸怀。</span>
                     </div>
                   </div>
-                </div>
-                <div class="container_left_item boxShadow">
-                  <div class="container_left_item_head">
-                    <div class="container_left_item_head_title">关于我</div>
+                  <div class="card_body_content_input">
+                    <div class="touxiangClass" style="background-image: url(../../images/avatar_4-2497c77c.jpg);"></div>
+                  <div class="send_content">
+                    <span class="send_content_input">
+                      <input type="text" name="" id="" placeholder="请在这里输入你的评论" style="padding: 0; text-overflow: ellipsis; width: 88%; font-size: 15px;">
+                      <span>发送</span>
+                      <span>图片</span>
+                      <span>表情</span>
+                    </span>
                   </div>
-                  <div class="container_left_item_body" style="padding: 20px">
-                    <span class="typography_secondary" id="introduction"
-                      >如果给你寄一本书， 我不会寄给你诗歌，
-                      我要给你一本关于植物，关于庄稼的，
-                      告诉你稻子和稗子的区别，
-                      告诉你一棵稗子提心吊胆的春天。</span
-                    >
-                    <div class="spin_container">
-                      <ul class="list_items">
-                        <li class="list_item">
-                          <div class="list_item_meta">
-                            <span
-                              class="list_item_meta_icon iconfont icon-nianji"
-                            ></span>
-                            <span class="list_item_meta_content" id="grade">大一</span>
-                          </div>
-                        </li>
-                        <li class="list_item">
-                          <div class="list_item_meta">
-                            <span
-                              class="list_item_meta_icon iconfont icon-zhuanyezhishijineng"
-                            ></span>
-                            <span class="list_item_meta_content" id="major"
-                              >计算机专业</span
-                            >
-                          </div>
-                        </li>
-                        <li class="list_item">
-                          <div class="list_item_meta">
-                            <span
-                              class="list_item_meta_icon iconfont icon-youxiang"
-                            ></span>
-                            <span class="list_item_meta_content" id="email"
-                              >adamlmh@gmail.com</span
-                            >
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="container_left_item boxShadow">
-                  <div class="container_left_item_head">
-                    <div class="container_left_item_head_title">社交</div>
-                  </div>
-                  <div class="container_left_item_body" style="padding: 20px">
-                    <div class="spin_container">
-                      <ul class="list_items">
-                        <li class="list_item">
-                          <div class="list_item_meta">
-                            <span
-                              class="list_item_meta_icon iconfont icon-GitHub"
-                            ></span>
-                            <span class="list_item_meta_content"
-                              >https://github.com/Adamlmh</span
-                            >
-                          </div>
-                        </li>
-                        <li class="list_item">
-                          <div class="list_item_meta">
-                            <span
-                              class="list_item_meta_icon iconfont icon-weixin"
-                            ></span>
-                            <span class="list_item_meta_content"
-                              >qjk813813</span
-                            >
-                          </div>
-                        </li>
-                        <li class="list_item">
-                          <div class="list_item_meta">
-                            <span
-                              class="list_item_meta_icon iconfont icon-QQ"
-                            ></span>
-                            <span class="list_item_meta_content"
-                              >1848753122</span
-                            >
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
                   </div>
                 </div>
               </div>
-              <div class="container_right"></div>
-            </div>
           </div>
         </main>
       </div>

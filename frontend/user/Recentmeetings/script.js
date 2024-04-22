@@ -1,4 +1,4 @@
-window.onload = function () {
+const render = function (data) {
   //自动下一个
   let timer = setInterval(get_next, 3000);
   //动态创建图片
@@ -9,7 +9,7 @@ window.onload = function () {
     var cur_li = document.createElement("li");
     var cur_img = document.createElement("img");
 
-    cur_img.src = "../../images/" + i + ".jpg";
+    cur_img.src = `${data[i - 1].meetingPhoto}`;
     cur_img.style.width = "400px";
     cur_img.style.height = "200px";
     cur_li.appendChild(cur_img);
@@ -137,3 +137,19 @@ window.onload = function () {
     }
   }
 };
+
+//拿最近五条数据
+//渲染右边页面
+//渲染右边页面
+customFetch(
+  `http://localhost:8080/api/private/MeetingMinutes/getFiveData${localStorage.getItem(
+    "id"
+  )}`
+).then((data) => {
+  var images = document.querySelectorAll(".slide img");
+  // 遍历图片元素并修改src属性
+  images.forEach(function (img, index) {
+    img.src = data[index].meetingPhoto;
+  });
+  render(data);
+});
