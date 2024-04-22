@@ -21,7 +21,7 @@ function handleFileSelect(event) {
   reader.readAsDataURL(file); // 将文件读取为Data URL
 }
 inputFire.addEventListener("change", handleFileSelect);
-//上传头像
+// 上传头像(base64格式无法实现高清图片上传);
 $.get("#avatarDataBtn").addEventListener("click", submitFileSelect);
 function submitFileSelect(event) {
   const file = inputFire.files[0]; // 获取上传的文件
@@ -49,6 +49,31 @@ function submitFileSelect(event) {
 
   reader.readAsDataURL(file);
 }
+
+//保存文件实现
+// $.get("#avatarDataBtn").addEventListener("click", submitFileSelect);
+
+// function submitFileSelect(event) {
+//   const file = inputFire.files[0]; // 获取上传的文件
+
+//   const formData = new FormData();
+//   formData.append("avatar", file); // 将文件添加到 FormData 对象中
+
+//   // 发送 FormData 对象到服务器
+//   customFetch(`http://localhost:8080/upload`, {
+//     method: "POST",
+//     body: formData, // 直接将 FormData 对象作为请求体
+//     headers: {
+//       "Content-Type": "multipart/form-data",
+//     },
+//   })
+//     .then((data) => {
+//       alert(`${data.message}`);
+//     })
+//     .catch((error) => {
+//       console.error("上传出错：", error);
+//     });
+// }
 
 //提交基础数据
 $.get("#basicDataBtn").addEventListener("click", submitBasicDataForm);

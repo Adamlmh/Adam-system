@@ -487,8 +487,11 @@
                                 >个人纪要</label
                               >
                               <div class="form_item_control">
-                                <span class="form_item_control_input">
-                                  <input type="file" >
+                                <span class="form_item_control_input relative">
+                                  <input type="file" id="personalMinutes" >
+                                <span class="alertSpan" id="personalMinutesIncorrect"
+                                  >请选择一个文本文件（.txt）,否则无法上传</span
+                                >
                                 </span>
                               </div>
                             </div>
@@ -503,6 +506,7 @@
                           type="file"
                           accept=".jpg, .jpeg, .gif, .png, .bmp"
                           style="display: none"
+                          id="meetingPhoto"
                         />
                         <div class="upload_container">
                           <div class="add_box">

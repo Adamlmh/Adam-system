@@ -11,14 +11,13 @@ function render() {
   });
 }
 render();
+
 // 点击隐藏的文件上传输入框  处理上传头像内容
-const inputFire = $.get('input[type="file"]');
+const inputFire = $.get("#meetingPhoto");
 function triggerFileInput() {
   inputFire.click();
 }
-document
-  .querySelector(".upload_span")
-  .addEventListener("click", triggerFileInput);
+$.get(".upload_span").addEventListener("click", triggerFileInput);
 //预览文件
 function handleFileSelect(event) {
   const file = event.target.files[0]; // 获取上传的文件
@@ -34,11 +33,37 @@ function handleFileSelect(event) {
   reader.readAsDataURL(file); // 将文件读取为Data URL
 }
 inputFire.addEventListener("change", handleFileSelect);
+// 取传入tx文件
+let personalminutes;
+
+let PersonalMinutes = $.get("#personalMinutes");
+PersonalMinutes.addEventListener("change", function (event) {
+  const file = event.target.files[0];
+  if (file.type !== "text/plain") {
+    PersonalMinutes.nextElementSibling.style.display = "block";
+    PersonalMinutes.parentNode.classList.add("red");
+    contentDataBtn.disabled = true;
+    event.preventDefault(); // 阻止默认行为（即取消文件上传）
+    return;
+  } else {
+    PersonalMinutes.nextElementSibling.style.display = "none";
+    PersonalMinutes.parentNode.classList.remove("red");
+    contentDataBtn.disabled = false;
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      personalminutes = event.target.result;
+    };
+    reader.readAsText(file);
+  }
+});
+let formData = {};
 //会议纪要提交
 const contentDataBtn = $.get("#contentDataBtn");
 contentDataBtn.addEventListener("click", submitForm);
+console.log(1);
 function submitForm() {
-  var formData = getFormData();
+  formData = getFormData(formData);
+  formData["personalMinutes"] = personalminutes;
   console.log(formData);
   // 发送数据到后端或进行其他操作
   customFetch(`http://localhost:8080/api/private/MeetingMinutes`, {

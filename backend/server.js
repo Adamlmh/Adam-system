@@ -28,6 +28,7 @@ app.all("/api/*", function (req, res, next) {
   if (req.method == "OPTIONS") res.send(200);
   /*让options请求快速返回*/ else next();
 });
+
 // 中间件 解决json字符串和对象转换
 app.use(express.json());
 

@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       personalMinutes: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING(10000),
         allowNull: true,
       },
       meetingContent: {
