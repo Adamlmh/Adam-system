@@ -477,7 +477,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="right_form_container">
+                        <div class="right_form_container "style="margin: auto;" >
                           <div class="right_form_container_item">
                             <div class="right_form_container_item_lable">
                               <label
@@ -497,9 +497,24 @@
                             </div>
                           </div>
                         </div>
-                        <div class="right_form_container">
+
+
+                        <div class="right_form_container" style="margin: auto;">
                 <div class="container_left_item ">
                   <div class="container_left_item_body" style="padding: 20px">
+
+                    <div class="right_form_submit">
+                      <button
+                        type="button"
+                        class="right_form_submit_btn"
+                        id="contentDataBtn"
+                      >
+                        <span style="margin-top: 30px;">提交</span>
+                      </button>
+                    </div>
+              </form>
+         
+                <form action="http://localhost:8080/upload" method="post" enctype="multipart/form-data"id="photoform">
                     <div class="upload">
                       <span class="upload_span">
                         <input
@@ -507,6 +522,7 @@
                           accept=".jpg, .jpeg, .gif, .png, .bmp"
                           style="display: none"
                           id="meetingPhoto"
+                          name="file"
                         />
                         <div class="upload_container">
                           <div class="add_box">
@@ -530,18 +546,20 @@
                     </div>
                     <div class="right_form_submit">
                       <button
-                        type="button"
+                        type="submit"
                         class="right_form_submit_btn"
-                        id="contentDataBtn"
+                        id="photoDataBtn"
+                        name=""
                       >
-                        <span style="margin-top: 30px;">提交</span>
+                        <span style="margin-top: 30px;">图片单独提交</span>
                       </button>
                     </div>
+                    </form>
                   </div>
                 </div>
                         </div>
 
-              </form>
+
           </div>
         </main>
       </div>

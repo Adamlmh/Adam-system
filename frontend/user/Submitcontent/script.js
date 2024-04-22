@@ -60,26 +60,26 @@ let formData = {};
 //会议纪要提交
 const contentDataBtn = $.get("#contentDataBtn");
 contentDataBtn.addEventListener("click", submitForm);
-console.log(1);
 function submitForm() {
   formData = getFormData(formData);
   formData["personalMinutes"] = personalminutes;
   console.log(formData);
-  // 发送数据到后端或进行其他操作
-  customFetch(`http://localhost:8080/api/private/MeetingMinutes`, {
-    method: "POST",
-    body: JSON.stringify(formData),
-  })
-    .then((data) => {
-      alert(`${data.message}`);
-      // 清空表单中文本类型输入框的值
-      clearTextInputs();
-      render();
-    })
-    .catch((error) => {
-      console.error("发送数据至后端失败:", error);
-      // 在这里处理错误情况
-    });
+  // 发送数据到后端或进行其他操作;
+  // customFetch(`http://localhost:8080/api/private/MeetingMinutes`, {
+  //   method: "POST",
+  //   body: JSON.stringify(formData),
+  // })
+  //   .then((data) => {
+  //     alert(`${data.message}`);
+  //     // 清空表单中文本类型输入框的值
+  //     clearTextInputs();
+  //     render();
+  //   })
+  //   .catch((error) => {
+  //     console.error("发送数据至后端失败:", error);
+  //     // 在这里处理错误情况
+  //   });
+  alert("请继续完成图片上传后才正式提交到数据库");
 }
 
 //日期输入检测
@@ -98,4 +98,43 @@ meetingTime.addEventListener("blur", function () {
     meetingTime.parentNode.classList.add("red");
     contentDataBtn.disabled = true;
   }
+});
+
+//会议图片提交
+// 添加提交事件监听器
+$.get("#photoform").addEventListener("submit", function (event) {
+  event.preventDefault(); // 阻止表单默认提交行为
+
+  const FOrmData = new FormData($.get("#photoform")); // 创建 FormData 对象并将表单元素传递给它
+
+  // 发送 FormData 对象到服务器
+  fetch("http://localhost:8080/upload", {
+    method: "POST",
+    body: FOrmData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.message);
+      // let avatar = data.message;
+      formData.meetingPhoto = `../../${data.message}`;
+      console.log(formData);
+      //发送数据到后端或进行其他操作;
+      customFetch(`http://localhost:8080/api/private/MeetingMinutes`, {
+        method: "POST",
+        body: JSON.stringify(formData),
+      })
+        .then((data) => {
+          alert(`${data.message}`);
+          // 清空表单中文本类型输入框的值
+          clearTextInputs();
+          render();
+        })
+        .catch((error) => {
+          console.error("发送数据至后端失败:", error);
+          // 在这里处理错误情况
+        });
+    })
+    .catch((error) => {
+      console.error("上传出错：", error);
+    });
 });

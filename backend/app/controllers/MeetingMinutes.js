@@ -17,6 +17,7 @@ exports.create = (req, res) => {
     tag2: req.body.tag2,
     tag3: req.body.tag3,
     meetingContent: req.body.meetingContent,
+    meetingPhoto: req.body.meetingPhoto,
   };
 
   MeetingMinutes.create(meetingMinutes)

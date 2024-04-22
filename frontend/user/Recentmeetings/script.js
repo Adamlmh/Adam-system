@@ -1,5 +1,7 @@
 window.onload = function () {
+  //自动下一个
   let timer = setInterval(get_next, 3000);
+  //动态创建图片
   let sz = new Array();
   let szdiv = new Array();
   var cur_ul = document.getElementById("banner");
@@ -91,7 +93,7 @@ window.onload = function () {
       timer = setInterval(get_next, 3000);
     };
   }
-
+  //取出第一张插入到最后一张
   function get_pre() {
     let give_up = sz[0];
     sz.shift();
@@ -109,7 +111,7 @@ window.onload = function () {
 
     sync_szdiv();
   }
-
+  //pop最后一张 插入到第一张
   function get_next() {
     let give_up = sz[len];
     sz.pop();

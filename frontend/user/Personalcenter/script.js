@@ -10,7 +10,9 @@ customFetch(
   $.get("#grade").innerText = data.grade;
   $.get("#email").innerText = data.email;
   $.get("#introduction").innerText = data.introduction;
-  $.get(".avatar img").setAttribute("src", `${data.avatar}`);
+  // const newPath = `../../${data.avatar}`;
+
+  $.get(".avatar").style.backgroundImage = `url('${data.avatar}')`;
 });
 
 //渲染右边页面

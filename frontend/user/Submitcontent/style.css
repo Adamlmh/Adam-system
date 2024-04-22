@@ -85,6 +85,7 @@ form {
 .right_form_container {
   display: flex;
   width: 50%;
+  align-items: baseline;
 }
 .right_form_container_item {
   margin-bottom: 40px;

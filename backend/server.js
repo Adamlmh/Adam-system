@@ -8,8 +8,10 @@ const { platform } = require("os");
 const { validateToken } = require("./app/utils/users");
 // 将静态文件目录设置为 frontend 文件夹
 app.use(express.static(path.join(__dirname, "..", "frontend")));
-console.log(path.join(__dirname, "frontend"));
-
+app.use(express.static(path.join(__dirname, "uploads")));
+console.log(path.join(__dirname, "uploads"));
+console.log(path.join(__dirname, "..", "frontend"));
+//解决base64码传输大小限制
 const bodyParser = require("body-parser");
 app.use(bodyParser.json({ limit: "50mb" }));
 //解决跨域
@@ -17,8 +19,8 @@ app.use(cors());
 // 设置跨域和相应数据格式
 app.all("/api/*", function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With, token");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With, Authorization");
+  // res.header("Access-Control-Allow-Headers", "X-Requested-With, token");
+  // res.header("Access-Control-Allow-Headers", "X-Requested-With, Authorization");
   res.header("Content-Type", "application/json;charset=UTF-8");
   res.header(
     "Access-Control-Allow-Headers",

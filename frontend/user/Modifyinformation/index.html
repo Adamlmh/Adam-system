@@ -199,12 +199,15 @@
               <div class="container_left">
                 <div class="container_left_item boxShadow">
                   <div class="container_left_item_body" style="padding: 20px">
+<form action="http://localhost:8080/upload" method="post" enctype="multipart/form-data">
                     <div class="upload">
                       <span class="upload_span">
+
                         <input
                           type="file"
                           accept=".jpg, .jpeg, .gif, .png, .bmp"
                           style="display: none"
+                          name="file"
                         />
                         <div class="upload_container">
                           <div class="add_box">
@@ -228,13 +231,14 @@
                     </div>
                     <div class="right_form_submit">
                       <button
-                        type="button"
+                        type="submit"
                         class="right_form_submit_btn"
                         id="avatarDataBtn"
                       >
                         <span>提交</span>
                       </button>
                     </div>
+</form>
                   </div>
                 </div>
                 <div class="container_left_item boxShadow">

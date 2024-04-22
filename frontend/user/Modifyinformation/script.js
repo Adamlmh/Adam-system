@@ -1,7 +1,7 @@
 // 点击隐藏的文件上传输入框  处理上传头像内容
-const inputFire = $.get('input[type="file"]');
+const inputFile = $.get('input[type="file"]');
 function triggerFileInput() {
-  inputFire.click();
+  inputFile.click();
 }
 document
   .querySelector(".upload_span")
@@ -20,52 +20,47 @@ function handleFileSelect(event) {
 
   reader.readAsDataURL(file); // 将文件读取为Data URL
 }
-inputFire.addEventListener("change", handleFileSelect);
+inputFile.addEventListener("change", handleFileSelect);
 // 上传头像(base64格式无法实现高清图片上传);
-$.get("#avatarDataBtn").addEventListener("click", submitFileSelect);
-function submitFileSelect(event) {
-  const file = inputFire.files[0]; // 获取上传的文件
+// $.get("#avatarDataBtn").addEventListener("click", submitFileSelect);
+// function submitFileSelect(event) {
+//   const file = inputFile.files[0]; // 获取上传的文件
 
-  const reader = new FileReader();
+//   const reader = new FileReader();
 
-  reader.onload = function (event) {
-    const avatar = event.target.result; // 获取 base64 格式的数据部分
-    customFetch(
-      `http://localhost:8080/api/private/Modifyinformation/${localStorage.getItem(
-        "id"
-      )}`,
-      {
-        method: "POST",
-        body: JSON.stringify({ avatar }),
-      }
-    )
-      .then((data) => {
-        alert(`${data.message}`);
-      })
-      .catch((error) => {
-        console.error("上传出错：", error);
-      });
-  };
+//   reader.onload = function (event) {
+//     const avatar = event.target.result; // 获取 base64 格式的数据部分
+//     customFetch(
+//       `http://localhost:8080/api/private/Modifyinformation/${localStorage.getItem(
+//         "id"
+//       )}`,
+//       {
+//         method: "POST",
+//         body: JSON.stringify({ avatar }),
+//       }
+//     )
+//       .then((data) => {
+//         alert(`${data.message}`);
+//       })
+//       .catch((error) => {
+//         console.error("上传出错：", error);
+//       });
+//   };
 
-  reader.readAsDataURL(file);
-}
+//   reader.readAsDataURL(file);
+// }
 
-//保存文件实现
+// 保存文件实现
 // $.get("#avatarDataBtn").addEventListener("click", submitFileSelect);
 
 // function submitFileSelect(event) {
-//   const file = inputFire.files[0]; // 获取上传的文件
-
+//   const file = inputFile.files[0]; // 获取上传的文件
 //   const formData = new FormData();
-//   formData.append("avatar", file); // 将文件添加到 FormData 对象中
-
+//   formData.append("file", file); // 将文件添加到 FormData 对象中
 //   // 发送 FormData 对象到服务器
 //   customFetch(`http://localhost:8080/upload`, {
 //     method: "POST",
 //     body: formData, // 直接将 FormData 对象作为请求体
-//     headers: {
-//       "Content-Type": "multipart/form-data",
-//     },
 //   })
 //     .then((data) => {
 //       alert(`${data.message}`);
@@ -74,6 +69,50 @@ function submitFileSelect(event) {
 //       console.error("上传出错：", error);
 //     });
 // }
+
+// 获取表单元素
+const form = document.querySelector("form");
+
+// 添加提交事件监听器
+form.addEventListener("submit", function (event) {
+  event.preventDefault(); // 阻止表单默认提交行为
+
+  const formData = new FormData(form); // 创建 FormData 对象并将表单元素传递给它
+
+  // 发送 FormData 对象到服务器
+  fetch("http://localhost:8080/upload", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.message);
+      // let avatar = data.message;
+      const avatar = `../../${data.message}`;
+      customFetch(
+        `http://localhost:8080/api/private/Modifyinformation/${localStorage.getItem(
+          "id"
+        )}`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            avatar,
+          }),
+        }
+      )
+        .then((data) => {
+          alert(`${data.message}`);
+          // 在这里处理后端返回的响应
+        })
+        .catch((error) => {
+          console.error("发送数据至后端失败:", error);
+          // 在这里处理错误情况
+        });
+    })
+    .catch((error) => {
+      console.error("上传出错：", error);
+    });
+});
 
 //提交基础数据
 $.get("#basicDataBtn").addEventListener("click", submitBasicDataForm);
