@@ -9,6 +9,8 @@ module.exports = (app) => {
   router.get("/getFiveData:id", MeetingMinutes.getFiveData);
   // // 查询
   router.get("/:id", MeetingMinutes.getData);
+  //更新
+  router.post("/updata:id", MeetingMinutes.update);
 
   app.use("/api/private/MeetingMinutes", router);
 };

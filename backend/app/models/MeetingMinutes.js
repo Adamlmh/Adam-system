@@ -64,6 +64,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(50),
         allowNull: true,
       },
+      likes: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+        defaultValue: 0, // 默认值为0
+      },
     },
     {
       timestamps: true,

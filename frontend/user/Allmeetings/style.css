@@ -176,3 +176,9 @@
 .send_content_input:hover {
   border-color: var(--primary-color);
 }
+.iconfont {
+  cursor: pointer;
+}
+.send_content_input span {
+  font-size: 22px !important;
+}

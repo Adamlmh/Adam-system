@@ -115,7 +115,7 @@ exports.getData = (req, res) => {
     });
 };
 
-// Update a Tutorial by the id in the request
+// 更新数据
 exports.update = (req, res) => {
   const id = req.params.id;
   // 构建包含有要更新的字段的对象

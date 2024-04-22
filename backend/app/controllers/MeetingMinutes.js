@@ -65,3 +65,32 @@ exports.getFiveData = (req, res) => {
       });
     });
 };
+
+//更新点赞数
+exports.update = (req, res) => {
+  const id = req.params.id;
+  // 构建包含有要更新的字段的对象
+  const updateFields = {};
+  if (req.body.likes) updateFields.likes = req.body.likes;
+  db.user
+    .update(updateFields, {
+      where: { minutesId: id },
+    })
+    .then((num) => {
+      if (num == 1) {
+        res.send({
+          message: "上传成功！",
+        });
+      } else {
+        res.send({
+          message: `无法上传该id=${id}. 上传为空值`,
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send({
+        message: "上传失败",
+      });
+    });
+};
