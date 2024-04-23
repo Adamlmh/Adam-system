@@ -7,7 +7,7 @@ function render() {
   ).then((data) => {
     $.get("#submitterId").value = data.userId;
     $.get("#uploaderGroup").value = data.group;
-    $.get("#uploaderName").value = data.name;
+    $.get("#uploaderName").value = data.username;
   });
 }
 render();
@@ -65,7 +65,6 @@ function renderTable(rowData) {
       var cell = document.createElement("td");
       cell.className = "table_cell";
       if (prop === "updatedAt") {
-        console.log(item[prop]);
         item[prop] = changeTime(item[prop]);
       }
       cell.textContent = item[prop];

@@ -10,6 +10,8 @@ exports.create = (req, res) => {
     feedbackType: req.body.feedbackType,
     feedbackContent: req.body.feedbackContent,
     status: req.body.status,
+    commenterName: req.body.commenterName,
+    commenterGroup: req.body.commenterGroup,
   };
 
   Feedback.create(feedback)
@@ -31,6 +33,18 @@ exports.getData = (req, res) => {
   Feedback.findAll({ where: { submitterId: id } })
     .then((data) => {
       console.log(data);
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message,
+      });
+    });
+};
+//查询所有数据
+exports.getAllData = (req, res) => {
+  Feedback.findAll()
+    .then((data) => {
       res.send(data);
     })
     .catch((err) => {

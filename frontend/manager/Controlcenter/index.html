@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>管理中心</title>
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link
+      rel="stylesheet"
+      href="https://at.alicdn.com/t/c/font_4512681_e3a91on05b4.css"
+    />
+  </head>
+  <body>
+    <!-- 总体为一个大的layout然后左右布局 -->
+    <div class="layout">
+      <aside class="layout_leftside">
+        <div class="side_children">
+          <div class="anticon">
+            <div class="logoIcon"></div>
+            <div class="logoName">Adam System</div>
+          </div>
+          <div class="layout_menu">
+            <ul id="menu">
+              <a href="../Personalcenter/index.html">
+              <li
+                class="menu_item menu_item_active_color"
+                data-path="/Personalcenter"
+              >
+                <span class="iconfont icon-icon03"></span>
+                <span style="margin-inline-start: 10px">管理中心</span>
+              </li>
+              </a>
+
+              <a href="../Recentmeetings/index.html">
+              <li class="menu_item" data-path="/Recentmeetings">
+                <span class="iconfont icon-jinqihuiyi1"></span>
+                <span style="margin-inline-start: 10px">近期会议</span>
+              </li>
+              </a>
+
+              <a href="../Allmeetings/index.html">
+              <li class="menu_item" data-path="/Allmeetings">
+                <span class="iconfont icon-jinqihuiyi"></span>
+                <span style="margin-inline-start: 10px">全部会议</span>
+              </li>
+              </a>
+
+              <a href="../Submitcontent/index.html">
+              <li class="menu_item" data-path="/Submitcontent">
+                <span class="iconfont icon-demo1"></span>
+                <span style="margin-inline-start: 10px">提交纪要</span>
+              </li>
+              </a>
+              <a href="../Expressviews/index.html">
+              <li class="menu_item" data-path="/Expressviews">
+                <span class="iconfont icon-tijiaojianyifankui"></span>
+                <span style="margin-inline-start: 10px">提出意见</span>
+              </li>
+              </a>
+
+              <a href="../Modifyinformation/index.html">
+                <li class="menu_item" data-path="/Modifyinformation">
+                  <span class="iconfont icon-xiugai"></span>
+                  <span style="margin-inline-start: 10px">修改信息</span>
+                </li>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </aside>
+      <div class="layout_rightside">
+        <header class="layout_header">
+          <div class="header_top">
+            <div class="top_left">
+              <span class="iconfont icon-sanhengxian"></span>
+              <div class="Route_correspondence">
+                <span class="iconfont icon-icon03"></span>
+                <span>管理中心</span>
+              </div>
+            </div>
+            <div class="top_right">
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-tongzhizhongxin"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-shijian"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button type="button" class="btn iconfont icon-diqiu"></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-guanyuwomen"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <a href="https://github.com/Adamlmh"><button type="button" class="btn iconfont icon-GitHub"></button></a>
+              </div>
+              <div class="top_right_item">
+                <a href="../../login/index.html">
+                <button type="button" class="btn iconfont icon-guanji"></button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="header_bottom">
+            <div class="top_route">
+              <span class="iconfont icon-zhiyin"></span>
+              <a href="../Personalcenter/index.html">
+                <span class="top_route_item top_route_item_active">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name ">管理中心</span>
+                </span>
+              </span>
+              <a href="../Recentmeetings/index.html">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">近期会议</span>
+                </span>
+              </a>
+              <a href="../Allmeetings/index.html">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">全部会议</span>
+                </span>
+              </a>
+              <a href="../Submitcontent/index.html">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">提交纪要</span>
+                </span>
+              </a>
+              <a href="../Expressviews/index.html">
+                <span class="top_route_item ">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">提出意见</span>
+                </span>
+              </a>
+              <a href="../Modifyinformation/index.html">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">修改信息</span>
+                </span>
+              </a>
+            </div>
+            <div class="colorSelect">
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-hongdian"
+                  id="redBtn"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-landian-SVG"
+                  id="blueBtn"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-huangdian"
+                  id="YellowBtn"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-lvdian"
+                  id="greenBtn"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main class="layout_content" id="mainContent">
+          <!-- 个人中心页面 -->
+          <div class="card boxShadow" >
+            <div class="card_cover">
+              <div class="user_info">
+                <div class="avatar" style="background-image: url(../../images/avatar.jpg); background-size: cover; background-repeat: no-repeat;">
+                </div>
+                <div class="info">
+                  <h3 id="name">Adam</h3>
+                  <span style="opacity: 0.7" id="group">前端组</span>
+                  <span style="color: navajowhite;">VIP管理员</span>
+                </div>
+              </div>
+            </div>
+            <div class="card_body">
+              <div class="card_group">
+                <label class="card_item" for="Gallry">
+                  <input type="radio" name="card_item" checked id="Gallry" />
+                  <div class="card_item_label">
+                    <span class="iconfont icon-gallery biggr"></span>
+                    <span>Gallry</span>
+                  </div>
+                </label>
+                <label class="card_item" for="Frinds">
+                  <input type="radio" name="card_item" checked id="Frinds" />
+                  <div class="card_item_label">
+                    <span class="iconfont icon-follow_s biggr"></span>
+                    <span>Frinds</span>
+                  </div>
+                </label>
+                <label class="card_item" for="Followrs">
+                  <input type="radio" name="card_item" checked id="Followrs" />
+                  <div class="card_item_label">
+                    <span class="iconfont icon-follow_solid biggr"></span>
+                    <span>Followrs</span>
+                  </div>
+                </label>
+                <label class="card_item card_item_label_slected" for="Profile">
+                  <input type="radio" name="card_item" checked id="Profile" />
+                  <div class="card_item_label">
+                    <span class="iconfont icon-profile2 biggr"></span>
+                    <span>Profile</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+              <div class="container_right" style="margin-top: 30px;">
+                <div class="container_right_item boxShadow">
+                  <div class="container_right_item_body" style="padding: 20px">
+                <div class="container_right_item_body_content">
+                <table class="table">
+                    <colgroup>
+    <col style="width: 8%;">
+    <col style="width: 10%; ">
+    <col style="width: 10%;">
+    <col style="width: 30%;">
+    <col style="width: 8%;">
+    <col style="width: 8%;">
+    <col style="width: 8%;">
+    <col style="width: 8%;">
+    <col style="width: 10%;">
+  </colgroup>
+                  <thead class="table_thead">
+                    <tr>
+                      <th class="table_cell">纪要ID</th>
+                      <th class="table_cell">提交者</th>
+                      <th class="table_cell">会议时间</th>
+                      <th class="table_cell">会议主题</th>
+                      <th class="table_cell">会议类型</th>
+                      <th class="table_cell">标签1</th>
+                      <th class="table_cell">标签2</th>
+                      <th class="table_cell">标签3</th>
+                      <th class="table_cell">审核状态</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table_tbody" id="table_tbody_meeting">
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">办公</th>
+                      <th class="table_cell">开心</th>
+                      <th class="table_cell">紧急事件</th>
+                      <th class="table_cell">外包</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">办公</th>
+                      <th class="table_cell">开心</th>
+                      <th class="table_cell">紧急事件</th>
+                      <th class="table_cell">外包</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">办公</th>
+                      <th class="table_cell">开心</th>
+                      <th class="table_cell">紧急事件</th>
+                      <th class="table_cell">外包</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">办公</th>
+                      <th class="table_cell">开心</th>
+                      <th class="table_cell">紧急事件</th>
+                      <th class="table_cell">外包</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container_right" style="margin-top: 30px;">
+                <div class="container_right_item boxShadow">
+                  <div class="container_right_item_body" style="padding: 20px">
+                <div class="container_right_item_body_content">
+                <table class="table">
+                    <colgroup>
+    <col style="width: 8%;">
+    <col style="width: 8%; ">
+    <col style="width: 12%;">
+    <col style="width: 30%;">
+    <col style="width: 8%;">
+    <col style="width: 8%;">
+    <col style="width: 8%;">
+  </colgroup>
+                  <thead class="table_thead">
+                    <tr>
+                      <th class="table_cell">反馈/疑问ID</th>
+                      <th class="table_cell">提交者</th>
+                      <th class="table_cell">提交时间</th>
+                      <th class="table_cell">主题</th>
+                      <th class="table_cell">类型</th>
+                      <th class="table_cell">组别</th>
+                      <th class="table_cell">审核状态</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table_tbody" id="table_tbody_feetback">
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">反馈</th>
+                      <th class="table_cell">前端组</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">反馈</th>
+                      <th class="table_cell">前端组</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">反馈</th>
+                      <th class="table_cell">前端组</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">反馈</th>
+                      <th class="table_cell">前端组</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                  </div>
+                </div>
+              </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="../../js/dom.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/http.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>

@@ -13,10 +13,14 @@ function verifyToken() {
   if (window.location.pathname !== "/login/index.html") {
     const token = localStorage.getItem("token");
     if (!token) {
-      location.href = "../login/index.html";
+      location.href = "/login/index.html";
     }
   }
-  console.log(window.location.pathname);
+  if (window.location.pathname.startsWith("/manager/")) {
+    if (parseInt(localStorage.getItem("usertype")) !== 0) {
+      location.href = "/login/index.html";
+    }
+  }
 }
 window.addEventListener("load", verifyToken);
 //修改主题颜色

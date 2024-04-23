@@ -32,6 +32,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         allowNull: true,
       },
+      commenterName: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      commenterGroup: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
     },
     {
       timestamps: true,

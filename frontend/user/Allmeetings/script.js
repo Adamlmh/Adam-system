@@ -1,12 +1,23 @@
-//发请求渲染个人信息
+//发请求得到个人信息（用于评论）
+let commenterId;
+let avatar2;
+customFetch(
+  `http://localhost:8080/api/private/Personalcenter/${localStorage.getItem(
+    "id"
+  )}`
+).then((data) => {
+  commenterId = data.userId;
+  avatar2 = data.avatar;
+});
 
+//发请求渲染个人信息
 const RenderPersonal = (uploaderId) => {
   customFetch(
     `http://localhost:8080/api/private/Personalcenter/${uploaderId}`
   ).then((data) => {
     $.get("#group").innerText = data.group;
     $.get("#name").innerText = data.name;
-    $.get("#avatar2").style.backgroundImage = `url('${data.avatar}')`;
+    $.get("#avatar2").style.backgroundImage = `url('${avatar2}')`;
     $.get("#avatar").style.backgroundImage = `url('${data.avatar}')`;
   });
 };
@@ -31,7 +42,6 @@ let minutesId;
 const renderMeeting = (data) => {
   const uploaderId = data.uploaderId;
   minutesId = data.minutesId;
-  console.log(minutesId);
   //渲染个人信息
   RenderPersonal(uploaderId);
   $.get("#meetingTopic").innerText = data.meetingTopic;
@@ -91,11 +101,91 @@ const throttledLikeClickHandler = throttle(likeClickHandler, 2000);
 $.get("#likes").addEventListener("click", throttledLikeClickHandler);
 // 渲染下一页;
 $.get("#nextPage").addEventListener("click", () => {
-  return renderPage(++n);
+  ++n;
+  renderComment();
+  return renderPage(n);
 });
 // 渲染上一页;
 $.get("#prePage").addEventListener("click", () => {
-  return renderPage((n = n > 0 ? --n : n));
+  n = n > 0 ? --n : n;
+  renderComment();
+  return renderPage(n);
 });
 
 //评论逻辑
+//提交数据
+let parentCommentId = 0;
+$.get("#Enter").addEventListener("click", submitCommentDataForm);
+function submitCommentDataForm() {
+  const commentContent = $.get("#commentContentInput").value;
+  customFetch(`http://localhost:8080/api/private/Comment/`, {
+    method: "POST",
+    body: JSON.stringify({
+      commentContent,
+      minutesId,
+      commenterId,
+      parentCommentId,
+    }),
+  })
+    .then((data) => {
+      alert(`${data.message}`);
+      // 在这里处理后端返回的响应
+      $.get("#commentContentInput").value = "";
+      parentCommentId = 0;
+    })
+    .catch((error) => {
+      console.error("发送数据至后端失败:", error);
+      // 在这里处理错误情况
+    });
+}
+//渲染评论
+let getCommenterId;
+let touxiang;
+let Commentname;
+let likeCount;
+let commentTime;
+let commentContent;
+const renderComment = () => {
+  customFetch(
+    `http://localhost:8080/api/private/Comment/${parseInt(n) + 1}`
+  ).then((data) => {
+    console.log(data);
+    $.get(".card_body_content_comment_contain").innerHTML = "";
+    data.forEach((item, index) => {
+      let getCommenterId = data[index].commenterId;
+      let likeCount = data[index].likeCount;
+      let commentTime = changeTime(data[index].updatedAt);
+      let commentContent = data[index].commentContent;
+      customFetch(
+        `http://localhost:8080/api/private/Personalcenter/${parseInt(
+          getCommenterId
+        )}`
+      ).then((userdata) => {
+        Commentname = userdata.username;
+        touxiang = userdata.avatar;
+
+        $.get(
+          ".card_body_content_comment_contain"
+        ).innerHTML += `                  <div class="card_body_content_comment">
+                    <div class="touxiangClass" style="background-image: url(${touxiang});" ></div>
+                    <div class="message_content">
+                      <div class="message_content_header">
+                        <span class="card_body_content_function_right">
+                          <h5 style="margin-right: 10px;">${Commentname}</h5>
+                          <span style="margin-right: 5px;">❤</span>
+                      <span id="likeCount">${likeCount}</span>
+                        </span>
+
+                        <span>
+                          <span class="iconfont icon-pinglun"></span>
+                          <span id="commentTime">${commentTime}</span>
+                        </span>
+                      </div>
+                      <span class="message_content_header_span" id="commentContent">${commentContent}</span>
+                    </div>
+                  </div>`;
+      });
+    });
+  });
+};
+renderComment();

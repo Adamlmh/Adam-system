@@ -18,6 +18,7 @@ exports.create = (req, res) => {
     meetingPhoto: req.body.meetingPhoto,
     personalMinutes: req.body.personalMinutes,
     likes: 3,
+    uploaderName: req.body.uploaderName,
   };
 
   MeetingMinutes.create(meetingMinutes)
@@ -38,7 +39,6 @@ exports.getMeetingData = (req, res) => {
   const id = req.params.id;
   MeetingMinutes.findAll({ where: { minutesId: id } })
     .then((data) => {
-      console.log(data);
       res.send(data);
     })
     .catch((err) => {
@@ -53,7 +53,6 @@ exports.getData = (req, res) => {
   const id = req.params.id;
   MeetingMinutes.findAll({ where: { uploaderId: id } })
     .then((data) => {
-      console.log(data);
       res.send(data);
     })
     .catch((err) => {
@@ -71,7 +70,6 @@ exports.getFiveData = (req, res) => {
     limit: 5, // 限制结果数量为 5
   })
     .then((data) => {
-      console.log(data);
       res.send(data);
     })
     .catch((err) => {
@@ -93,7 +91,7 @@ exports.update = (req, res) => {
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: "上传成功！",
+          message: "点赞成功！",
         });
       } else {
         res.send({
@@ -105,6 +103,20 @@ exports.update = (req, res) => {
       console.log(err);
       res.status(500).send({
         message: "上传失败",
+      });
+    });
+};
+
+//查询所有数据
+exports.getAllData = (req, res) => {
+  console.log(888);
+  MeetingMinutes.findAll()
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message,
       });
     });
 };

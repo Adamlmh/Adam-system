@@ -1,13 +1,13 @@
 @import url(../css/global.css);
-*{
+* {
   margin: 0;
   padding: 0;
 }
-a{
+a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.88);
 }
-.main{
+.main {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -15,7 +15,7 @@ a{
   font-size: 14px;
 }
 /* 左半部分 */
-.leftSide{
+.leftSide {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -23,35 +23,39 @@ a{
   height: 100%;
   gap: 80px;
   align-items: center;
-background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)) center center/cover no-repeat,
-  url(../images/backImage.jpg);
+  background: linear-gradient(
+        rgba(255, 255, 255, 0.88),
+        rgba(255, 255, 255, 0.88)
+      )
+      center center/cover no-repeat,
+    url(../images/backImage.jpg);
   justify-content: center;
 }
-.leftSide h2{
+.leftSide h2 {
   font-weight: 600;
   font-size: 30px;
   margin-bottom: 0.5em;
   margin-top: 1.2em;
   color: rgba(0, 0, 0, 0.88);
 }
-.leftSide img{
+.leftSide img {
   max-width: 560px;
   height: auto;
   width: 100%;
 }
-.logo{
-    position: absolute;
-      top: 0;
-      left: 0;
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   padding: 12px;
 }
 
 /* 右半部分 */
-.rightSide{
+.rightSide {
   padding: 168px 120px;
 }
-.login_info{
+.login_info {
   padding: 24px 0;
 }
 .title {
@@ -60,14 +64,14 @@ background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.88);
 }
-.typography-secondary{
+.typography-secondary {
   color: rgba(0, 0, 0, 0.45);
   display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
-.registerbtn{
+.registerbtn {
   padding: 0px;
   color: var(--primary-color);
   height: 32px;
@@ -79,7 +83,7 @@ background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)
   font-size: 14px;
   font-weight: 500;
 }
-.alert_info{
+.alert_info {
   background-color: #e6ffff;
   border: 1px solid #7af8ff;
   padding: 8px 12px;
@@ -89,23 +93,23 @@ background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)
   line-height: 1.57;
   font-size: 14px;
 }
-.alert_icon{
+.alert_icon {
   color: #00b8d9;
   margin-inline-end: 8px;
 }
-.item{
+.item {
   margin-bottom: 24px;
 }
-.item_input{
+.item_input {
   display: flex;
   align-items: center;
   min-height: 32px;
 }
-.item_input_content{
+.item_input_content {
   flex: auto;
   max-width: 100%;
 }
-.inputSpan{
+.inputSpan {
   width: 100%;
   padding: 7px 11px;
   min-width: 0;
@@ -114,69 +118,69 @@ background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)
   border-radius: 8px;
   border: 1px solid #d9d9d9;
   display: inline-flex;
-    box-sizing: border-box;
-    min-height: 24px;
+  box-sizing: border-box;
+  min-height: 24px;
 }
-.item_icon{
+.item_icon {
   margin-inline-end: 8px;
   opacity: 0.6;
 }
-.input{
+.input {
   flex: auto;
   border: none;
   outline: none;
   font-size: 16px;
   opacity: 0.88;
 }
-.item_explain_error{
+.item_explain_error {
   color: #ff5630;
-    font-size: 15px;
-    position: absolute;
-    display: none;
+  font-size: 15px;
+  position: absolute;
+  display: none;
 }
-.iconfont{
+.iconfont {
   font-size: 18px !important;
 }
-.fl{
+.fl {
   float: left;
 }
-.fr{
+.fr {
   float: right;
   display: inline-flex;
   font-size: 16px;
-    text-align: center;
+  text-align: center;
 }
-.fr{
+.fr {
   float: right;
-  font-size: 16px
+  font-size: 16px;
 }
-.submitBtn{
-    font-size: 16px;
-      line-height: 1.5;
-      border-radius: 8px;
+.submitBtn {
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 8px;
   background-color: #212b36;
-    padding: 7px 11px;
-    height: 40px;
-    width: 100%;
-    cursor: pointer;
-    border: 0;
-    transition: all 0.3s;
+  padding: 7px 11px;
+  height: 40px;
+  width: 100%;
+  cursor: pointer;
+  border: 0;
+  transition: all 0.3s;
 }
-.green{
+.green {
   border: 1px solid #00a76f;
-  box-shadow:  0 0 2px rgba(2, 123, 60, 0.19)
+  box-shadow: 0 0 2px rgba(2, 123, 60, 0.19);
 }
-.red{
+.red {
   border: 1px solid #ff5630;
-    box-shadow: 0 0 2px rgba(2, 123, 60, 0.19)
+  box-shadow: 0 0 2px rgba(2, 123, 60, 0.19);
 }
-.bgcolor{
+.bgcolor {
   background-color: var(--primary-color);
 }
-input[type=checkbox],
-[type=radio]{
+input[type="checkbox"],
+[type="radio"] {
   accent-color: var(--primary-color);
   width: 16px;
-    height: 16px;
-    cursor: pointer;
+  height: 16px;
+  cursor: pointer;
 }

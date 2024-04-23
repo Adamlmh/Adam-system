@@ -7,7 +7,7 @@ function render() {
   ).then((data) => {
     $.get("#uploaderId").value = data.userId;
     $.get("#uploaderGroup").value = data.group;
-    $.get("#uploaderName").value = data.name;
+    $.get("#uploaderName").value = data.username;
   });
 }
 render();

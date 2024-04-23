@@ -141,7 +141,7 @@
 }
 .message_content {
   flex: 1;
-  padding: 12px;
+  padding: 8px;
   background-color: #f5f5f5;
   border-radius: 8px;
 }
@@ -192,4 +192,14 @@
   font-size: 17px;
   cursor: pointer;
   text-decoration: underline;
+}
+.card_body_content_comment_contain {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.icon-c181huiche,
+.icon-houyige,
+.icon-qianyige {
+  color: var(--primary-color);
 }

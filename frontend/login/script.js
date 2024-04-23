@@ -11,7 +11,7 @@ document
     const username = $.get("#username").value;
     const password = $.get("#password").value;
     const usertype = $.get('input[name="usertype"]:checked').value;
-
+    localStorage.setItem("usertype", usertype);
     //判断用户类型
     let status;
     if (usertype === "1") {
@@ -43,7 +43,11 @@ document
           localStorage.setItem("token", data.token);
           localStorage.setItem("id", data.id);
           setTimeout(() => {
-            location.href = "../user/Personalcenter/index.html";
+            if (usertype === "1") {
+              location.href = "../user/Personalcenter/index.html";
+            } else {
+              location.href = "../manager/Controlcenter/index.html";
+            }
           }, 2000);
         }
       })

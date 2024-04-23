@@ -67,6 +67,7 @@ require("./app/routes/Modifyinformation")(app);
 require("./app/routes/upload")(app);
 require("./app/routes/MeetingMinutes")(app);
 require("./app/routes/Feedback")(app);
+require("./app/routes/Comment")(app);
 // 启动服务器
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

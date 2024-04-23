@@ -63,6 +63,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: 3, // 默认值为0
       },
+      uploaderName: {
+        type: DataTypes.STRING(50),
+        allowNull: true,
+      },
     },
     {
       timestamps: true,
