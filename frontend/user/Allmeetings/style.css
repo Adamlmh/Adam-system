@@ -182,3 +182,14 @@
 .send_content_input span {
   font-size: 22px !important;
 }
+.personalMinutes {
+  display: flex;
+  flex-direction: column;
+  max-width: max-content;
+}
+.personalMinute {
+  color: var(--primary-color);
+  font-size: 17px;
+  cursor: pointer;
+  text-decoration: underline;
+}

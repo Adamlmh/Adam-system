@@ -193,18 +193,19 @@
                   <div class="card_head_title">
                     <div class="content">
               <div class="user_info">
-                <div class="avatar" >
+                <div class="avatar" id="avatar">
                 </div>
                 <div class="info">
                   <h3 id="name">Adam</h3>
                   <span  id="group" >前端组</span>
-                <span>2024/04/22</span>
+                <span id="commitTime">2024/04/22</span>
                 </div>
 
               </div>
                 <div>
-                  <span class="iconfont icon-qianyige"></span>
-                  <span class="iconfont icon-houyige"></span>
+                  <span id="meetingTime" style="margin-right: 20px;">2024/04/22</span>
+                  <span class="iconfont icon-qianyige" id="prePage"></span>
+                  <span class="iconfont icon-houyige" id="nextPage"></span>
                 </div>
                     </div>
                   </div>
@@ -212,15 +213,20 @@
               </div>
               <div class="card_body">
                 <div class="card_body_content">
-                  <h1>会议主题</h1>
-                  <span>会议内容</span>
-                <div class="meetingPhoto" >
+                  <h1 id="meetingTopic">会议主题</h1>
+                  <span id="meetingContent">会议内容</span>
+                <div class="meetingPhoto" id="meetingPhoto">
+
+                </div>
+                <div class="personalMinutes">
+                  <span class="personalMinute">个人纪要</span>
+                  <span style="margin-left: 5px; display: none;" id="personalMinutes">内容</span>
                 </div>
                   <div class="card_body_content_function">
                     <div class="card_body_content_function_left">
                       <div class="card_body_content_function_left_left">
-                      <span>❤</span>
-                      <span>3</span>
+                      <span id="dianzan">❤</span>
+                      <span id="likes" style="cursor: pointer;">3</span>
                       </div>
                   <div class="card_body_content_function_left_right">
                     <div class="touxiangClass" style="background-image: url(../../images/avatar_4-2497c77c.jpg);"></div>
@@ -234,24 +240,29 @@
                     </div>
                   </div>
                   <div class="card_body_content_comment">
-                    <div class="touxiangClass" style="background-image: url(../../images/avatar_4-2497c77c.jpg);"></div>
+                    <div class="touxiangClass" style="background-image: url(../../images/avatar_4-2497c77c.jpg);" id=""></div>
                     <div class="message_content">
                       <div class="message_content_header">
-                        <h5>名字</h5>
+                        <span class="card_body_content_function_right">
+                          <h5 style="margin-right: 10px;">名字</h5>
+                          <span style="margin-right: 5px;">❤</span>
+                      <span id="likeCount">3</span>
+                        </span>
+                        
                         <span>
                           <span class="iconfont icon-pinglun"></span>
-                          <span>时间时间</span>
+                          <span id="commentTime">时间时间</span>
                         </span>
                       </div>
-                      <span class="message_content_header_span">做普通人，干正经事，可以爱小钱，但必有大胸怀。</span>
+                      <span class="message_content_header_span" id="commentContent">做普通人，干正经事，可以爱小钱，但必有大胸怀。</span>
                     </div>
                   </div>
                   <div class="card_body_content_input">
-                    <div class="touxiangClass" style="background-image: url(../../images/avatar_4-2497c77c.jpg);"></div>
+                    <div class="touxiangClass" style="background-image: url(../../images/avatar_4-2497c77c.jpg);" id="avatar2"></div>
                   <div class="send_content">
                     <span class="send_content_input">
-                      <input type="text" name="" id="" placeholder="请在这里输入你的评论" style="padding: 0; text-overflow: ellipsis; width: 85%; font-size: 15px;">
-                      <span class="iconfont icon-c181huiche"></span>
+                      <input type="text" name="commentContent" id="commentContentInput" placeholder="请在这里输入你的评论" style="padding: 0; text-overflow: ellipsis; width: 85%; font-size: 15px;">
+                      <span class="iconfont icon-c181huiche" id="Enter"></span>
                       <span class="iconfont icon-shangchuantupian"></span>
                       <span class="iconfont icon-biaoqing"></span>
                     </span>

@@ -11,6 +11,7 @@ module.exports = (app) => {
   router.get("/:id", MeetingMinutes.getData);
   //更新
   router.post("/updata:id", MeetingMinutes.update);
-
+  // // 查询会议信息
+  router.get("/getMeetingData/:id", MeetingMinutes.getMeetingData);
   app.use("/api/private/MeetingMinutes", router);
 };

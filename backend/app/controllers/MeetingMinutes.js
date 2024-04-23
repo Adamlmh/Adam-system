@@ -6,8 +6,6 @@ const MeetingMinutes = db.MeetingMinutes;
 exports.create = (req, res) => {
   const meetingMinutes = {
     uploaderId: req.body.uploaderId,
-    uploaderName: req.body.uploaderName,
-    uploaderGroup: req.body.uploaderGroup,
     meetingTopic: req.body.meetingTopic,
     meetingType: req.body.meetingType,
     status: req.body.status,
@@ -18,6 +16,8 @@ exports.create = (req, res) => {
     tag3: req.body.tag3,
     meetingContent: req.body.meetingContent,
     meetingPhoto: req.body.meetingPhoto,
+    personalMinutes: req.body.personalMinutes,
+    likes: 3,
   };
 
   MeetingMinutes.create(meetingMinutes)
@@ -25,6 +25,21 @@ exports.create = (req, res) => {
       res.status(200).send({
         message: "上传成功！",
       });
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message,
+      });
+    });
+};
+
+//查询数据
+exports.getMeetingData = (req, res) => {
+  const id = req.params.id;
+  MeetingMinutes.findAll({ where: { minutesId: id } })
+    .then((data) => {
+      console.log(data);
+      res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
@@ -68,14 +83,13 @@ exports.getFiveData = (req, res) => {
 
 //更新点赞数
 exports.update = (req, res) => {
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
   // 构建包含有要更新的字段的对象
   const updateFields = {};
   if (req.body.likes) updateFields.likes = req.body.likes;
-  db.user
-    .update(updateFields, {
-      where: { minutesId: id },
-    })
+  MeetingMinutes.update(updateFields, {
+    where: { minutesId: id },
+  })
     .then((num) => {
       if (num == 1) {
         res.send({

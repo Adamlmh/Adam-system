@@ -12,24 +12,18 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
-      uploaderName: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      uploaderGroup: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
       meetingTopic: {
         type: DataTypes.STRING(255),
         allowNull: true,
       },
       personalMinutes: {
         type: DataTypes.STRING(10000),
+        defaultValue: "无",
         allowNull: true,
       },
       meetingContent: {
         type: DataTypes.STRING(255),
+
         allowNull: true,
       },
       meetingPhoto: {
@@ -65,9 +59,9 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       likes: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.INTEGER,
         allowNull: false,
-        defaultValue: 0, // 默认值为0
+        defaultValue: 3, // 默认值为0
       },
     },
     {
