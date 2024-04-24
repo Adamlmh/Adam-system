@@ -1,11 +1,13 @@
 //管理一个n来看是需要哪个意见
 let n = 1;
+let dataAll;
 //渲染上面页面
 customFetch(
   `http://localhost:8080/api/private/MeetingMinutes/getAllData${localStorage.getItem(
     "id"
   )}`
 ).then((data) => {
+  dataAll = data;
   renderTable(data, propertiesFeetback, "status", "通过", 1);
   // 在表格渲染完成后添加点击事件监听器(实现点击哪个拿到哪个数据)
   var firstColumnCells = document.querySelectorAll(
@@ -39,7 +41,7 @@ function renderTable(rowData, properties, pro, condition, n) {
   // 遍历数据并创建表格行
   rowData.forEach(function (item) {
     console.log(item[pro]);
-    if (item[pro] === condition || n) {
+    if (n || item[pro].toLowerCase().includes(condition.toLowerCase())) {
       var row = document.createElement("tr");
       // 遍历属性并创建相应的表格单元格
       properties.forEach(function (prop) {
@@ -58,6 +60,49 @@ function renderTable(rowData, properties, pro, condition, n) {
     }
   });
 }
+
+//实现任意搜索查询数据
+// renderTable(data, propertiesFeetback, "status", "通过", 1);
+// let pro = $.get("#pro").value;
+// let condition = $.get("#condition").value;
+$.get("#find").addEventListener("click", () => {
+  let n = 0;
+  let pro = $.get("#pro").value.trim();
+  let condition = $.get("#condition").value.trim();
+  if (pro === "纪要ID") {
+    pro = "minutesId";
+    condition = parseInt(condition);
+  }
+  if (pro === "提交者") {
+    pro = "uploaderName";
+  }
+  if (pro === "会议时间") {
+    pro = "meetingTime";
+  }
+  if (pro === "会议主题") {
+    pro = "meetingTopic";
+  }
+  if (pro === "会议类型") {
+    pro = "meetingType";
+  }
+  if (pro === "标签1") {
+    pro = "tag1";
+  }
+  if (pro === "标签2") {
+    pro = "tag2";
+  }
+  if (pro === "标签3") {
+    pro = "tag3";
+  }
+  if (pro === "审核状态") {
+    pro = "status";
+  }
+  if (pro === "全部" || condition === "全部") {
+    n = 1;
+  }
+  console.log(pro, condition, n);
+  return renderTable(dataAll, propertiesFeetback, pro, condition, n);
+});
 
 //渲染下页面
 const renderMeeting = (n) => {
@@ -89,6 +134,7 @@ const renderMeeting = (n) => {
     });
 };
 renderMeeting(1);
+
 //审核结果提交
 const passDataBtn = $.get("#passDataBtn");
 passDataBtn.addEventListener("click", () => {
@@ -133,28 +179,6 @@ deleteDataBtn.addEventListener("click", () => {
     }, 1000);
   });
 });
-// //实现点击审核状态 筛选待审核的
-// $.get("#ApprovalStatus").addEventListener("click", () => {
-//   console.log(1);
-//   return getfeedbackStatus();
-// });
-// const getfeedbackStatus = () => {
-//   customFetch(
-//     `http://localhost:8080/api/private/Feedback/getfeedbackStatus`
-//   ).then((data) => {
-//     renderTable(data, propertiesFeetback);
-//     // 在表格渲染完成后添加点击事件监听器(实现点击哪个拿到哪个数据)
-//     var firstColumnCells = document.querySelectorAll(
-//       "#table_tbody_feetback tr > td:first-child"
-//     );
-//     firstColumnCells.forEach(function (cell) {
-//       cell.addEventListener("click", function () {
-//         n = cell.textContent;
-//         renderFeetback(n);
-//       });
-//     });
-//   });
-// };
 //实现点击决定是否展示个人纪要
 $.get("#personalMinuteLabel").addEventListener("click", () => {
   if ($.get("#personalMinutes").style.display === "none") {
