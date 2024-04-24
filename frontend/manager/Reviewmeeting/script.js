@@ -10,15 +10,15 @@ customFetch(
   dataAll = data;
   renderTable(data, propertiesFeetback, "status", "通过", 1);
   // 在表格渲染完成后添加点击事件监听器(实现点击哪个拿到哪个数据)
-  var firstColumnCells = document.querySelectorAll(
-    "#table_tbody_meeting tr > td:first-child"
-  );
-  firstColumnCells.forEach(function (cell) {
-    cell.addEventListener("click", function () {
-      n = cell.textContent;
-      renderMeeting(n);
-    });
-  });
+  // var firstColumnCells = document.querySelectorAll(
+  //   "#table_tbody_meeting tr > td:first-child"
+  // );
+  // firstColumnCells.forEach(function (cell) {
+  //   cell.addEventListener("click", function () {
+  //     n = cell.textContent;
+  //     renderMeeting(n);
+  //   });
+  // });
 });
 
 // 要在表格中显示的属性
@@ -33,6 +33,7 @@ let propertiesFeetback = [
   "tag3",
   "status",
 ];
+// 动态渲染表格行的函数
 // 动态渲染表格行的函数
 function renderTable(rowData, properties, pro, condition, n) {
   var tableBody = $.get("#table_tbody_meeting");
@@ -58,6 +59,17 @@ function renderTable(rowData, properties, pro, condition, n) {
       });
       tableBody.appendChild(row);
     }
+  });
+
+  // 在表格渲染完成后添加点击事件监听器
+  var firstColumnCells = document.querySelectorAll(
+    "#table_tbody_meeting tr > td:first-child"
+  );
+  firstColumnCells.forEach(function (cell) {
+    cell.addEventListener("click", function () {
+      n = cell.textContent;
+      renderMeeting(n);
+    });
   });
 }
 
