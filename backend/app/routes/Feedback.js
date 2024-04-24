@@ -2,6 +2,8 @@ module.exports = (app) => {
   const Feedback = require("../controllers/Feedback");
 
   var router = require("express").Router();
+  // // 查询getfeedbackIdData数据
+  router.get("/getfeedbackIdData:id", Feedback.getfeedbackIdData);
   // // 查询所有数据
   router.get("/getAllData:id", Feedback.getAllData);
   // 提交

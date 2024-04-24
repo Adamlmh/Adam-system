@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>处理意见</title>
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link
+      rel="stylesheet"
+      href="https://at.alicdn.com/t/c/font_4512681_e3a91on05b4.css"
+    />
+  </head>
+  <body>
+    <!-- 总体为一个大的layout然后左右布局 -->
+    <div class="layout">
+      <aside class="layout_leftside">
+        <div class="side_children">
+          <div class="anticon">
+            <div class="logoIcon"></div>
+            <div class="logoName">Adam System</div>
+          </div>
+          <div class="layout_menu">
+            <ul id="menu">
+              <a href="../Controlcenter/index.html">
+              <li
+                class="menu_item "
+                data-path="/Personalcenter"
+              >
+                <span class="iconfont icon-icon03"></span>
+                <span style="margin-inline-start: 10px">管理中心</span>
+              </li>
+              </a>
+
+              <a href="../Handlingopinions/index.html">
+              <li class="menu_item menu_item_active_color" data-path="/Handlingopinions">
+                <span class="iconfont icon-jinqihuiyi1"></span>
+                <span style="margin-inline-start: 10px">处理意见</span>
+              </li>
+              </a>
+
+              <a href="../Allmeetings/index.html">
+              <li class="menu_item" data-path="/Allmeetings">
+                <span class="iconfont icon-jinqihuiyi"></span>
+                <span style="margin-inline-start: 10px">全部会议</span>
+              </li>
+              </a>
+
+              <a href="../Submitcontent/index.html">
+              <li class="menu_item" data-path="/Submitcontent">
+                <span class="iconfont icon-demo1"></span>
+                <span style="margin-inline-start: 10px">提交纪要</span>
+              </li>
+              </a>
+              <a href="../Expressviews/index.html">
+              <li class="menu_item" data-path="/Expressviews">
+                <span class="iconfont icon-tijiaojianyifankui"></span>
+                <span style="margin-inline-start: 10px">提出意见</span>
+              </li>
+              </a>
+
+              <a href="../Modifyinformation/index.html">
+                <li class="menu_item" data-path="/Modifyinformation">
+                  <span class="iconfont icon-xiugai"></span>
+                  <span style="margin-inline-start: 10px">修改信息</span>
+                </li>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </aside>
+      <div class="layout_rightside">
+        <header class="layout_header">
+          <div class="header_top">
+            <div class="top_left">
+              <span class="iconfont icon-sanhengxian"></span>
+              <div class="Route_correspondence">
+                <span class="iconfont icon-icon03"></span>
+                <span>管理中心</span>
+              </div>
+            </div>
+            <div class="top_right">
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-tongzhizhongxin"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-shijian"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button type="button" class="btn iconfont icon-diqiu"></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-guanyuwomen"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <a href="https://github.com/Adamlmh"><button type="button" class="btn iconfont icon-GitHub"></button></a>
+              </div>
+              <div class="top_right_item">
+                <a href="../../login/index.html">
+                <button type="button" class="btn iconfont icon-guanji"></button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="header_bottom">
+            <div class="top_route">
+              <span class="iconfont icon-zhiyin"></span>
+              <a href="../Controlcenter/index.html">
+                <span class="top_route_item ">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name ">管理中心</span>
+                </span>
+              </span>
+              <a href="../Handlingopinions/index.html">
+                <span class="top_route_item top_route_item_active">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">处理意见</span>
+                </span>
+              </a>
+              <a href="../Allmeetings/index.html">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">全部会议</span>
+                </span>
+              </a>
+              <a href="../Submitcontent/index.html">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">提交纪要</span>
+                </span>
+              </a>
+              <a href="../Expressviews/index.html">
+                <span class="top_route_item ">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">提出意见</span>
+                </span>
+              </a>
+              <a href="../Modifyinformation/index.html">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">修改信息</span>
+                </span>
+              </a>
+            </div>
+            <div class="colorSelect">
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-hongdian"
+                  id="redBtn"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-landian-SVG"
+                  id="blueBtn"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-huangdian"
+                  id="YellowBtn"
+                ></button>
+              </div>
+              <div class="top_right_item">
+                <button
+                  type="button"
+                  class="btn iconfont icon-lvdian"
+                  id="greenBtn"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main class="layout_content" id="mainContent">
+          <!-- 个人中心页面 -->
+          <div class="content_detail">
+            <div class="container boxShadow" style="padding: 20px;">
+              <div class="container_right" >
+                <div class="container_right_item boxShadow">
+                  <div class="container_right_item_body" style="padding: 20px">
+                <div class="container_right_item_body_content">
+                <table class="table">
+                    <colgroup>
+    <col style="width: 8%;">
+    <col style="width: 8%; ">
+    <col style="width: 12%;">
+    <col style="width: 30%;">
+    <col style="width: 8%;">
+    <col style="width: 8%;">
+    <col style="width: 8%;">
+  </colgroup>
+                  <thead class="table_thead">
+                    <tr>
+                      <th class="table_cell">反馈/疑问ID</th>
+                      <th class="table_cell">提交者</th>
+                      <th class="table_cell">提交时间</th>
+                      <th class="table_cell">主题</th>
+                      <th class="table_cell">类型</th>
+                      <th class="table_cell">组别</th>
+                      <th class="table_cell">审核状态</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table_tbody" id="table_tbody_feetback">
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">反馈</th>
+                      <th class="table_cell">前端组</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">反馈</th>
+                      <th class="table_cell">前端组</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">反馈</th>
+                      <th class="table_cell">前端组</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">反馈</th>
+                      <th class="table_cell">前端组</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                  </div>
+                </div>
+              </div>
+              <form action="" style="margin-top: 50px;">
+                                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="ID"
+                                >用户ID</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="这是你的ID"
+                                    maxlength="30"
+                                    value="1"
+                                    class="form_input"
+                                    readonly="true"
+                                    
+                                    id="submitterId"
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="用户名"
+                                >用户名</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入用户名"
+                                    maxlength="30"
+                                    id="commenterName"
+                                    value="Adam"
+                                    class="form_input"
+                                    readonly
+                                    disabled
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                                                <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="组别"
+                                >组别</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="这是你的组别"
+                                    maxlength="30"
+                                    value="前端组"
+                                    class="form_input"
+                                    readonly="true"
+                                    disabled
+                                    id="commenterGroup"
+                                    
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="审核状态"
+                                >审核状态</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入你的会议状态"
+                                    maxlength="30"
+                                    id="status"
+                                    value="待审核"
+                                    class="form_input"
+                                    readonly
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="主题"
+                                >主题</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入主题"
+                                    maxlength="30"
+                                    id="feedbackSubject"
+                                    value=""
+                                    class="form_input"
+                                    required
+                                    readonly
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="类型"
+                                >类型</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入类型"
+                                    maxlength="30"
+                                    id="feedbackType"
+                                    value=""
+                                    class="form_input"
+                                    required
+                                    readonly
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div class="right_form_container" style="width: 60%;">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable" style="flex-direction: column; align-items: flex-start; gap: 20px;">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="内容"
+                                style="font-size: large;"
+                                >内容</label
+                              >
+                              <div class="form_item_control" style="width: 100%; justify-content: center;">
+                      <div class="container_left_item_body_input">
+                        <textarea
+                          name=""
+                          id="feedbackContent"
+                          rows="12"
+                          placeholder="请输入内容"
+                          maxlength="200"
+                          class="container_left_item_body_input_content"
+                          readonly
+                        ></textarea>
+                      </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container" style="width: 40%;">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable" style="flex-direction: column; align-items: flex-start; gap: 20px;">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="处理意见"
+                                style="font-size: large;"
+                                >处理意见</label
+                              >
+                              <div class="form_item_control" style="width: 100%; justify-content: center;">
+                      <div class="container_left_item_body_input">
+                        <textarea
+                          name=""
+                          id="processingComments"
+                          rows="12"
+                          placeholder="请输入处理意见"
+                          maxlength="200"
+                          class="container_left_item_body_input_content"
+                          readonly
+                        ></textarea>
+                      </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    <div class="right_form_submit">
+                      <button
+                        type="button"
+                        class="right_form_submit_btn"
+                        id="contentDataBtn"
+                      >
+                        <span style="margin-top: 30px;">提交</span>
+                      </button>
+                    </div>
+
+              </form>
+
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="../../js/dom.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/http.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>

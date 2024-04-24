@@ -27,7 +27,7 @@ exports.create = (req, res) => {
     });
 };
 
-//查询数据
+//查询submitter数据
 exports.getData = (req, res) => {
   const id = req.params.id;
   Feedback.findAll({ where: { submitterId: id } })
@@ -50,6 +50,41 @@ exports.getAllData = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message: err.message,
+      });
+    });
+};
+//查询submitter数据
+exports.getData = (req, res) => {
+  const id = req.params.id;
+  Feedback.findAll({ where: { submitterId: id } })
+    .then((data) => {
+      console.log(data);
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message,
+      });
+    });
+};
+
+//查询feedbackId数据
+exports.getfeedbackIdData = (req, res) => {
+  const id = req.params.id;
+
+  Feedback.findByPk(id)
+    .then((data) => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: `找不到这个意见 id=${id}.`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "发生错误 id=" + id,
       });
     });
 };
