@@ -243,3 +243,7 @@ input[type="checkbox"],
   white-space: normal;
   max-width: max-content;
 }
+.container_right_item_body_content {
+  max-height: 220px;
+  overflow: auto;
+}

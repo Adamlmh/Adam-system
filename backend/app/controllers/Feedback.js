@@ -88,3 +88,47 @@ exports.getfeedbackIdData = (req, res) => {
       });
     });
 };
+
+//更新处理意见和状态
+exports.update = (req, res) => {
+  const id = parseInt(req.params.id);
+  // 构建包含有要更新的字段的对象
+  const updateFields = {};
+  if (req.body.processingComments)
+    updateFields.processingComments = req.body.processingComments;
+  if (req.body.status) updateFields.status = req.body.status;
+  Feedback.update(updateFields, {
+    where: { feedbackId: id },
+  })
+    .then((num) => {
+      if (num == 1) {
+        res.send({
+          message: "点评成功！",
+        });
+      } else {
+        res.send({
+          message: `无法上传该id=${id}. 上传为空值`,
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send({
+        message: "上传失败",
+      });
+    });
+};
+//查询待回复数据
+exports.getfeedbackStatus = (req, res) => {
+  console.log(123);
+  Feedback.findAll({ where: { status: "待回复" } })
+    .then((data) => {
+      console.log(data);
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message,
+      });
+    });
+};

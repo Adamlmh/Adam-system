@@ -136,11 +136,7 @@ form {
   width: 100%;
   font-size: 14px;
 }
-.right_form_submit {
-  width: 100%;
-  display: flex;
-  justify-content: end;
-}
+
 .right_form_submit_btn {
   color: #fff;
   background-color: var(--primary-color);
@@ -243,4 +239,11 @@ input[type="checkbox"],
 .container_right_item_body {
   max-height: 200px;
   overflow: auto;
+}
+.BtnContain {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  gap: 20px;
+  padding: 0 80px;
 }

@@ -2,6 +2,10 @@ module.exports = (app) => {
   const Feedback = require("../controllers/Feedback");
 
   var router = require("express").Router();
+  // // 查询getfeedbackStatus数据
+  router.get("/getfeedbackStatus", Feedback.getfeedbackStatus);
+  //意见更新
+  router.post("/updata:id", Feedback.update);
   // // 查询getfeedbackIdData数据
   router.get("/getfeedbackIdData:id", Feedback.getfeedbackIdData);
   // // 查询所有数据
