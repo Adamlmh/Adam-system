@@ -2,6 +2,8 @@ module.exports = (app) => {
   const MeetingMinutes = require("../controllers/MeetingMinutes");
 
   var router = require("express").Router();
+  //删除delete
+  router.get("/delete:id", MeetingMinutes.delete);
   // // 查询所有数据
   router.get("/getAllData:id", MeetingMinutes.getAllData);
   // 提交

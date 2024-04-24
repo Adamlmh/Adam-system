@@ -19,6 +19,7 @@ exports.create = (req, res) => {
     personalMinutes: req.body.personalMinutes,
     likes: 3,
     uploaderName: req.body.uploaderName,
+    uploaderGroup: req.body.uploaderGroup,
   };
 
   MeetingMinutes.create(meetingMinutes)
@@ -79,19 +80,24 @@ exports.getFiveData = (req, res) => {
     });
 };
 
-//更新点赞数
+//更新点赞数/审核意见/审核结果
 exports.update = (req, res) => {
   const id = parseInt(req.params.id);
+  console.log(id);
+  console.log(typeof id);
   // 构建包含有要更新的字段的对象
   const updateFields = {};
   if (req.body.likes) updateFields.likes = req.body.likes;
+  if (req.body.status) updateFields.status = req.body.status;
+  if (req.body.reviewComments)
+    updateFields.reviewComments = req.body.reviewComments;
   MeetingMinutes.update(updateFields, {
     where: { minutesId: id },
   })
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: "点赞成功！",
+          message: "操作成功！",
         });
       } else {
         res.send({
@@ -109,7 +115,6 @@ exports.update = (req, res) => {
 
 //查询所有数据
 exports.getAllData = (req, res) => {
-  console.log(888);
   MeetingMinutes.findAll()
     .then((data) => {
       res.send(data);
@@ -117,6 +122,30 @@ exports.getAllData = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message: err.message,
+      });
+    });
+};
+//管理员删除会议纪要
+exports.delete = (req, res) => {
+  const id = req.params.id;
+
+  MeetingMinutes.destroy({
+    where: { minutesId: id },
+  })
+    .then((num) => {
+      if (num == 1) {
+        res.send({
+          message: "删除成功",
+        });
+      } else {
+        res.send({
+          message: `没找到 id=${id}. `,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "删除失败 id=" + id,
       });
     });
 };

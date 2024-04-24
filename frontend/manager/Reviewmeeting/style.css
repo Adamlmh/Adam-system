@@ -252,3 +252,11 @@ input[type="checkbox"],
   color: var(--primary-color);
   cursor: pointer;
 }
+.meetingPhoto {
+  background-image: url(../../images/1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 800px;
+  margin: 0 auto;
+  height: 400px;
+}

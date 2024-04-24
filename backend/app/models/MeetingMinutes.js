@@ -37,6 +37,7 @@ module.exports = (sequelize, DataTypes) => {
       status: {
         type: DataTypes.STRING(50),
         allowNull: false,
+        defaultValue: "待审核", // 默认值为0
       },
       reviewComments: {
         type: DataTypes.STRING(255),
@@ -61,9 +62,13 @@ module.exports = (sequelize, DataTypes) => {
       likes: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        defaultValue: 3, // 默认值为0
+        defaultValue: 3, // 默认值为3
       },
       uploaderName: {
+        type: DataTypes.STRING(50),
+        allowNull: true,
+      },
+      uploaderGroup: {
         type: DataTypes.STRING(50),
         allowNull: true,
       },

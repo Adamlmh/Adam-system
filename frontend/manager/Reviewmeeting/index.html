@@ -268,6 +268,7 @@
                   </div>
                 </div>
               </div>
+              
               <form action="" style="margin-top: 20px;">
 
                         <div class="right_form_container">
@@ -425,8 +426,8 @@
                                     maxlength="30"
                                     value=""
                                     class="form_input"
-                                   id="tag3"
-                                  name="tag3"
+                                   id="meetingType"
+                                  name="meetingType"
                                   />
                                 </span>
                               </div>
@@ -545,13 +546,14 @@
                                 class="form_item_required lianjie"
                                 title="个人纪要"
                                 style="font-size: large; "
+                                id="personalMinuteLabel"
                                 >个人纪要</label
                               >
                               <div class="form_item_control" style="width: 100%; justify-content: center;">
                       <div class="container_left_item_body_input">
                         <textarea
                           name=""
-                          id="meetingContent"
+                          id="personalMinutes"
                           rows="12"
                           placeholder="请输入内容"
                           maxlength="200"
@@ -559,31 +561,87 @@
       
                         ></textarea>
                       </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container" style="width: 100%;">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable" style="flex-direction: column; align-items: center;">
+
+                                <span style="font-size: large;">会议照片</span>
+                <div class="meetingPhoto" id="meetingPhoto" >
+                </div>
+                              </div>
+
+                           
+                          </div>
+                        </div>    
+                        <div class="right_form_container" style="width: 100%;">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable" style="flex-direction: column; align-items: flex-start; gap: 20px;">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="处理意见"
+                                style="font-size: large;"
+                                >处理意见</label
+                              >
+                              <div class="form_item_control" style="width: 100%; justify-content: center;">
+                      <div class="container_left_item_body_input">
+                        <textarea
+                          name=""
+                          id="reviewComments"
+                          rows="12"
+                          placeholder="请输入处理意见"
+                          maxlength="200"
+                          class="container_left_item_body_input_content"
+                        ></textarea>
+                      </div>
                               </div>
                             </div>
                           </div>
                         </div>
 
-
                         <div class="right_form_container" style="margin: auto;">
                 <div class="container_left_item ">
-                  <div class="container_left_item_body" style="padding: 20px">
+                  <div class="container_left_item_body" style="padding: 20px; display: flex; gap: 90px;">
 
-                    <div class="right_form_submit">
+                    <span class="right_form_submit">
                       <button
                         type="button"
                         class="right_form_submit_btn"
-                        id="contentDataBtn"
+                        id="deleteDataBtn"
                       >
-                        <span style="margin-top: 30px;">提交</span>
+                        <span style="margin-top: 30px;">删除</span>
                       </button>
-                    </div>
-              </form>
-
-          </div>
-        </main>
-      </div>
+                    </span>
+                    <span class="right_form_submit">
+                      <button
+                        type="button"
+                        class="right_form_submit_btn"
+                        id="passDataBtn"
+                      >
+                        <span style="margin-top: 30px;">通过</span>
+                      </button>
+                    </span>
+                    <span class="right_form_submit">
+                      <button
+                        type="button"
+                        class="right_form_submit_btn"
+                        id="NOpassDataBtn"
+                      >
+                        <span style="margin-top: 30px;">不通过</span>
+                      </button>
+                    </span>
+   </div>
     </div>
+          </div>
+                  </form>
+
+        </main>
+   
 
     <script src="../../js/dom.js"></script>
     <script src="../../js/main.js"></script>

@@ -126,8 +126,9 @@ $.get("#photoform").addEventListener("submit", function (event) {
         .then((data) => {
           alert(`${data.message}`);
           // 清空表单中文本类型输入框的值
-          clearTextInputs();
-          render();
+          setTimeout(() => {
+            location.reload();
+          }, 1000);
         })
         .catch((error) => {
           console.error("发送数据至后端失败:", error);
