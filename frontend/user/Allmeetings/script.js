@@ -69,6 +69,7 @@ const renderPage = (n) => {
     // 遍历图片元素并修改src属性
     renderMeeting(data);
     renderComment();
+    getStar();
   });
 };
 renderPage(dataNumber);
@@ -196,11 +197,53 @@ const renderComment = () => {
 };
 
 //收藏需求
-const Stars = $.get(".icon-shoucang2");
+const Stars = $.get(".icon-shoucang4");
 Stars.addEventListener("click", () => {
   if (Stars.classList.contains("activeColor")) {
     Stars.classList.remove("activeColor");
+    customFetch(
+      `http://localhost:8080/api/private/Favorite/delete/${minutesId}/${commenterId}`
+    )
+      .then((data) => {
+        console.log(data.message);
+      })
+      .catch((error) => {
+        console.error("发送数据至后端失败:", error);
+        // 在这里处理错误情况
+      });
   } else {
     Stars.classList.add("activeColor");
+    customFetch(`http://localhost:8080/api/private/Favorite/`, {
+      method: "POST",
+      body: JSON.stringify({
+        userId: commenterId,
+        minutesId,
+      }),
+    })
+      .then((data) => {
+        alert(`${data.message}`);
+      })
+      .catch((error) => {
+        console.error("发送数据至后端失败:", error);
+        // 在这里处理错误情况
+      });
   }
 });
+const getStar = () => {
+  customFetch(
+    `http://localhost:8080/api/private/Favorite/${minutesId}/${commenterId}`
+  )
+    .then((data) => {
+      console.log(data.message);
+      //如果找到（也就是有收藏）
+      if (!data.message) {
+        Stars.classList.add("activeColor");
+      } else {
+        Stars.classList.remove("activeColor");
+      }
+    })
+    .catch((error) => {
+      console.error("发送数据至后端失败:", error);
+      // 在这里处理错误情况
+    });
+};

@@ -72,6 +72,9 @@ $.get("#find").addEventListener("click", () => {
   let sign = 0;
   let pro = $.get("#pro").value.trim();
   let condition = $.get("#condition").value.trim();
+  if (!pro || !condition) {
+    return;
+  }
   if (pro === "纪要ID") {
     pro = "minutesId";
     condition = parseInt(condition);
