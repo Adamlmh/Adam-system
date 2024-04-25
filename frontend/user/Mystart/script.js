@@ -194,13 +194,3 @@ const renderComment = () => {
     });
   });
 };
-
-//收藏需求
-const Stars = $.get(".icon-shoucang2");
-Stars.addEventListener("click", () => {
-  if (Stars.classList.contains("activeColor")) {
-    Stars.classList.remove("activeColor");
-  } else {
-    Stars.classList.add("activeColor");
-  }
-});

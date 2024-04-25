@@ -109,14 +109,26 @@ exports.getFiveData = (req, res) => {
 //更新点赞数/审核意见/审核结果
 exports.update = (req, res) => {
   const id = parseInt(req.params.id);
-  console.log(id);
-  console.log(typeof id);
   // 构建包含有要更新的字段的对象
   const updateFields = {};
   if (req.body.likes) updateFields.likes = req.body.likes;
   if (req.body.status) updateFields.status = req.body.status;
   if (req.body.reviewComments)
     updateFields.reviewComments = req.body.reviewComments;
+  if (req.body.meetingTopic) updateFields.meetingTopic = req.body.meetingTopic;
+  if (req.body.personalMinutes)
+    updateFields.personalMinutes = req.body.personalMinutes;
+  if (req.body.meetingContent)
+    updateFields.meetingContent = req.body.meetingContent;
+  if (req.body.meetingPhoto) updateFields.meetingPhoto = req.body.meetingPhoto;
+  if (req.body.meetingType) updateFields.meetingType = req.body.meetingType;
+  if (req.body.meetingTime) updateFields.meetingTime = req.body.meetingTime;
+  if (req.body.tag1) updateFields.tag1 = req.body.tag1;
+  if (req.body.tag2) updateFields.tag2 = req.body.tag2;
+  if (req.body.tag3) updateFields.tag3 = req.body.tag3;
+  if (req.body.uploaderName) updateFields.uploaderName = req.body.uploaderName;
+  if (req.body.uploaderGroup)
+    updateFields.uploaderGroup = req.body.uploaderGroup;
   MeetingMinutes.update(updateFields, {
     where: { minutesId: id },
   })

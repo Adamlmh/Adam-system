@@ -42,27 +42,31 @@ PersonalMinutes.addEventListener("change", function (event) {
   if (file.type !== "text/plain") {
     PersonalMinutes.nextElementSibling.style.display = "block";
     PersonalMinutes.parentNode.classList.add("red");
-    contentDataBtn.disabled = true;
+    $.get("#photoDataBtn").disabled = true;
+    $.get("#temporaryDataBtn").disabled = true;
     event.preventDefault(); // 阻止默认行为（即取消文件上传）
     return;
   } else {
     PersonalMinutes.nextElementSibling.style.display = "none";
     PersonalMinutes.parentNode.classList.remove("red");
-    contentDataBtn.disabled = false;
+    $.get("#photoDataBtn").disabled = false;
+    $.get("#temporaryDataBtn").disabled = false;
     const reader = new FileReader();
     reader.onload = function (event) {
       personalminutes = event.target.result;
       // 检查字符长度是否小于 1000
       if (personalminutes.length < 1000) {
         PersonalMinutes.parentNode.classList.remove("red");
-        contentDataBtn.disabled = false;
+        $.get("#photoDataBtn").disabled = false;
+        $.get("#temporaryDataBtn").disabled = false;
         // 字符长度小于 1000
         root.style.setProperty("--alert-color", "#00a76f"); // 修改为绿色
         alert("文件内容小于 1000 字符,符合要求");
       } else {
         // 字符长度大于等于 1000
         PersonalMinutes.parentNode.classList.add("red");
-        contentDataBtn.disabled = true;
+        $.get("#photoDataBtn").disabled = true;
+        $.get("#temporaryDataBtn").disabled = true;
         root.style.setProperty("--alert-color", "#FADAD8"); // 修改为红色
         alert("文件内容大于等于 1000 字符");
       }
@@ -76,8 +80,6 @@ PersonalMinutes.addEventListener("change", function (event) {
 });
 let formData = {};
 //会议纪要提交
-// const contentDataBtn = $.get("#contentDataBtn");
-// contentDataBtn.addEventListener("click", submitForm);
 function submitForm() {
   //检测会议主题和会议内容是否未空
   const meetingTopic = $.get("#meetingTopic").value.trim();
@@ -179,10 +181,12 @@ meetingTime.addEventListener("blur", function () {
   if (datePattern.test(meetingTime.value)) {
     meetingTime.nextElementSibling.style.display = "none";
     meetingTime.parentNode.classList.remove("red");
-    contentDataBtn.disabled = false;
+    $.get("#photoDataBtn").disabled = false;
+    $.get("#temporaryDataBtn").disabled = false;
   } else {
     meetingTime.nextElementSibling.style.display = "block";
     meetingTime.parentNode.classList.add("red");
-    contentDataBtn.disabled = true;
+    $.get("#photoDataBtn").disabled = true;
+    $.get("#temporaryDataBtn").disabled = true;
   }
 });

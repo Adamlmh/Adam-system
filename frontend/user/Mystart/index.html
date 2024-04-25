@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>近期会议</title>
+    <title>我的收藏</title>
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="../../css/global.css" />
@@ -34,14 +34,14 @@
               </a>
 
               <a href="../Recentmeetings/index.html">
-              <li class="menu_item menu_item_active_color" data-path="/Recentmeetings">
+              <li class="menu_item" data-path="/Recentmeetings">
                 <span class="iconfont icon-jinqihuiyi1"></span>
                 <span style="margin-inline-start: 10px">近期会议</span>
               </li>
               </a>
 
               <a href="../Allmeetings/index.html">
-              <li class="menu_item" data-path="/Allmeetings">
+              <li class="menu_item " data-path="/Allmeetings">
                 <span class="iconfont icon-jinqihuiyi"></span>
                 <span style="margin-inline-start: 10px">全部会议</span>
               </li>
@@ -66,18 +66,18 @@
                   <span style="margin-inline-start: 10px">修改信息</span>
                 </li>
               </a>
-                            <a href="../Draftbox/index.html">
-                <li class="menu_item " data-path="/Modifyinformation">
+              <a href="../Draftbox/index.html">
+                <li class="menu_item" data-path="/Modifyinformation">
                   <span class="iconfont icon-cunrucaogaoxiang"></span>
                   <span style="margin-inline-start: 10px">草稿箱</span>
                 </li>
               </a>
-              <a href="../Modifyinformation/index.html">
-                <li class="menu_item" data-path="/Modifyinformation">
+              <a href="../Mystart/index.html">
+                <li class="menu_item menu_item_active_color" data-path="/Modifyinformation">
                   <span class="iconfont icon-shoucang"></span>
                   <span style="margin-inline-start: 10px">我的收藏</span>
                 </li>
-              </a>  
+              </a>
             </ul>
           </div>
         </div>
@@ -88,8 +88,10 @@
             <div class="top_left">
               <span class="iconfont icon-sanhengxian"></span>
               <div class="Route_correspondence">
-    <span class="iconfont icon-jinqihuiyi1"></span>
-                <span >近期会议</span>
+
+                <span class="iconfont icon-jinqihuiyi"></span>
+                <span >全部会议</span>
+
               </div>
             </div>
             <div class="top_right">
@@ -134,13 +136,13 @@
                 </span>
               </span>
               <a href="../Recentmeetings/index.html">
-                <span class="top_route_item top_route_item_active">
+                <span class="top_route_item">
                   <span class="top_route_item_dot"> </span>
                   <span class="top_route_item_name">近期会议</span>
                 </span>
               </a>
               <a href="../Allmeetings/index.html">
-                <span class="top_route_item">
+                <span class="top_route_item ">
                   <span class="top_route_item_dot"> </span>
                   <span class="top_route_item_name">全部会议</span>
                 </span>
@@ -164,13 +166,13 @@
                 </span>
               </a>
               <a href="../Draftbox/index.html">
-                <span class="top_route_item ">
+                <span class="top_route_item">
                   <span class="top_route_item_dot"> </span>
                   <span class="top_route_item_name">草稿箱</span>
                 </span>
               </a>
               <a href="../Mystart/index.html">
-                <span class="top_route_item">
+                <span class="top_route_item top_route_item_active">
                   <span class="top_route_item_dot"> </span>
                   <span class="top_route_item_name">我的收藏</span>
                 </span>
@@ -210,40 +212,111 @@
         </header>
         <main class="layout_content" id="mainContent">
           <!-- 个人中心页面 -->
-          <div class="content_detail">
+          <div class="content_detail" >
             <div class="container boxShadow " style="padding: 20px;">
-              <div class="slidershow ">
-                <div class="slides ">
-                  <input type="radio" name="r" id="r1" checked>
-                  <input type="radio" name="r" id="r2">
-                  <input type="radio" name="r" id="r3">
-                  <input type="radio" name="r" id="r4">
-                  <input type="radio" name="r" id="r5">
-                  <div class="slide s1">
-                    <img src="../../images/1.jpg" alt="">
-                  </div>
-                  <div class="slide">
-                    <img src="../../images/2.jpg" alt="">
-                  </div>
-                  <div class="slide">
-                    <img src="../../images/3.jpg" alt="">
-                  </div>
-                  <div class="slide">
-                    <img src="../../images/4.jpg" alt="">
-                  </div>
-                  <div class="slide">
-                    <img src="../../images/5.jpg" alt="">
-                  </div>
+              <div class="card_head">
+                <div class="card_head_wrapper">
+                  <div class="card_head_title">
+                    <div class="content">
+              <div class="user_info">
+                <div class="avatar" id="avatar">
                 </div>
-                <div class="navigation">
-                  <label for="r1" class="bar"></label>
-                  <label for="r2" class="bar"></label>
-                  <label for="r3" class="bar"></label>
-                  <label for="r4" class="bar"></label>
-                  <label for="r5" class="bar"></label>
+                <div class="info">
+                  <h3 id="name">Adam</h3>
+                  <span  id="group" >前端组</span>
+                <span id="commitTime">2024/04/22</span>
+                </div>
+
+              </div>
+                <div>
+                  <span id="meetingTime" style="margin-right: 20px;">2024/04/22</span>
+                  <span class="iconfont icon-qianyige" id="prePage"></span>
+                  <span class="iconfont icon-houyige" id="nextPage"></span>
+                </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-               <ul id="banner"></ul>
+              <div class="card_body">
+                <div class="card_body_content">
+                  <h1 id="meetingTopic">会议主题</h1>
+                  <span id="meetingContent">会议内容</span>
+                <div class="meetingPhoto" id="meetingPhoto">
+
+                </div>
+                <div class="personalMinutes">
+                  <span class="personalMinute">个人纪要</span>
+                  <span style="margin-left: 5px; display: none;" id="personalMinutes">内容</span>
+                </div>
+                  <div class="card_body_content_function">
+                    <div class="card_body_content_function_left">
+                      <div class="card_body_content_function_left_left">
+                      <span id="dianzan">❤</span>
+                      <span id="likes" style="cursor: pointer;">3</span>
+                      </div>
+                  <div class="card_body_content_function_left_right">
+                    <div class="touxiangClass" style="background-image: url(../../images/avatar_4-2497c77c.jpg);"></div>
+                    <div class="touxiangClass" style="background-image: url(../../images/38.jpg); margin-left: -8px;"></div>
+                    <div class="touxiangClass touxiangColor" style="margin-left: -8px; display: flex; justify-content: center;align-items: center;"><span>+1</span></div>
+                  </div>
+                    </div>
+                    <div class="card_body_content_function_right">
+                      <span class="iconfont icon-pinglunxiao"></span>
+                      <span class="iconfont icon-fenxiang"></span>
+                    </div>
+                  </div>
+                  <div class="card_body_content_comment_contain">
+                  <div class="card_body_content_comment">
+                    <div class="touxiangClass" style="background-image: url(../../images/avatar_4-2497c77c.jpg);" id=""></div>
+                    <div class="message_content">
+                      <div class="message_content_header">
+                        <span class="card_body_content_function_right">
+                          <h5 style="margin-right: 10px;">名字</h5>
+                          <span style="margin-right: 5px;">❤</span>
+                      <span id="likeCount">3</span>
+                        </span>
+                        
+                        <span>
+                          <span class="iconfont icon-pinglun"></span>
+                          <span id="commentTime">时间时间</span>
+                        </span>
+                      </div>
+                      <span class="message_content_header_span" id="commentContent">做普通人，干正经事，可以爱小钱，但必有大胸怀。</span>
+                    </div>
+                  </div>
+                  <div class="card_body_content_comment">
+                    <div class="touxiangClass" style="background-image: url(../../images/avatar_4-2497c77c.jpg);" id=""></div>
+                    <div class="message_content">
+                      <div class="message_content_header">
+                        <span class="card_body_content_function_right">
+                          <h5 style="margin-right: 10px;">名字</h5>
+                          <span style="margin-right: 5px;">❤</span>
+                      <span id="likeCount">3</span>
+                        </span>
+                        
+                        <span>
+                          <span class="iconfont icon-pinglun"></span>
+                          <span id="commentTime">时间时间</span>
+                        </span>
+                      </div>
+                      <span class="message_content_header_span" id="commentContent">做普通人，干正经事，可以爱小钱，但必有大胸怀。</span>
+                    </div>
+                  </div>
+                  </div>
+
+                  <div class="card_body_content_input">
+                    <div class="touxiangClass" style="background-image: url(../../images/avatar_4-2497c77c.jpg);" id="avatar2"></div>
+                  <div class="send_content">
+                    <span class="send_content_input">
+                      <input type="text" name="commentContent" id="commentContentInput" placeholder="请在这里输入你的评论" style="padding: 0; text-overflow: ellipsis; width: 85%; font-size: 15px;">
+                      <span class="iconfont icon-c181huiche" id="Enter"></span>
+                      <span class="iconfont icon-shangchuantupian"></span>
+                      <span class="iconfont icon-biaoqing"></span>
+                    </span>
+                  </div>
+                  </div>
+                </div>
+              </div>
           </div>
         </main>
       </div>

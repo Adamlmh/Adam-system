@@ -149,7 +149,6 @@ NOpassDataBtn.addEventListener("click", () => {
 
 function submitForm(n, status) {
   const reviewComments = $.get("#reviewComments").value;
-  console.log(n);
   n = parseInt(n);
   // 发送数据到后端或进行其他操作
   customFetch(`http://localhost:8080/api/private/MeetingMinutes/updata${n}`, {
