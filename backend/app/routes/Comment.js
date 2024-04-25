@@ -2,7 +2,8 @@ module.exports = (app) => {
   const Comment = require("../controllers/Comment");
 
   var router = require("express").Router();
-
+  //删除delete
+  router.get("/delete:id", Comment.delete);
   // 提交
   router.post("/", Comment.create);
   // 根据会议查询

@@ -5,9 +5,10 @@ function render() {
       "id"
     )}`
   ).then((data) => {
+    console.log(data);
     $.get("#submitterId").value = data.userId;
-    $.get("#uploaderGroup").value = data.group;
-    $.get("#uploaderName").value = data.username;
+    $.get("#commenterGroup").value = data.group;
+    $.get("#commenterName").value = data.username;
   });
 }
 render();

@@ -1,6 +1,8 @@
 //管理一个n来看是需要哪个意见
 let n = 1;
 let dataAll;
+// 定义一个全局变量，用于保存单元格的值
+let cellValue = "";
 //渲染上面页面
 customFetch(
   `http://localhost:8080/api/private/MeetingMinutes/getAllData${localStorage.getItem(
@@ -9,16 +11,6 @@ customFetch(
 ).then((data) => {
   dataAll = data;
   renderTable(data, propertiesFeetback, "status", "通过", 1);
-  // 在表格渲染完成后添加点击事件监听器(实现点击哪个拿到哪个数据)
-  // var firstColumnCells = document.querySelectorAll(
-  //   "#table_tbody_meeting tr > td:first-child"
-  // );
-  // firstColumnCells.forEach(function (cell) {
-  //   cell.addEventListener("click", function () {
-  //     n = cell.textContent;
-  //     renderMeeting(n);
-  //   });
-  // });
 });
 
 // 要在表格中显示的属性
@@ -69,16 +61,15 @@ function renderTable(rowData, properties, pro, condition, n) {
     cell.addEventListener("click", function () {
       n = cell.textContent;
       renderMeeting(n);
+      // 获取当前单元格的文本内容，并保存在全局变量中
+      cellValue = cell.textContent;
     });
   });
 }
 
 //实现任意搜索查询数据
-// renderTable(data, propertiesFeetback, "status", "通过", 1);
-// let pro = $.get("#pro").value;
-// let condition = $.get("#condition").value;
 $.get("#find").addEventListener("click", () => {
-  let n = 0;
+  let sign = 0;
   let pro = $.get("#pro").value.trim();
   let condition = $.get("#condition").value.trim();
   if (pro === "纪要ID") {
@@ -110,10 +101,10 @@ $.get("#find").addEventListener("click", () => {
     pro = "status";
   }
   if (pro === "全部" || condition === "全部") {
-    n = 1;
+    sign = 1;
   }
-  console.log(pro, condition, n);
-  return renderTable(dataAll, propertiesFeetback, pro, condition, n);
+  console.log(pro, condition, sign);
+  return renderTable(dataAll, propertiesFeetback, pro, condition, sign);
 });
 
 //渲染下页面
@@ -145,22 +136,20 @@ const renderMeeting = (n) => {
       // 在这里处理错误情况
     });
 };
-renderMeeting(1);
 
 //审核结果提交
 const passDataBtn = $.get("#passDataBtn");
 passDataBtn.addEventListener("click", () => {
-  let value = n;
-  return submitForm(value, "通过");
+  return submitForm(cellValue, "通过");
 });
 const NOpassDataBtn = $.get("#NOpassDataBtn");
 NOpassDataBtn.addEventListener("click", () => {
-  let value = n;
-  return submitForm(value, "不通过");
+  submitForm(cellValue, "不通过");
 });
 
 function submitForm(n, status) {
   const reviewComments = $.get("#reviewComments").value;
+  console.log(n);
   n = parseInt(n);
   // 发送数据到后端或进行其他操作
   customFetch(`http://localhost:8080/api/private/MeetingMinutes/updata${n}`, {
@@ -182,6 +171,7 @@ function submitForm(n, status) {
 //实现删除纪要功能deleteDataBtn
 const deleteDataBtn = $.get("#deleteDataBtn");
 deleteDataBtn.addEventListener("click", () => {
+  n = parseInt(cellValue);
   customFetch(
     `http://localhost:8080/api/private/MeetingMinutes/delete${n}`
   ).then((data) => {
@@ -190,6 +180,12 @@ deleteDataBtn.addEventListener("click", () => {
       location.reload();
     }, 1000);
   });
+  //同时删除对应的评论
+  customFetch(`http://localhost:8080/api/private/Comment/delete${n}`).then(
+    (data) => {
+      alert(`${data.message}`);
+    }
+  );
 });
 //实现点击决定是否展示个人纪要
 $.get("#personalMinuteLabel").addEventListener("click", () => {

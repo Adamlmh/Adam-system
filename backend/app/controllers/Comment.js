@@ -70,3 +70,28 @@ exports.update = (req, res) => {
       });
     });
 };
+//删除会议纪要对应的评论
+exports.delete = (req, res) => {
+  const id = req.params.id;
+
+  comment
+    .destroy({
+      where: { minutesId: id },
+    })
+    .then((num) => {
+      if (num == 1) {
+        res.send({
+          message: "删除成功",
+        });
+      } else {
+        res.send({
+          message: `没找到 id=${id}. `,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "删除失败 id=" + id,
+      });
+    });
+};

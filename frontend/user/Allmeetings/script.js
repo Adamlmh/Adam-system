@@ -11,7 +11,9 @@ customFetch(
 });
 
 //发请求渲染个人信息
+let uploaderId;
 const RenderPersonal = (uploaderId) => {
+  console.log(uploaderId);
   customFetch(
     `http://localhost:8080/api/private/Personalcenter/${uploaderId}`
   ).then((data) => {
@@ -22,26 +24,26 @@ const RenderPersonal = (uploaderId) => {
   });
 };
 //管理一个变量来记录目前拿到的数据第几条
-let n = 0;
+let n = 1;
 //按需加载  健壮性
 const renderPage = (n) => {
   $.get("#dianzan").style.color = "black";
   customFetch(
-    `http://localhost:8080/api/private/MeetingMinutes/getMeetingData/${
-      parseInt(n) + 1
-    }`
+    `http://localhost:8080/api/private/MeetingMinutes/getLatestMeetingData/${parseInt(
+      n
+    )}`
   ).then((data) => {
     console.log(data);
     // 遍历图片元素并修改src属性
-    renderMeeting(data[0]);
+    renderMeeting(data);
   });
 };
-renderPage(0);
-let likes = 3;
+// renderPage(0);
 let minutesId;
 //传入data[n]
 const renderMeeting = (data) => {
-  const uploaderId = data.uploaderId;
+  console.log(data);
+  uploaderId = data.uploaderId;
   minutesId = data.minutesId;
   //渲染个人信息
   RenderPersonal(uploaderId);
