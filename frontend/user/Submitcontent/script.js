@@ -76,8 +76,8 @@ PersonalMinutes.addEventListener("change", function (event) {
 });
 let formData = {};
 //会议纪要提交
-const contentDataBtn = $.get("#contentDataBtn");
-contentDataBtn.addEventListener("click", submitForm);
+// const contentDataBtn = $.get("#contentDataBtn");
+// contentDataBtn.addEventListener("click", submitForm);
 function submitForm() {
   //检测会议主题和会议内容是否未空
   const meetingTopic = $.get("#meetingTopic").value.trim();
@@ -86,17 +86,89 @@ function submitForm() {
   // 检查字段是否为空
   if (!meetingTopic || !meetingContent || !meetingTime) {
     root.style.setProperty("--alert-color", "#FADAD8"); // 修改为红色
-    alert("请填写所有字段,除了标签外");
+    alert("请填写所有字段,标签选填");
 
-    return; // 如果有任何字段为空，则不执行后续逻辑
+    return 1; // 如果有任何字段为空，则不执行后续逻辑
   }
   root.style.setProperty("--alert-color", "#00a76f"); // 修改为绿色
   formData = getFormData(formData);
   formData["personalMinutes"] = personalminutes;
-  console.log(formData);
-  alert("请继续完成图片上传后才正式提交到数据库");
+  return 0;
 }
+//暂存事件
 
+$.get("#temporaryDataBtn").addEventListener("click", function () {
+  pushForm(1);
+});
+//sign==>标志是否是暂存
+const pushForm = (sign) => {
+  if (submitForm()) {
+    return;
+  }
+  if (sign) {
+    formData.status = "暂存";
+  }
+  const fileInput = document.querySelector("#photoform input[type='file']");
+  // 如果文件输入框的值为空字符串，则表示没有选择文件上传,直接发数据 不发送图片
+  if (fileInput.value === "") {
+    //发送数据到后端或进行其他操作;
+    customFetch(`http://localhost:8080/api/private/MeetingMinutes`, {
+      method: "POST",
+      body: JSON.stringify(formData),
+    })
+      .then((data) => {
+        alert(`${data.message}`);
+        // 清空表单中文本类型输入框的值
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
+      })
+      .catch((error) => {
+        console.error("发送数据至后端失败:", error);
+        // 在这里处理错误情况
+      });
+  } else {
+    // 如果选择了文件上传，则创建 FormData 对象并将表单元素传递给它
+    const FOrmData = new FormData($.get("#photoform")); // 创建 FormData 对象并将表单元素传递给它
+    // 发送 FormData 对象到服务器
+    fetch("http://localhost:8080/upload", {
+      method: "POST",
+      body: FOrmData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // let avatar = data.message;
+        formData.meetingPhoto = `../../${data.message}`;
+        console.log(formData);
+        //发送数据到后端或进行其他操作;
+        customFetch(`http://localhost:8080/api/private/MeetingMinutes`, {
+          method: "POST",
+          body: JSON.stringify(formData),
+        })
+          .then((data) => {
+            alert(`${data.message}`);
+            // 清空表单中文本类型输入框的值
+            setTimeout(() => {
+              location.reload();
+            }, 1000);
+          })
+          .catch((error) => {
+            console.error("发送数据至后端失败:", error);
+            // 在这里处理错误情况
+          });
+      })
+      .catch((error) => {
+        console.error("上传出错：", error);
+      });
+  }
+};
+
+//会议图片提交
+// 添加提交事件监听器
+$.get("#photoform").addEventListener("submit", function (event) {
+  event.preventDefault(); // 阻止表单默认提交行为
+  pushForm(0);
+});
 //日期输入检测
 const meetingTime = $.get("#meetingTime");
 meetingTime.addEventListener("blur", function () {
@@ -113,43 +185,4 @@ meetingTime.addEventListener("blur", function () {
     meetingTime.parentNode.classList.add("red");
     contentDataBtn.disabled = true;
   }
-});
-
-//会议图片提交
-// 添加提交事件监听器
-$.get("#photoform").addEventListener("submit", function (event) {
-  event.preventDefault(); // 阻止表单默认提交行为
-
-  const FOrmData = new FormData($.get("#photoform")); // 创建 FormData 对象并将表单元素传递给它
-
-  // 发送 FormData 对象到服务器
-  fetch("http://localhost:8080/upload", {
-    method: "POST",
-    body: FOrmData,
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      // let avatar = data.message;
-      formData.meetingPhoto = `../../${data.message}`;
-
-      //发送数据到后端或进行其他操作;
-      customFetch(`http://localhost:8080/api/private/MeetingMinutes`, {
-        method: "POST",
-        body: JSON.stringify(formData),
-      })
-        .then((data) => {
-          alert(`${data.message}`);
-          // 清空表单中文本类型输入框的值
-          setTimeout(() => {
-            location.reload();
-          }, 1000);
-        })
-        .catch((error) => {
-          console.error("发送数据至后端失败:", error);
-          // 在这里处理错误情况
-        });
-    })
-    .catch((error) => {
-      console.error("上传出错：", error);
-    });
 });

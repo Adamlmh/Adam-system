@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>提交纪要</title>
+    <title>全部会议</title>
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="../../css/global.css" />
     <link
       rel="stylesheet"
-      href="https://at.alicdn.com/t/c/font_4512681_e3a91on05b4.css"
+      href="https://at.alicdn.com/t/c/font_4512681_6neram6m74e.css"
     />
   </head>
   <body>
@@ -41,14 +41,14 @@
               </a>
 
               <a href="../Allmeetings/index.html">
-              <li class="menu_item" data-path="/Allmeetings">
+              <li class="menu_item " data-path="/Allmeetings">
                 <span class="iconfont icon-jinqihuiyi"></span>
                 <span style="margin-inline-start: 10px">全部会议</span>
               </li>
               </a>
 
               <a href="../Submitcontent/index.html">
-              <li class="menu_item menu_item_active_color" data-path="/Submitcontent">
+              <li class="menu_item" data-path="/Submitcontent">
                 <span class="iconfont icon-demo1"></span>
                 <span style="margin-inline-start: 10px">提交纪要</span>
               </li>
@@ -66,7 +66,19 @@
                   <span style="margin-inline-start: 10px">修改信息</span>
                 </li>
               </a>
-            </ul>
+                            <a href="../Draftbox/index.html">
+                <li class="menu_item menu_item_active_color" data-path="/Modifyinformation">
+                  <span class="iconfont icon-xiugai"></span>
+                  <span style="margin-inline-start: 10px">草稿箱</span>
+                </li>
+              </a>
+              <a href="../Modifyinformation/index.html">
+                <li class="menu_item" data-path="/Modifyinformation">
+                  <span class="iconfont icon-xiugai"></span>
+                  <span style="margin-inline-start: 10px">修改信息</span>
+                </li>
+              </a>           
+             </ul>
           </div>
         </div>
       </aside>
@@ -76,8 +88,10 @@
             <div class="top_left">
               <span class="iconfont icon-sanhengxian"></span>
               <div class="Route_correspondence">
-    <span class="iconfont icon-demo1"></span>
-                <span >提交纪要</span>
+
+                <span class="iconfont icon-jinqihuiyi"></span>
+                <span >全部会议</span>
+
               </div>
             </div>
             <div class="top_right">
@@ -128,13 +142,13 @@
                 </span>
               </a>
               <a href="../Allmeetings/index.html">
-                <span class="top_route_item">
+                <span class="top_route_item ">
                   <span class="top_route_item_dot"> </span>
                   <span class="top_route_item_name">全部会议</span>
                 </span>
               </a>
               <a href="../Submitcontent/index.html">
-                <span class="top_route_item top_route_item_active">
+                <span class="top_route_item">
                   <span class="top_route_item_dot"> </span>
                   <span class="top_route_item_name">提交纪要</span>
                 </span>
@@ -143,6 +157,18 @@
                 <span class="top_route_item ">
                   <span class="top_route_item_dot"> </span>
                   <span class="top_route_item_name">提出意见</span>
+                </span>
+              </a>
+              <a href="../Modifyinformation/index.html">
+                <span class="top_route_item">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">修改信息</span>
+                </span>
+              </a>
+              <a href="../Draftbox/index.html">
+                <span class="top_route_item top_route_item_active">
+                  <span class="top_route_item_dot"> </span>
+                  <span class="top_route_item_name">草稿箱</span>
                 </span>
               </a>
               <a href="../Modifyinformation/index.html">
@@ -188,34 +214,131 @@
           <!-- 个人中心页面 -->
           <div class="content_detail">
             <div class="container boxShadow" style="padding: 20px;">
-              <form action="" style="margin-top: 20px;">
-                                        <div class="right_form_container">
-                          <div class="right_form_container_item">
-                            <div class="right_form_container_item_lable">
-                              <label
-                                for="input"
-                                class="form_item_required"
-                                title="ID"
-                                >用户ID</label
-                              >
-                              <div class="form_item_control">
-                                <span class="form_item_control_input">
+              <div class="container_right" >
+                <div class="container_right_item boxShadow">
+                  <div class="container_right_item_body" style="display: flex; justify-content: center;">
+                <div class="container_right_item_body_content" style="display: inline-flex;  align-items: center;">
+                                <span class="form_item_control_input" style="width: 40%;">
                                   <input
                                     type="text"
                                     aria-required="true"
-                                    placeholder="这是你的ID"
+                                    placeholder="请输入查询类别名称"
                                     maxlength="30"
-                                    value="1"
+                                    id="pro"
+                                    value=""
                                     class="form_input"
-                                    readonly="true"
                                     
-                                    id="uploaderId"
                                   />
                                 </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                                 <span class="form_item_control_input" style="width: 60%;">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入查询内容"
+                                    maxlength="30"
+                                    id="condition"
+                                    value=""
+                                    class="form_input"
+                                    
+                                  />
+                                </span>
+                    <span class="right_form_submit">
+                      <button
+                        type="button"
+                        class="right_form_submit_btn"
+                        id="find"
+                         style="width: 65px;"
+                      >
+                        <span >查询</span>
+                      </button>
+                    </span>
+                </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container_right" >
+                <div class="container_right_item boxShadow">
+                  <div class="container_right_item_body" style="padding: 20px">
+                <div class="container_right_item_body_content">
+                <table class="table">
+                    <colgroup>
+    <col style="width: 8%;">
+    <col style="width: 10%; ">
+    <col style="width: 10%;">
+    <col style="width: 30%;">
+    <col style="width: 8%;">
+    <col style="width: 8%;">
+    <col style="width: 8%;">
+    <col style="width: 8%;">
+    <col style="width: 10%;">
+  </colgroup>
+                  <thead class="table_thead">
+                    <tr>
+                      <th class="table_cell">纪要ID</th>
+                      <th class="table_cell">提交者</th>
+                      <th class="table_cell">会议时间</th>
+                      <th class="table_cell">会议主题</th>
+                      <th class="table_cell">会议类型</th>
+                      <th class="table_cell">标签1</th>
+                      <th class="table_cell">标签2</th>
+                      <th class="table_cell">标签3</th>
+                      <th class="table_cell">审核状态</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table_tbody" id="table_tbody_meeting">
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">办公</th>
+                      <th class="table_cell">开心</th>
+                      <th class="table_cell">紧急事件</th>
+                      <th class="table_cell">外包</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">办公</th>
+                      <th class="table_cell">开心</th>
+                      <th class="table_cell">紧急事件</th>
+                      <th class="table_cell">外包</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">办公</th>
+                      <th class="table_cell">开心</th>
+                      <th class="table_cell">紧急事件</th>
+                      <th class="table_cell">外包</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                    <tr>
+                      <th class="table_cell">1</th>
+                      <th class="table_cell">Adam</th>
+                      <th class="table_cell">2024-04-23</th>
+                      <th class="table_cell">第一次QG会议</th>
+                      <th class="table_cell">办公</th>
+                      <th class="table_cell">开心</th>
+                      <th class="table_cell">紧急事件</th>
+                      <th class="table_cell">外包</th>
+                      <th class="table_cell">待审核</th>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <form action="" style="margin-top: 20px;">
+
                         <div class="right_form_container">
                           <div class="right_form_container_item">
                             <div class="right_form_container_item_lable">
@@ -311,7 +434,7 @@
                                     type="text"
                                     aria-required="true"
                                     placeholder="请输入会议主题"
-                                    maxlength="100"
+                                    maxlength="30"
                                     id="meetingTopic"
                                     value=""
                                     class="form_input"
@@ -348,6 +471,32 @@
                                   >日期格式需要（xxxx/xx/xx），如:(2024/04/21)格式噢!</span
                                 >
                               </span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_form_container">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="会议类型"
+                                >会议类型</label
+                              >
+                              <div class="form_item_control">
+                                <span class="form_item_control_input">
+                                  <input
+                                    type="text"
+                                    aria-required="true"
+                                    placeholder="请输入会议类型"
+                                    maxlength="30"
+                                    value=""
+                                    class="form_input"
+                                   id="meetingType"
+                                  name="meetingType"
+                                  />
                                 </span>
                               </div>
                             </div>
@@ -410,7 +559,7 @@
                               <label
                                 for="input"
                                 class="form_item_required"
-                                title="标签三"
+                                title="会议类型"
                                 >标签三</label
                               >
                               <div class="form_item_control">
@@ -430,36 +579,16 @@
                             </div>
                           </div>
                         </div>
-                        <div class="right_form_container">
-                          <div class="right_form_container_item">
-                            <div class="right_form_container_item_lable">
-              <div class="item_input_content" style="margin-left: 65px;">
-                <input
-                  id="bangong"
-                  type="radio"
-                  checked
-                  name="meetingType"
-                  value="办公"
-                />
-                <label for="bangong" style="margin-right: 30px"
-                  >办公</label
-                >
-                <input id="kangle" type="radio" name="meetingType" value="康乐" />
-                <label for="kangle">康乐</label>
-              </div>
-                            </div>
-                            
-                          </div>
-                        </div>
+
                         <div class="right_form_container" style="width: 100%;">
                           <div class="right_form_container_item">
-                            <div class="right_form_container_item_lable" style="flex-direction: column; align-items: flex-start; gap: 20px;">
+                            <div class="right_form_container_item_lable" style="flex-direction: column; align-items: flex-start;">
                               <label
                                 for="input"
                                 class="form_item_required"
                                 title="会议内容"
                                 style="font-size: large;"
-                                >会议内容（1000字以内）</label
+                                >会议内容</label
                               >
                               <div class="form_item_control" style="width: 100%; justify-content: center;">
                       <div class="container_left_item_body_input">
@@ -468,7 +597,7 @@
                           id="meetingContent"
                           rows="12"
                           placeholder="请输入内容"
-                          maxlength="1000"
+                          maxlength="200"
                           class="container_left_item_body_input_content"
       
                         ></textarea>
@@ -477,89 +606,108 @@
                             </div>
                           </div>
                         </div>
-                        <div class="right_form_container "style="margin: auto;" >
+                        <div class="right_form_container" style="width: 100%;">
                           <div class="right_form_container_item">
-                            <div class="right_form_container_item_lable">
+                            <div class="right_form_container_item_lable" style="flex-direction: column; align-items: flex-start;">
                               <label
                                 for="input"
-                                class="form_item_required"
+                                class="form_item_required lianjie"
                                 title="个人纪要"
-                                >个人纪要（1000字以内）</label
+                                style="font-size: large; "
+                                id="personalMinuteLabel"
+                                >个人纪要</label
                               >
-                              <div class="form_item_control">
-                                <span class="form_item_control_input relative">
-                                  <input type="file" id="personalMinutes" >
-                                <span class="alertSpan" id="personalMinutesIncorrect"
-                                  >请选择一个文本文件（.txt）,否则无法上传</span
-                                >
-                                </span>
+                              <div class="form_item_control" style="width: 100%; justify-content: center;">
+                      <div class="container_left_item_body_input">
+                        <textarea
+                          name=""
+                          id="personalMinutes"
+                          rows="12"
+                          placeholder="请输入内容"
+                          maxlength="200"
+                          class="container_left_item_body_input_content"
+      
+                        ></textarea>
+                      </div>
 
                               </div>
                             </div>
                           </div>
                         </div>
+                        <div class="right_form_container" style="width: 100%;">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable" style="flex-direction: column; align-items: center;">
 
+                                <span style="font-size: large;">会议照片</span>
+                <div class="meetingPhoto" id="meetingPhoto" >
+                </div>
+                              </div>
+
+                           
+                          </div>
+                        </div>    
+                        <div class="right_form_container" style="width: 100%;">
+                          <div class="right_form_container_item">
+                            <div class="right_form_container_item_lable" style="flex-direction: column; align-items: flex-start; gap: 20px;">
+                              <label
+                                for="input"
+                                class="form_item_required"
+                                title="处理意见"
+                                style="font-size: large;"
+                                >处理意见</label
+                              >
+                              <div class="form_item_control" style="width: 100%; justify-content: center;">
+                      <div class="container_left_item_body_input">
+                        <textarea
+                          name=""
+                          id="reviewComments"
+                          rows="12"
+                          placeholder="请输入处理意见"
+                          maxlength="200"
+                          class="container_left_item_body_input_content"
+                        ></textarea>
+                      </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
 
                         <div class="right_form_container" style="margin: auto;">
                 <div class="container_left_item ">
-                  <div class="container_left_item_body" style="padding: 20px">
+                  <div class="container_left_item_body" style="padding: 20px; display: flex; gap: 90px;">
 
-
-              </form>
-         
-                <form action="http://localhost:8080/upload" method="post" enctype="multipart/form-data"id="photoform">
-                    <div class="upload">
-                      <span class="upload_span">
-                        <input
-                          type="file"
-                          accept=".jpg, .jpeg, .gif, .png, .bmp"
-                          style="display: none"
-                          id="meetingPhoto"
-                          name="file"
-                        />
-                        <div class="upload_container">
-                          <div class="add_box">
-                            <div class="add">
-                              <span
-                                class="iconfont icon-touxiang"
-                                style="
-                                  width: 30px;
-                                  height: 30px;
-                                  margin-left: 5px;
-                                "
-                              ></span>
-                              <span>会议图片</span>
-                            </div>
-                          </div>
-                          <p class="upload_hint">
-                           
-                            只能上传jpg、jpeg、gif、png、bmp文件, 且不超过500kb
-                          </p>
-                        </div>
-                      </span>
-                    </div>
-                    <div class="right_form_submit" >
+                    <span class="right_form_submit">
                       <button
                         type="button"
                         class="right_form_submit_btn"
-                        id="temporaryDataBtn"
-                        name=""
-                      style="margin-right: 30px;"
+                        id="deleteDataBtn"
                       >
-                        <span style="margin-top: 30px;">暂存</span>
+                        <span style="margin-top: 30px;">删除</span>
                       </button>
+                    </span>
+                    <span class="right_form_submit">
                       <button
-                        type="submit"
+                        type="button"
                         class="right_form_submit_btn"
-                        id="photoDataBtn"
-                        name=""
+                        id="passDataBtn"
                       >
-                        <span style="margin-top: 30px;">提交</span>
+                        <span style="margin-top: 30px;">通过</span>
                       </button>
-                    </div>
-                    </form>
-                  </div>
-                </div>
+                    </span>
+                    <span class="right_form_submit">
+                      <button
+                        type="button"
+                        class="right_form_submit_btn"
+                        id="NOpassDataBtn"
+                      >
+                        <span style="margin-top: 30px;">不通过</span>
+                      </button>
+                    </span>
+   </div>
+    </div>
+          </div>
+                  </form>
+
         </main>
       </div>
     </div>

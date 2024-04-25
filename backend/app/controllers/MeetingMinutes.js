@@ -1,5 +1,5 @@
 const db = require("../models");
-
+const { Op } = require("sequelize");
 const MeetingMinutes = db.MeetingMinutes;
 
 // 创建并保存
@@ -141,7 +141,22 @@ exports.update = (req, res) => {
 
 //查询所有数据
 exports.getAllData = (req, res) => {
-  MeetingMinutes.findAll()
+  // MeetingMinutes.findAll()
+  //   .then((data) => {
+  //     res.send(data);
+  //   })
+  //   .catch((err) => {
+  //     res.status(500).send({
+  //       message: err.message,
+  //     });
+  //   });
+  MeetingMinutes.findAll({
+    where: {
+      status: {
+        [Op.ne]: "暂存", // Op.ne 表示不等于
+      },
+    },
+  })
     .then((data) => {
       res.send(data);
     })
@@ -151,6 +166,7 @@ exports.getAllData = (req, res) => {
       });
     });
 };
+
 //管理员删除会议纪要
 exports.delete = (req, res) => {
   const id = req.params.id;
