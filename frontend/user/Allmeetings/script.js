@@ -1,16 +1,15 @@
-//发请求得到个人信息（用于评论）
+//发请求得到使用用户个人信息（用于评论）
 let commenterId;
-let avatar2;
 customFetch(
   `http://localhost:8080/api/private/Personalcenter/${localStorage.getItem(
     "id"
   )}`
 ).then((data) => {
   commenterId = data.userId;
-  avatar2 = data.avatar;
+  $.get("#avatar2").style.backgroundImage = `url('${data.avatar}')`;
 });
 
-//发请求渲染个人信息
+//发请求渲染上传者的个人信息
 let uploaderId;
 const RenderPersonal = (uploaderId) => {
   console.log(uploaderId);
@@ -19,28 +18,14 @@ const RenderPersonal = (uploaderId) => {
   ).then((data) => {
     $.get("#group").innerText = data.group;
     $.get("#name").innerText = data.name;
-    $.get("#avatar2").style.backgroundImage = `url('${avatar2}')`;
     $.get("#avatar").style.backgroundImage = `url('${data.avatar}')`;
   });
 };
-//管理一个变量来记录目前拿到的数据第几条
-let n = 1;
-//按需加载  健壮性
-const renderPage = (n) => {
-  $.get("#dianzan").style.color = "black";
-  customFetch(
-    `http://localhost:8080/api/private/MeetingMinutes/getLatestMeetingData/${parseInt(
-      n
-    )}`
-  ).then((data) => {
-    console.log(data);
-    // 遍历图片元素并修改src属性
-    renderMeeting(data);
-  });
-};
-// renderPage(0);
+
 let minutesId;
-//传入data[n]
+let data;
+let likes;
+//传入data
 const renderMeeting = (data) => {
   console.log(data);
   uploaderId = data.uploaderId;
@@ -50,11 +35,12 @@ const renderMeeting = (data) => {
   $.get("#meetingTopic").innerText = data.meetingTopic;
   $.get("#personalMinutes").innerText = data.personalMinutes;
   $.get("#meetingContent").innerText = data.meetingContent;
-  $.get("#likes").innerText = likes = data.likes;
+  $.get("#likes").innerText = data.likes;
   $.get("#meetingTopic").innerText = data.meetingTopic;
   $.get("#meetingPhoto").style.backgroundImage = `url('${data.meetingPhoto}')`;
-  $.get("#commitTime").innerText = changeTime(data.updatedAt);
+  $.get("#commitTime").innerText = changeTime(data.createdAt);
   $.get("#meetingTime").innerText = data.meetingTime;
+  likes = data.likes;
 };
 //个人纪要展示
 $.get(".personalMinute").addEventListener("click", () => {
@@ -64,6 +50,28 @@ $.get(".personalMinute").addEventListener("click", () => {
     $.get("#personalMinutes").style.display = "none";
   }
 });
+
+//管理一个变量来记录目前拿到的数据第几条
+let dataNumber = 1;
+//按需加载  健壮性
+const renderPage = (n) => {
+  $.get("#dianzan").style.color = "black";
+  customFetch(
+    `http://localhost:8080/api/private/MeetingMinutes/getLatestMeetingData${parseInt(
+      n
+    )}`
+  ).then((data) => {
+    if (data.message === "到我的底线了") {
+      alert(data.message);
+      --dataNumber;
+      return;
+    }
+    // 遍历图片元素并修改src属性
+    renderMeeting(data);
+    renderComment();
+  });
+};
+renderPage(dataNumber);
 
 //点赞功能
 //添加节流功能
@@ -104,20 +112,19 @@ const throttledLikeClickHandler = throttle(likeClickHandler, 2000);
 $.get("#likes").addEventListener("click", throttledLikeClickHandler);
 // 渲染下一页;
 $.get("#nextPage").addEventListener("click", () => {
-  ++n;
-  renderComment();
-  return renderPage(n);
+  ++dataNumber;
+  // renderComment();
+  return renderPage(dataNumber);
 });
 // 渲染上一页;
 $.get("#prePage").addEventListener("click", () => {
-  n = n > 0 ? --n : n;
-  renderComment();
-  return renderPage(n);
+  dataNumber = dataNumber > 1 ? --dataNumber : dataNumber;
+  // renderComment();
+  return renderPage(dataNumber);
 });
 
-//评论逻辑
-//提交数据
-let parentCommentId = 0;
+// 评论逻辑;
+// 提交数据;
 $.get("#Enter").addEventListener("click", submitCommentDataForm);
 function submitCommentDataForm() {
   const commentContent = $.get("#commentContentInput").value;
@@ -127,7 +134,6 @@ function submitCommentDataForm() {
       commentContent,
       minutesId,
       commenterId,
-      parentCommentId,
     }),
   })
     .then((data) => {
@@ -135,7 +141,6 @@ function submitCommentDataForm() {
       renderComment();
       // 在这里处理后端返回的响应
       $.get("#commentContentInput").value = "";
-      parentCommentId = 0;
     })
     .catch((error) => {
       console.error("发送数据至后端失败:", error);
@@ -151,19 +156,16 @@ let commentTime;
 let commentContent;
 const renderComment = () => {
   customFetch(
-    `http://localhost:8080/api/private/Comment/${parseInt(n) + 1}`
+    `http://localhost:8080/api/private/Comment/${parseInt(minutesId)}`
   ).then((data) => {
-    console.log(data);
     $.get(".card_body_content_comment_contain").innerHTML = "";
     data.forEach((item, index) => {
       let getCommenterId = data[index].commenterId;
       let likeCount = data[index].likeCount;
-      let commentTime = changeTime(data[index].updatedAt);
+      let commentTime = changeTime(data[index].createdAt);
       let commentContent = data[index].commentContent;
       customFetch(
-        `http://localhost:8080/api/private/Personalcenter/${parseInt(
-          getCommenterId
-        )}`
+        `http://localhost:8080/api/private/Personalcenter/${getCommenterId}`
       ).then((userdata) => {
         Commentname = userdata.username;
         touxiang = userdata.avatar;
@@ -192,4 +194,3 @@ const renderComment = () => {
     });
   });
 };
-renderComment();

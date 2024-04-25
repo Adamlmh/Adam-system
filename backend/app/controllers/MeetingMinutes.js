@@ -51,22 +51,21 @@ exports.getMeetingData = (req, res) => {
 
 // 查询数据  用户展示全部已通过审核的会议内容
 exports.getLatestMeetingData = (req, res) => {
-  const count = parseInt(req.query.count) || 1; // 解析查询参数中的 count，如果没有提供，则默认为 1
-
+  const id = parseInt(req.params.id) || 1; // 解析查询参数中的 id，如果没有提供，则默认为 1
+  console.log(id);
   MeetingMinutes.findOne({
-    where: { status: "通过的" },
-    order: [["updatedAt", "DESC"]], // 按照 updatedAt 列降序排序
-    offset: count - 1, // 设置偏移量为 count - 1
+    where: { status: "通过" },
+    order: [["createdAt", "DESC"]], // 按照 createdAt 列降序排序
+    offset: id - 1, // 设置偏移量为 id - 1
     limit: 1, // 限制只获取一条数据
   })
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: "未找到符合条件的数据。",
+          message: "到我的底线了",
         });
         return;
       }
-
       res.send(data);
     })
     .catch((err) => {

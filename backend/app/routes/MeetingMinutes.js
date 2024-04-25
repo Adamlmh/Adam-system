@@ -3,7 +3,7 @@ module.exports = (app) => {
 
   var router = require("express").Router();
   // 查询数据  用户展示全部已通过审核的会议内容
-  router.get("/getLatestMeetingData/:id", MeetingMinutes.getLatestMeetingData);
+  router.get("/getLatestMeetingData:id", MeetingMinutes.getLatestMeetingData);
   //删除delete
   router.get("/delete:id", MeetingMinutes.delete);
   // // 查询所有数据
