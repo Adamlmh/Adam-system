@@ -2,7 +2,8 @@ module.exports = (app) => {
   const Feedback = require("../controllers/Feedback");
 
   var router = require("express").Router();
-
+  //删除delete
+  router.get("/delete:id", Feedback.delete);
   //意见更新
   router.post("/updata:id", Feedback.update);
   // // 查询getfeedbackIdData数据

@@ -34,10 +34,10 @@ function customFetch(url, options = {}) {
   // 发起请求
   return fetch(requestUrl, requestOptions)
     .then((response) => {
-      root.style.setProperty("--alert-color", "#00a76f"); // 修改为绿色
+      root.style.setProperty("--alert-color", "#00a76f"); // 修改为红色
       // 检查请求是否成功
       if (!response.ok) {
-        root.style.setProperty("--alert-color", "#FADAD8"); // 修改为红色
+        root.style.setProperty("--alert-color", "#FADAD8"); // 修改为绿色
       }
       // 处理JSON响应
       if (requestOptions.responseType === "json") {

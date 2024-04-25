@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       commentContent: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(1000),
         allowNull: false,
       },
       parentCommentId: {

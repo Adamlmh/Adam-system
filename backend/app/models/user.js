@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true, // 允许为空
       },
       introduction: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(1500),
         allowNull: true, // 允许为空
       },
       email: {
@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true, // 允许为空
       },
       avatar: {
-        type: DataTypes.STRING(10000), // 存储头像
+        type: DataTypes.STRING(1000), // 存储头像
         allowNull: true, // 允许为空
         defaultValue: "../../images/avatar_gril.jpg",
       },

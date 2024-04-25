@@ -117,11 +117,19 @@ form.addEventListener("submit", function (event) {
 //提交基础数据
 $.get("#basicDataBtn").addEventListener("click", submitBasicDataForm);
 function submitBasicDataForm() {
-  const name = $.get("#name").value;
-  const email = $.get("#email").value;
-  const grade = $.get("#grade").value;
-  const major = $.get("#major").value;
-  const group = $.get("#group").value;
+  const name = $.get("#name").value.trim();
+  const email = $.get("#email").value.trim();
+  const grade = $.get("#grade").value.trim();
+  const major = $.get("#major").value.trim();
+  const group = $.get("#group").value.trim();
+
+  // 检查字段是否为空
+  if (!name || !email || !grade || !major || !group) {
+    root.style.setProperty("--alert-color", "#00a76f"); // 修改为红色
+    alert("请填写所有字段");
+    root.style.setProperty("--alert-color", "#FADAD8"); // 修改为绿色
+    return; // 如果有任何字段为空，则不执行后续逻辑
+  }
   customFetch(
     `http://localhost:8080/api/private/Modifyinformation/${localStorage.getItem(
       "id"
@@ -215,7 +223,9 @@ function submitpasswordForm() {
   )
     .then((data) => {
       alert(`${data.message}`);
-      location.href = "../login/index.html";
+      setTimeout(() => {
+        location.href = "../../login/index.html";
+      }, 1000);
       // 在这里处理后端返回的响应
     })
     .catch((error) => {

@@ -245,9 +245,9 @@
                                   <input
                                     type="text"
                                     aria-required="true"
-                                    placeholder="这是你的ID"
+                                    placeholder="请点击第一列的数字"
                                     maxlength="30"
-                                    value="1"
+                                    value=""
                                     class="form_input"
                                     readonly="true"
                                     
@@ -275,7 +275,7 @@
                                     placeholder="请输入用户名"
                                     maxlength="30"
                                     id="commenterName"
-                                    value="Adam"
+                                    value=""
                                     class="form_input"
                                     readonly
                                     disabled
@@ -301,7 +301,7 @@
                                     aria-required="true"
                                     placeholder="这是你的组别"
                                     maxlength="30"
-                                    value="前端组"
+                                    value=""
                                     class="form_input"
                                     readonly="true"
                                     disabled
@@ -327,10 +327,10 @@
                                   <input
                                     type="text"
                                     aria-required="true"
-                                    placeholder="请输入你的会议状态"
+                                    placeholder="点击审核状态实现筛选未回复内容"
                                     maxlength="30"
                                     id="status"
-                                    value="待审核"
+                                    value=""
                                     class="form_input"
                                     readonly
                                   />
@@ -438,7 +438,7 @@
                           id="processingComments"
                           rows="12"
                           placeholder="请输入处理意见"
-                          maxlength="200"
+                          maxlength="800"
                           class="container_left_item_body_input_content"
                         ></textarea>
                       </div>
@@ -447,6 +447,15 @@
                           </div>
                         </div>
                         <div class="BtnContain">
+                    <span class="right_form_submit">
+                      <button
+                        type="button"
+                        class="right_form_submit_btn"
+                        id="deleteDataBtn"
+                      >
+                        <span style="margin-top: 30px;">删除</span>
+                      </button>
+                    </span>
                     <div class="right_form_submit">
                       <button
                         type="button"

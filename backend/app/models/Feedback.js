@@ -13,23 +13,23 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       feedbackSubject: {
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING(600),
         allowNull: true,
       },
       feedbackType: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING,
         allowNull: true,
       },
       feedbackContent: {
-        type: DataTypes.STRING(2550),
+        type: DataTypes.STRING(3000),
         allowNull: true,
       },
       status: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING,
         allowNull: true,
       },
       processingComments: {
-        type: DataTypes.STRING(2550),
+        type: DataTypes.STRING(3000),
         allowNull: true,
       },
       commenterName: {

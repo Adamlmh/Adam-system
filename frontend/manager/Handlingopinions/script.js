@@ -71,7 +71,6 @@ const renderFeetback = (n) => {
     $.get("#processingComments").value = data.processingComments;
   });
 };
-renderFeetback(1);
 //意见提交
 const contentDataBtnPass = $.get("#contentDataBtnPass");
 contentDataBtnPass.addEventListener("click", () => {
@@ -101,7 +100,6 @@ function submitForm(n) {
 }
 //实现点击审核状态 筛选未回复的
 $.get("#ApprovalStatus").addEventListener("click", () => {
-  console.log(1);
   return getfeedbackStatus();
 });
 const getfeedbackStatus = () => {
@@ -121,3 +119,16 @@ const getfeedbackStatus = () => {
     });
   });
 };
+//删除意见
+//实现删除纪要功能deleteDataBtn
+const deleteDataBtn = $.get("#deleteDataBtn");
+deleteDataBtn.addEventListener("click", () => {
+  customFetch(`http://localhost:8080/api/private/Feedback/delete${n}`).then(
+    (data) => {
+      alert(`${data.message}`);
+      setTimeout(() => {
+        location.reload();
+      }, 1000);
+    }
+  );
+});

@@ -52,7 +52,25 @@ PersonalMinutes.addEventListener("change", function (event) {
     const reader = new FileReader();
     reader.onload = function (event) {
       personalminutes = event.target.result;
+      // 检查字符长度是否小于 1000
+      if (personalminutes.length < 1000) {
+        PersonalMinutes.parentNode.classList.remove("red");
+        contentDataBtn.disabled = false;
+        // 字符长度小于 1000
+        root.style.setProperty("--alert-color", "#00a76f"); // 修改为绿色
+        alert("文件内容小于 1000 字符,符合要求");
+      } else {
+        // 字符长度大于等于 1000
+        PersonalMinutes.parentNode.classList.add("red");
+        contentDataBtn.disabled = true;
+        root.style.setProperty("--alert-color", "#FADAD8"); // 修改为红色
+        alert("文件内容大于等于 1000 字符");
+      }
+      setTimeout(() => {
+        root.style.setProperty("--alert-color", "#00a76f"); // 修改为绿色
+      }, 2000);
     };
+
     reader.readAsText(file);
   }
 });
@@ -61,24 +79,21 @@ let formData = {};
 const contentDataBtn = $.get("#contentDataBtn");
 contentDataBtn.addEventListener("click", submitForm);
 function submitForm() {
+  //检测会议主题和会议内容是否未空
+  const meetingTopic = $.get("#meetingTopic").value.trim();
+  const meetingContent = $.get("#meetingContent").value.trim();
+  const meetingTime = $.get("#meetingTime").value.trim();
+  // 检查字段是否为空
+  if (!meetingTopic || !meetingContent || !meetingTime) {
+    root.style.setProperty("--alert-color", "#FADAD8"); // 修改为红色
+    alert("请填写所有字段,除了标签外");
+
+    return; // 如果有任何字段为空，则不执行后续逻辑
+  }
+  root.style.setProperty("--alert-color", "#00a76f"); // 修改为绿色
   formData = getFormData(formData);
   formData["personalMinutes"] = personalminutes;
   console.log(formData);
-  // 发送数据到后端或进行其他操作;
-  // customFetch(`http://localhost:8080/api/private/MeetingMinutes`, {
-  //   method: "POST",
-  //   body: JSON.stringify(formData),
-  // })
-  //   .then((data) => {
-  //     alert(`${data.message}`);
-  //     // 清空表单中文本类型输入框的值
-  //     clearTextInputs();
-  //     render();
-  //   })
-  //   .catch((error) => {
-  //     console.error("发送数据至后端失败:", error);
-  //     // 在这里处理错误情况
-  //   });
   alert("请继续完成图片上传后才正式提交到数据库");
 }
 
@@ -114,10 +129,9 @@ $.get("#photoform").addEventListener("submit", function (event) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.message);
       // let avatar = data.message;
       formData.meetingPhoto = `../../${data.message}`;
-      console.log(formData);
+
       //发送数据到后端或进行其他操作;
       customFetch(`http://localhost:8080/api/private/MeetingMinutes`, {
         method: "POST",

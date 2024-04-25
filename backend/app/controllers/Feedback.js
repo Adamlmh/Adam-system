@@ -120,7 +120,6 @@ exports.update = (req, res) => {
 };
 //查询待回复数据
 exports.getfeedbackStatus = (req, res) => {
-  console.log(123);
   Feedback.findAll({ where: { status: "待回复" } })
     .then((data) => {
       console.log(data);
@@ -129,6 +128,30 @@ exports.getfeedbackStatus = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message: err.message,
+      });
+    });
+};
+//管理员删除意见
+exports.delete = (req, res) => {
+  const id = req.params.id;
+
+  Feedback.destroy({
+    where: { feedbackId: id },
+  })
+    .then((num) => {
+      if (num == 1) {
+        res.send({
+          message: "删除成功",
+        });
+      } else {
+        res.send({
+          message: `没找到 id=${id}. `,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "删除失败 id=" + id,
       });
     });
 };

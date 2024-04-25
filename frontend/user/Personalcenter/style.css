@@ -100,9 +100,12 @@
   gap: 16px;
   display: flex;
   flex-direction: column;
+  min-width: 250px;
 }
 .container_right {
   width: 75%;
+  max-height: 800px;
+  overflow: auto;
 }
 .container_left_item_Follower {
   display: flex;
@@ -170,10 +173,4 @@
 }
 .table_tbody {
   background-color: var(--background-color);
-}
-/* 悬停时显示完整内容 */
-.table_cell:hover {
-  overflow: visible;
-  white-space: normal;
-  max-width: max-content;
 }

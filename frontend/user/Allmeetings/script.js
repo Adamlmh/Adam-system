@@ -25,6 +25,7 @@ const RenderPersonal = (uploaderId) => {
 let n = 0;
 //按需加载  健壮性
 const renderPage = (n) => {
+  $.get("#dianzan").style.color = "black";
   customFetch(
     `http://localhost:8080/api/private/MeetingMinutes/getMeetingData/${
       parseInt(n) + 1
@@ -129,6 +130,7 @@ function submitCommentDataForm() {
   })
     .then((data) => {
       alert(`${data.message}`);
+      renderComment();
       // 在这里处理后端返回的响应
       $.get("#commentContentInput").value = "";
       parentCommentId = 0;

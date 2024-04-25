@@ -17,6 +17,14 @@ contentDataBtn.addEventListener("click", submitForm);
 function submitForm() {
   var formData = getFormData();
   console.log(formData);
+  // 检查是否有空值
+  var isEmpty = Object.values(formData).some((value) => value === "");
+  if (isEmpty) {
+    root.style.setProperty("--alert-color", "#00a76f"); // 修改为红色
+    alert("请填写所有字段");
+    root.style.setProperty("--alert-color", "#FADAD8"); // 修改为绿色
+    return; // 如果有任何字段为空，则不执行后续逻辑
+  }
   // 发送数据到后端或进行其他操作
   customFetch(`http://localhost:8080/api/private/Feedback`, {
     method: "POST",

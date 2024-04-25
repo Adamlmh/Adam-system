@@ -62,18 +62,18 @@ function getFormData() {
   // 获取文本输入框的值
   var textInputs = document.querySelectorAll('input[type="text"]');
   textInputs.forEach(function (input) {
-    formData[input.id] = input.value;
+    formData[input.id] = input.value.trim();
   });
 
   // 获取单选框的值
   var radioInputs = document.querySelectorAll('input[type="radio"]:checked');
   radioInputs.forEach(function (input) {
-    formData[input.name] = input.value;
+    formData[input.name] = input.value.trim();
   });
   // 获取textarea的值
   var textareas = document.querySelectorAll("textarea");
   textareas.forEach(function (textarea) {
-    formData[textarea.id] = textarea.value;
+    formData[textarea.id] = textarea.value.trim();
   });
   return formData;
 }
