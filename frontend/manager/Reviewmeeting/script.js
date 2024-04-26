@@ -194,3 +194,7 @@ $.get("#personalMinuteLabel").addEventListener("click", () => {
     $.get("#personalMinutes").style.display = "none";
   }
 });
+// 接收到消时触发
+socket.addEventListener("message", function (event) {
+  alert(`${event.data}`);
+});

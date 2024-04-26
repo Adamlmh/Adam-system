@@ -76,3 +76,9 @@ function renderTable(rowData, properties, n) {
     tableBody.appendChild(row);
   });
 }
+
+// 接收到消时触发
+socket.addEventListener("message", function (event) {
+  alert(`${event.data}`);
+  console.log("从服务器接收到消息:", event.data);
+});

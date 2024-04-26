@@ -132,3 +132,7 @@ deleteDataBtn.addEventListener("click", () => {
     }
   );
 });
+// 接收到消时触发
+socket.addEventListener("message", function (event) {
+  alert(`${event.data}`);
+});

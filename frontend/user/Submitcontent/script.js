@@ -121,6 +121,7 @@ const pushForm = (sign) => {
     })
       .then((data) => {
         alert(`${data.message}`);
+        socket.send(1);
         // 清空表单中文本类型输入框的值
         setTimeout(() => {
           location.reload();
@@ -142,7 +143,6 @@ const pushForm = (sign) => {
       .then((data) => {
         // let avatar = data.message;
         formData.meetingPhoto = `../../${data.message}`;
-        console.log(formData);
         //发送数据到后端或进行其他操作;
         customFetch(`http://localhost:8080/api/private/MeetingMinutes`, {
           method: "POST",
@@ -150,6 +150,7 @@ const pushForm = (sign) => {
         })
           .then((data) => {
             alert(`${data.message}`);
+            socket.send(1);
             // 清空表单中文本类型输入框的值
             setTimeout(() => {
               location.reload();

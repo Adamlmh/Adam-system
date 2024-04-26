@@ -239,3 +239,7 @@ customFetch(
   $.get("#name").value = data.name;
   $.get("#introduction").value = data.introduction;
 });
+// 接收到消时触发
+socket.addEventListener("message", function (event) {
+  alert(`${event.data}`);
+});

@@ -6,6 +6,9 @@ const colors = require("colors");
 const { exec } = require("child_process");
 const { platform } = require("os");
 const { validateToken } = require("./app/utils/users");
+const http = require("http"); // 导入http模块
+const websocket = require("./app/websocket/websocket.js"); // 导入WebSocket模块
+
 // 将静态文件目录设置为 frontend 文件夹
 app.use(express.static(path.join(__dirname, "..", "frontend")));
 app.use(express.static(path.join(__dirname, "uploads")));
@@ -69,9 +72,16 @@ require("./app/routes/MeetingMinutes")(app);
 require("./app/routes/Feedback")(app);
 require("./app/routes/Comment")(app);
 require("./app/routes/Favorite")(app);
+
+// 创建HTTP服务器
+const server = http.createServer(app);
+
+// 启动WebSocket服务器
+websocket(server);
+
 // 启动服务器
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(
     colors.green.bold(`项目启动成功: http://localhost:${PORT}/login/index.html`)
   );

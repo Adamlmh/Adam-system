@@ -52,3 +52,6 @@ function customFetch(url, options = {}) {
       throw error;
     });
 }
+
+// 创建 WebSocket 连接
+const socket = new WebSocket("ws://localhost:8080");
