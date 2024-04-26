@@ -51,7 +51,7 @@ db.sequelize
     console.log("同步数据库失败: " + err.message);
   });
 
-// 如果存在则更新  (终极摧毁所有数据)
+// 如果存在则更新(终极摧毁所有数据);
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("更新数据库");
 // });

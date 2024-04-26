@@ -110,6 +110,7 @@ const likeClickHandler = function () {
     });
 };
 const throttledLikeClickHandler = throttle(likeClickHandler, 2000);
+
 $.get("#likes").addEventListener("click", throttledLikeClickHandler);
 // 渲染下一页;
 $.get("#nextPage").addEventListener("click", () => {
@@ -155,32 +156,37 @@ let Commentname;
 let likeCount;
 let commentTime;
 let commentContent;
+let RcommentId;
+let RlikeCount;
+//根据纪要ID拿到所有的评论再根据评论的USERID拿到用户数据渲染
 const renderComment = () => {
   customFetch(
     `http://localhost:8080/api/private/Comment/${parseInt(minutesId)}`
   ).then((data) => {
     $.get(".card_body_content_comment_contain").innerHTML = "";
     data.forEach((item, index) => {
+      let commentId = data[index].commentId;
       let getCommenterId = data[index].commenterId;
       let likeCount = data[index].likeCount;
       let commentTime = changeTime(data[index].createdAt);
       let commentContent = data[index].commentContent;
       customFetch(
         `http://localhost:8080/api/private/Personalcenter/${getCommenterId}`
-      ).then((userdata) => {
-        Commentname = userdata.username;
-        touxiang = userdata.avatar;
+      )
+        .then((userdata) => {
+          Commentname = userdata.username;
+          touxiang = userdata.avatar;
 
-        $.get(
-          ".card_body_content_comment_contain"
-        ).innerHTML += `                  <div class="card_body_content_comment">
+          $.get(
+            ".card_body_content_comment_contain"
+          ).innerHTML += `                  <div class="card_body_content_comment">
                     <div class="touxiangClass" style="background-image: url(${touxiang});" ></div>
                     <div class="message_content">
                       <div class="message_content_header">
                         <span class="card_body_content_function_right">
                           <h5 style="margin-right: 10px;">${Commentname}</h5>
-                          <span style="margin-right: 5px;">❤</span>
-                      <span id="likeCount">${likeCount}</span>
+                          <span class="Slector" style="margin-right: 5px;cursor: pointer;" id=i${commentId}>❤</span>
+                      <span   id=${commentId} >${likeCount}</span>
                         </span>
 
                         <span>
@@ -191,12 +197,49 @@ const renderComment = () => {
                       <span class="message_content_header_span" id="commentContent">${commentContent}</span>
                     </div>
                   </div>`;
-      });
+        })
+        .then(() => {
+          // 获取所有评论
+          const spans = document.querySelectorAll(".Slector");
+
+          // 遍历所有的 span 元素，并为每个评论添加点击事件监听器
+          spans.forEach((span) => {
+            span.addEventListener("click", throttledLikecountClickHandler);
+          });
+        });
     });
   });
 };
+//节流评论点赞
+const lickcountClickHandler = function () {
+  this.style.color = "rgb(245, 106, 0)";
+  // 获取评论的 id 属性值
+  const idWithoutPrefix = this.id.substring(1);
+  const likeCounts = document.getElementById(`${idWithoutPrefix}`).innerText;
+  document.getElementById(`${idWithoutPrefix}`).innerText =
+    parseInt(likeCounts) + 1;
 
-//收藏需求
+  //点击更新点spanID赞值
+  customFetch(
+    `http://localhost:8080/api/private/Comment/updata${parseInt(
+      idWithoutPrefix
+    )}`,
+    {
+      method: "POST",
+      body: JSON.stringify({ likeCount: parseInt(likeCounts) + 1 }),
+    }
+  )
+    .then((data) => {
+      alert(`${data.message}`);
+    })
+    .catch((error) => {
+      console.error("发送数据至后端失败:", error);
+      // 在这里处理错误情况
+    });
+};
+const throttledLikecountClickHandler = throttle(lickcountClickHandler, 2000);
+
+//收藏需求  有则删除 没有则增加
 const Stars = $.get(".icon-shoucang4");
 Stars.addEventListener("click", () => {
   if (Stars.classList.contains("activeColor")) {
@@ -209,7 +252,6 @@ Stars.addEventListener("click", () => {
       })
       .catch((error) => {
         console.error("发送数据至后端失败:", error);
-        // 在这里处理错误情况
       });
   } else {
     Stars.classList.add("activeColor");
@@ -225,7 +267,6 @@ Stars.addEventListener("click", () => {
       })
       .catch((error) => {
         console.error("发送数据至后端失败:", error);
-        // 在这里处理错误情况
       });
   }
 });
@@ -234,8 +275,7 @@ const getStar = () => {
     `http://localhost:8080/api/private/Favorite/${minutesId}/${commenterId}`
   )
     .then((data) => {
-      console.log(data.message);
-      //如果找到（也就是有收藏）
+      //如果找到（也就是有收藏）高亮显示
       if (!data.message) {
         Stars.classList.add("activeColor");
       } else {
@@ -244,6 +284,5 @@ const getStar = () => {
     })
     .catch((error) => {
       console.error("发送数据至后端失败:", error);
-      // 在这里处理错误情况
     });
 };
