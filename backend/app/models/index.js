@@ -11,7 +11,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
 db.user = require("./user.js")(sequelize, Sequelize);
 db.MeetingMinutes = require("./MeetingMinutes.js")(sequelize, Sequelize);
 db.Feedback = require("./Feedback.js")(sequelize, Sequelize);
