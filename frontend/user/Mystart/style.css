@@ -203,3 +203,9 @@
 .icon-qianyige {
   color: var(--primary-color);
 }
+.icon-shoucang4 {
+  font-size: 20px !important;
+}
+.activeColor {
+  color: var(--primary-color);
+}

@@ -93,6 +93,7 @@ exports.getData = (req, res) => {
 
 exports.getFiveData = (req, res) => {
   MeetingMinutes.findAll({
+    where: { status: "通过" },
     order: [["minutesId", "DESC"]], // 按照 uploaderId 降序排序
     limit: 5, // 限制结果数量为 5
   })

@@ -1,5 +1,7 @@
 //发请求得到使用用户个人信息（用于评论）
 let commenterId;
+//管理一个变量来记录目前拿到的数据第几条
+let dataNumber = 1;
 customFetch(
   `http://localhost:8080/api/private/Personalcenter/${localStorage.getItem(
     "id"
@@ -7,7 +9,26 @@ customFetch(
 ).then((data) => {
   commenterId = data.userId;
   $.get("#avatar2").style.backgroundImage = `url('${data.avatar}')`;
+  GetStarData(commenterId, dataNumber);
 });
+
+//发送请求拿到收藏数据
+const GetStarData = (userId, id) => {
+  customFetch(
+    `http://localhost:8080/api/private/Favorite/getLatestFavoriteData/${parseInt(
+      userId
+    )}/${id}`
+  ).then((data) => {
+    console.log(data);
+    if (data.message === "到我的底线了") {
+      alert(data.message);
+      --dataNumber;
+      return;
+    }
+    // 遍历图片元素并修改src属性
+    renderPage(data.minutesId);
+  });
+};
 
 //发请求渲染上传者的个人信息
 let uploaderId;
@@ -51,28 +72,6 @@ $.get(".personalMinute").addEventListener("click", () => {
   }
 });
 
-//管理一个变量来记录目前拿到的数据第几条
-let dataNumber = 1;
-//按需加载  健壮性
-const renderPage = (n) => {
-  $.get("#dianzan").style.color = "black";
-  customFetch(
-    `http://localhost:8080/api/private/MeetingMinutes/getLatestMeetingData${parseInt(
-      n
-    )}`
-  ).then((data) => {
-    if (data.message === "到我的底线了") {
-      alert(data.message);
-      --dataNumber;
-      return;
-    }
-    // 遍历图片元素并修改src属性
-    renderMeeting(data);
-    renderComment();
-  });
-};
-renderPage(dataNumber);
-
 //点赞功能
 //添加节流功能
 function throttle(func, delay) {
@@ -114,13 +113,13 @@ $.get("#likes").addEventListener("click", throttledLikeClickHandler);
 $.get("#nextPage").addEventListener("click", () => {
   ++dataNumber;
   // renderComment();
-  return renderPage(dataNumber);
+  return GetStarData(commenterId, dataNumber);
 });
 // 渲染上一页;
 $.get("#prePage").addEventListener("click", () => {
   dataNumber = dataNumber > 1 ? --dataNumber : dataNumber;
   // renderComment();
-  return renderPage(dataNumber);
+  return GetStarData(commenterId, dataNumber);
 });
 
 // 评论逻辑;
@@ -192,5 +191,71 @@ const renderComment = () => {
                   </div>`;
       });
     });
+  });
+};
+
+//收藏需求
+const Stars = $.get(".icon-shoucang4");
+Stars.addEventListener("click", () => {
+  if (Stars.classList.contains("activeColor")) {
+    Stars.classList.remove("activeColor");
+    customFetch(
+      `http://localhost:8080/api/private/Favorite/delete/${minutesId}/${commenterId}`
+    )
+      .then((data) => {
+        console.log(data.message);
+      })
+      .catch((error) => {
+        console.error("发送数据至后端失败:", error);
+        // 在这里处理错误情况
+      });
+  } else {
+    Stars.classList.add("activeColor");
+    customFetch(`http://localhost:8080/api/private/Favorite/`, {
+      method: "POST",
+      body: JSON.stringify({
+        userId: commenterId,
+        minutesId,
+      }),
+    })
+      .then((data) => {
+        alert(`${data.message}`);
+      })
+      .catch((error) => {
+        console.error("发送数据至后端失败:", error);
+        // 在这里处理错误情况
+      });
+  }
+});
+const getStar = () => {
+  customFetch(
+    `http://localhost:8080/api/private/Favorite/${minutesId}/${commenterId}`
+  )
+    .then((data) => {
+      console.log(data.message);
+      //如果找到（也就是有收藏）
+      if (!data.message) {
+        Stars.classList.add("activeColor");
+      } else {
+        Stars.classList.remove("activeColor");
+      }
+    })
+    .catch((error) => {
+      console.error("发送数据至后端失败:", error);
+      // 在这里处理错误情况
+    });
+};
+
+//按需加载  健壮性
+const renderPage = (n) => {
+  $.get("#dianzan").style.color = "black";
+  customFetch(
+    `http://localhost:8080/api/private/MeetingMinutes/getMeetingData/${parseInt(
+      n
+    )}`
+  ).then((data) => {
+    renderMeeting(data[0]);
+    renderComment();
+    getStar();
   });
 };

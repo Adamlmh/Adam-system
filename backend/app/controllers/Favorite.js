@@ -67,3 +67,29 @@ exports.delete = (req, res) => {
       });
     });
 };
+// 查询数据  用户展示全部已通过审核的会议内容
+exports.getLatestFavoriteData = (req, res) => {
+  const id = parseInt(req.params.id) || 1; // 解析查询参数中的 id，如果没有提供，则默认为 1
+  const userId = parseInt(req.params.userId);
+  favorite
+    .findOne({
+      where: { userId: userId },
+      order: [["createdAt", "DESC"]], // 按照 createdAt 列降序排序
+      offset: id - 1, // 设置偏移量为 id - 1
+      limit: 1, // 限制只获取一条数据
+    })
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message: "到我的底线了",
+        });
+        return;
+      }
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message,
+      });
+    });
+};

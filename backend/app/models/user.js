@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       name: {
         type: DataTypes.STRING,
         allowNull: true, // 允许为空
+        defaultValue: "请先到修改信息处完成首次个人信息提交噢",
       },
       group: {
         type: DataTypes.STRING,

@@ -85,8 +85,9 @@ function submitForm() {
   const meetingTopic = $.get("#meetingTopic").value.trim();
   const meetingContent = $.get("#meetingContent").value.trim();
   const meetingTime = $.get("#meetingTime").value.trim();
+  const uploaderGroup = $.get("#uploaderGroup").value.trim();
   // 检查字段是否为空
-  if (!meetingTopic || !meetingContent || !meetingTime) {
+  if (!meetingTopic || !meetingContent || !meetingTime || !uploaderGroup) {
     root.style.setProperty("--alert-color", "#FADAD8"); // 修改为红色
     alert("请填写所有字段,标签选填");
 

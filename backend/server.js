@@ -60,7 +60,7 @@ app.get("/", (req, res) => {
 
 //中间件验证token 只验证/api/private/* 路径
 app.use("/api/private/*", validateToken);
-
+require("./app/routes/excel")(app);
 require("./app/routes/Personalcenter")(app);
 require("./app/routes/user")(app);
 require("./app/routes/Modifyinformation")(app);

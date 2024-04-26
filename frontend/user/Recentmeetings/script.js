@@ -139,13 +139,13 @@ const render = function (data) {
 };
 
 //拿最近五条数据
-//渲染右边页面
-//渲染右边页面
+//渲染下面页面
 customFetch(
   `http://localhost:8080/api/private/MeetingMinutes/getFiveData${localStorage.getItem(
     "id"
   )}`
 ).then((data) => {
+  console.log(data);
   var images = document.querySelectorAll(".slide img");
   // 遍历图片元素并修改src属性
   images.forEach(function (img, index) {

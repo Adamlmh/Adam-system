@@ -10,8 +10,8 @@ module.exports = (app) => {
   router.get("/getAllData:id", MeetingMinutes.getAllData);
   // 提交
   router.post("/", MeetingMinutes.create);
-  // 获取最近五条信息
-  // router.get("/getFiveData:id", MeetingMinutes.getFiveData);
+  // 获取最近五条信息(轮播图2)
+  router.get("/getFiveData:id", MeetingMinutes.getFiveData);
   // // 查询指定用户信息
   router.get("/:id", MeetingMinutes.getData);
   //更新
