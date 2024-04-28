@@ -110,6 +110,8 @@ const pushForm = (sign) => {
   }
   if (sign) {
     formData.status = "暂存";
+  } else {
+    socket.send(1);
   }
   const fileInput = document.querySelector("#photoform input[type='file']");
   // 如果文件输入框的值为空字符串，则表示没有选择文件上传,直接发数据 不发送图片
@@ -121,7 +123,7 @@ const pushForm = (sign) => {
     })
       .then((data) => {
         alert(`${data.message}`);
-        socket.send(1);
+
         // 清空表单中文本类型输入框的值
         setTimeout(() => {
           location.reload();
@@ -150,7 +152,7 @@ const pushForm = (sign) => {
         })
           .then((data) => {
             alert(`${data.message}`);
-            socket.send(1);
+
             // 清空表单中文本类型输入框的值
             setTimeout(() => {
               location.reload();

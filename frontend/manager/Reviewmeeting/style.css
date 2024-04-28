@@ -254,9 +254,10 @@ input[type="checkbox"],
 }
 .meetingPhoto {
   background-image: url(../../images/white.png);
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   width: 800px;
   margin: 0 auto;
   height: 400px;
+  background-position: center center;
 }

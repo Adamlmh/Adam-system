@@ -22,8 +22,6 @@ app.use(cors());
 // 设置跨域和相应数据格式
 app.all("/api/*", function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  // res.header("Access-Control-Allow-Headers", "X-Requested-With, token");
-  // res.header("Access-Control-Allow-Headers", "X-Requested-With, Authorization");
   res.header("Content-Type", "application/json;charset=UTF-8");
   res.header(
     "Access-Control-Allow-Headers",
